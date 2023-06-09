@@ -360,6 +360,76 @@ button:active {
 	width: 40px;
 }
 
+/* Login ends*/
+
+/* about section  */
+#about{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+#about .card img{
+    background-color: #ff9900;
+    border: 2px solid black;
+}
+#about h3{
+    color: black;
+    border-bottom: 2px solid #ff9900;
+    width: 150px;
+}
+#about h5{
+    color: black;
+}
+#about p{
+    color: black;
+    font-size: 15px;
+}
+#about h2{
+    color: black;
+    font-size: 17px;
+}
+#about h2 span{
+    font-size: 15px;
+    color: #ff9900;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#btncv2{
+    width: 160px;
+    height: 38px;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: black;
+    border: none;
+    color: wheat;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#btncv2:hover{
+    background-color: #ff9900;
+}
+@media screen and (max-width:987px){
+    #about p{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:767px){
+    #about{
+        height: 150vh;
+    }
+    #about p{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:500px){
+    #about{
+        height: 120vh;
+    }
+}
+/* about */
+
 
 /* Home Section End */
 /* .login-form{
@@ -680,7 +750,60 @@ button:hover{
 }
 /* Section Gallary End */
 
+body {
+    background-color: #eee
+}
 
+.card {
+    border: none;
+    border-radius: 10px
+}
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+}
+
+.progress {
+    height: 10px;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: red
+}
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
 
 
 /* About Start */
@@ -723,7 +846,10 @@ button:hover{
     }
 }
 /* About End */
-
+.about-reservation{
+    display: flex;
+    margin-top: 50px;
+}
 
 
 
