@@ -7,9 +7,10 @@
 
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" type="text/css" href="slide navbar style.css"> -->
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap Link -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Bootstrap Link -->
 
@@ -104,7 +105,7 @@
                     <input type="phone" placeholder="Phone Number" />
                     <input type="email" placeholder="Email" />
                     <script>  
-                                          
+                                       function verifyPassword() {     
                     var pw = document.getElementById("pswd1").value;  
                     //check empty password field  
                     if(pw == "") {  
@@ -137,7 +138,26 @@
                             alert("Password created successfully");  
                           }  
                         }  
+
+
+                        function required()
+                        {
+                        var empt = document.forms["form1"]["text1"].value;
+                        if (empt == "")
+                        {
+                        alert("Please input a Value");
+                        return false;
+                        }
+                        else 
+                        {
+                        alert('Code has accepted : you can try another');
+                        return true; 
+                        }
+                        }
                         </script> 
+
+
+
                         <form onsubmit ="return verifyPassword()"> 
                     <input type="password" placeholder="Password"  name = "pswd1"/>
                     <span id = "message" style="color:red"> </span> <br><br>
@@ -155,7 +175,9 @@
                     </div>
                     <span>or use your account</span>
                     <input type="email" placeholder="Email" />
+                    <form name="form1" action="#" onsubmit="required()"></form>
                     <input type="password" placeholder="Password" />
+                    <form name="form1" action="#" onsubmit="required()"></form>
 
                     <a href="#">Forgot your password?</a>
                     <button>Sign In</button>
@@ -197,58 +219,6 @@
             </script>
         
         </div>
-<!-- <div class="hkm">
-    <div class="login-main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
-
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Sign up</button>
-				</form>
-			</div>
-
-			<div class="login-login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button>Login</button>
-				</form>
-			</div>
-	</div>
-</div> -->
-
-
-    <!-- Home Section End -->
-<!-- login Section Start -->
-
-
-
-<!-- <div class="login-form">
-    <div class="login">
-        <h2>Sign In</h2>
-        <div class="inputbox">
-            <input type="text" placeholder="Username" required>
-        </div>
-        <div class="inputbox">
-            <input type="password" placeholder="Password" required>
-        </div>
-        <div class="inputbox">
-            <input type="submit" value="Login" id="btn" required>
-        </div>
-        <div class="bottom-content">
-            <a href="#">Forgot Password</a>
-            <a href="#">Sign up</a>
-        </div>
-    </div>
-</div> -->
-
-<!-- login Section end -->
-
 
 
     <!-- Section Book Start -->
@@ -285,7 +255,9 @@
     </section>
     <!-- Section Book End -->
 
-
+       <!-- about -->
+    
+    <!-- about -->
 
 
 
@@ -625,32 +597,203 @@
       </div>
     </section>
     <!-- About End -->
-    <!-- login Section Start -->
-<!-- <div class="login-form">
-    <div class="login">
-        <h2>Sign In</h2>
-        <div class="inputbox">
-            <input type="text" placeholder="Username" required>
-        </div>
-        <div class="inputbox">
-            <input type="password" placeholder="Password" required>
-        </div>
-        <div class="inputbox">
-            <input type="submit" value="Login" id="btn" required>
-        </div>
-        <div class="bottom-content">
-            <a href="#">Forgot Password</a>
-            <a href="#">Sign up</a>
+   
+
+
+
+<!-- 
+
+<div class="about-reservation">
+<div id="about">
+    <div class="container"  data-aos="fade-up"
+    data-aos-duration="1500">
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="./1685520277tree-house.svg" alt="">
+                </div>
+            </div>
+            <div class="col-md-8 py-3 py-md-0">
+                 <h3>personal information</h3> 
+                <div class="main-txt">
+                    <h1>personal <span>information</span></h1>
+                  </div>
+                 <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint fugiat labore, molestiae nihil quia rerum doloribus id voluptas. Quia consequuntur consectetur fugit ducimus in ullam tempora voluptatem quaerat asperiores.</h5>
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quis laboriosam corporis optio delectus exercitationem omnis iusto, sequi voluptatum at.</p> -->
+                <!-- <h2>Name: <span>Shahbaz</span></h2>
+
+                <h2>Age: <span>17 Years</span></h2>
+                <h2>From: <span>Pakistan</span></h2>
+                <h2>Email: <span>example@gmail.com</span></h2>
+                <h2>Phone: <span>+989****11377</span></h2>
+                <button id="btncv2">EDIT personal INFO </button>
+            </div>
         </div>
     </div>
-</div> -->
+</div>
+
+<div id="about">
+    <div class="container"  data-aos="fade-up"
+    data-aos-duration="1500">
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="./1685520277tree-house.svg" alt="">
+                </div>
+            </div>
+            <div class="col-md-8 py-3 py-md-0"> -->
+                <!-- <h3>personal information</h3> -->
+                <!-- <div class="main-txt">
+                    <h1>personal <span>information</span></h1>
+                  </div> -->
+                <!-- <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint fugiat labore, molestiae nihil quia rerum doloribus id voluptas. Quia consequuntur consectetur fugit ducimus in ullam tempora voluptatem quaerat asperiores.</h5>
+                
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quis laboriosam corporis optio delectus exercitationem omnis iusto, sequi voluptatum at.</p> -->
+                <!-- <h2>Name: <span>Shahbaz</span></h2>
+
+                <h2>Age: <span>17 Years</span></h2>
+                <h2>From: <span>Pakistan</span></h2>
+                <h2>Email: <span>example@gmail.com</span></h2>
+                <h2>Phone: <span>+989****11377</span></h2>
+                <button id="btncv2">EDIT personal INFO </button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>  -->
+
+<!-- cards -->
+
+<div class="main-txt">
+    <h1><span>MY </span> reservations</h1>
+  </div>
+
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        
+                        <div class="icon"> <i class="fas fa-plane"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>FLIGHT</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>FLIGHT</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">FROM:IRAN</h3>
+                    <h3 class="heading">TO:Singapore</h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        
+                        
+                      <div class="mt-3"> <span class="text1">32 Applied <span class="text2">of 50 capacity</span></span> </div>
+                      <!-- <button type = 'submit' class="btn b1" onclick="openpup()">cancel</button> -->
+                        <button id="btncv2"> cancel </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="fas fa-hotel"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>HOTEL</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Product</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading"><br>FOR Y DAYS </h3>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div>
+                       
+
+
+                        <div class="pop-up" >
+                          
+                          <img src="./warning.svg" alt="">
+                          <h2>TERMS AND CONDITIONS</h2> </h2>
+                          
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere aliquid minima, nam ipsum illum quis quidem atque ex itaque quos blanditiis suscipit ullam placeat molestias aspernatur similique ratione eligendi? Corrupti.</p>
+                         
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                            i have read all the conditions 
+                            </label>
+                        </div>
+
+                       <button type = 'submit'  id="btncv2" >cancel</button>
+                       <script src="main.js"></script>
+                        <script>
+                          function openpup() {
+                          let popup = getElementById("btncv2")
+
+                          popup.addEventListener('click', () => {
+                          const box = document.getElementsByClassName('pop-up');
+
+                          box.style.display = 'none';
+                          });
+                        }
+                        </script>
+                        
+                        
+
+                      <script>
+                        
+
+                        function closepup(){
+                          popup.classList.remove("open-pupup")
+                        }
+
+                    
+                      </script>
 
 
 
-
-
-
-
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-reddit"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0">BOOKING TYPE</h6> <span>TOUR</span>
+                        </div>
+                    </div>
+                    <div class="badge"> <span>Design</span> </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="heading">DESTINATION:ROME</h3>
+                    <P>for y days from date1 to date2 </P>
+                    <div class="mt-5">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="mt-3"> <span class="text1">52 Applied <span class="text2">of 100 capacity</span></span> </div>
+                        <button id="btncv2"> cancel </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Footer Start -->
     <footer id="footer">
