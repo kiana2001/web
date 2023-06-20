@@ -46,7 +46,7 @@
                 <a class="nav-link active" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#book">Book</a>
+                <a class="nav-link" href="./book.html">Book</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#packages">Packages</a>
@@ -58,10 +58,10 @@
                 <a class="nav-link" href="#gallary">Gallary</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="./personal.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#login">Login</a>
+                <a class="nav-link" href="./login.html">Login</a>
               </li>
              
             </ul>
@@ -90,137 +90,6 @@
 
     <!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2> -->
     
-    <div class='body'>
-        <div class="login-container" id="login-container">
-            <div class="form-container sign-up-container">
-                <form action="#">
-                    <h1>Create Account</h1>
-                    <!-- <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                     -->
-                    <input type="text" placeholder="Name" />
-                    <input type="phone" placeholder="Phone Number" />
-                    <input type="email" placeholder="Email" />
-                    <script>  
-                                       function verifyPassword() {     
-                    var pw = document.getElementById("pswd1").value;  
-                    //check empty password field  
-                    if(pw == "") {  
-                        document.getElementById("message").innerHTML = "**Fill the password please!";  
-                        return false;  
-                    }  
-                    if(pw.length < 8) {  
-     document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
-     return false;  
-  }  
-  
-//maximum length of password validation  
-  if(pw.length > 15) {  
-     document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
-     return false;  
-  } else {  
-     alert("Password is correct");  
-  }  
-}  
-
-   
-                        function matchPassword() {  
-                          var pw1 = document.getElementById("pswd1");  
-                          
-                          var pw2 = document.getElementById("pswd2");  
-                          if(pw1 != pw2)  
-                          {   
-                            alert("Passwords did not match");  
-                          } else {  
-                            alert("Password created successfully");  
-                          }  
-                        }  
-
-
-                        function required()
-                        {
-                        var empt = document.forms["form1"]["text1"].value;
-                        if (empt == "")
-                        {
-                        alert("Please input a Value");
-                        return false;
-                        }
-                        else 
-                        {
-                        alert('Code has accepted : you can try another');
-                        return true; 
-                        }
-                        }
-                        </script> 
-
-
-
-                        <form onsubmit ="return verifyPassword()"> 
-                    <input type="password" placeholder="Password"  name = "pswd1"/>
-                    <span id = "message" style="color:red"> </span> <br><br>
-                    <input type="password" placeholder="Password-check" name = "pswd2" />
-                    <button type = "submit" onclick="matchPassword()">Sign Up</button>
-                </form>
-            </div>
-            <div class="form-container sign-in-container">
-                <form action="#">
-                    <h1>Sign in</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span>or use your account</span>
-                    <input type="email" placeholder="Email" />
-                    <form name="form1" action="#" onsubmit="required()"></form>
-                    <input type="password" placeholder="Password" />
-                    <form name="form1" action="#" onsubmit="required()"></form>
-
-                    <a href="#">Forgot your password?</a>
-                    <button>Sign In</button>
-                </form>
-            </div>
-            <div class="overlay-container">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1>Welcome Back!</h1>
-                        <p>To keep connected with us please login with your personal info</p>
-                        <button class="ghost" id="signIn">Sign In</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Enter your personal details and start journey with us</p>
-                        <button class="ghost" id="signUp">Sign Up</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-            const signUpButton = document.getElementById('signUp');
-            const signInButton = document.getElementById('signIn');
-            const container = document.getElementById('login-container');
-            
-            signUpButton.addEventListener('click', () => {
-                container.classList.add("right-panel-active");
-            });
-            
-            signInButton.addEventListener('click', () => {
-                container.classList.remove("right-panel-active");
-            });
-
-            // signUpButton.onclick = function () {
-            // // alert("Button is clicked");
-            // container.classList.add("right-panel-active");
-            // };
-            // document.body.appendChild(signInButton);
-            </script>
-        
-        </div>
-
-
     <!-- Section Book Start -->
     <section class="book" id="book">
       <div class="container">
@@ -714,14 +583,14 @@
                 <div class="mt-5">
                     <h3 class="heading"><br>FOR Y DAYS </h3>
                     <div class="mt-5">
-                        <div class="progress">
+                        <!-- <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div>
+                        <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div> -->
                        
 
 
-                        <div class="pop-up" >
+                        <!-- <div class="pop-up" >
                           
                           <img src="./warning.svg" alt="">
                           <h2>TERMS AND CONDITIONS</h2> </h2>
@@ -730,8 +599,8 @@
                          
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                            i have read all the conditions 
+                            <label class="form-check-label" for="flexRadioDefault1" ><b>
+                            i have read all the conditions </b>
                             </label>
                         </div>
 
@@ -752,21 +621,17 @@
                         
 
                       <script>
-                        
-
                         function closepup(){
                           popup.classList.remove("open-pupup")
                         }
-
-                    
                       </script>
 
 
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            
+            </div>
         </div>
         <div class="col-md-4">
             <div class="card p-3 mb-2">
@@ -783,10 +648,11 @@
                     <h3 class="heading">DESTINATION:ROME</h3>
                     <P>for y days from date1 to date2 </P>
                     <div class="mt-5">
-                        <div class="progress">
+                        <!-- <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="mt-3"> <span class="text1">52 Applied <span class="text2">of 100 capacity</span></span> </div>
+                        </div> -->
+                        <!-- <div class="mt-3"> <span class="text1">52 Applied <span class="text2">of 100 capacity</span></span> </div>
+                          -->
                         <button id="btncv2"> cancel </button>
                     </div>
                 </div>
@@ -794,6 +660,113 @@
         </div>
     </div>
 </div>
+
+<div class="container py-5">
+  <div class="main-txt">
+    <h1><span>HOTEL </span> RESERVATION</h1>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel1.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      <button ><a href="page2.html" class="btn btn-primary">more information </a></button>
+                      
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                  
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel2.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      
+                      <button ><a href="page2.html" class="btn btn-primary">more information </a></button>
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                  
+                  
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel3.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      <button ><a href="page2.html" class="btn btn-primary">more information </a></button>
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                  
+                 
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel4.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      <button class="btn btn-primary">more information</button>
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                  
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel4.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      <button ><a href="page2.html" class="btn btn-primary">more information </a></button>
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                 
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card222">
+              <img src="./images/hotel1.jpg" class="card-img-top" alt="...">
+              <div class="card222-body">
+                  <h5 class="card-title">TIRAMISU CAKE</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                      dignissimos accusantium amet similique velit iste.</p>
+                      <button ><a href="page2.html" class="btn btn-primary">more information </a></button>
+              </div>
+              <div class="mb-5 d-flex justify-content-around">
+                  
+              </div>
+          </div>
+      </div>
+
+
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"></script>
 
     <!-- Footer Start -->
     <footer id="footer">

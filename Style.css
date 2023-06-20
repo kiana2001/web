@@ -839,6 +839,10 @@ position: relative;
     left: -150;
     margin-bottom: 20px;
 }
+.form-check-label{
+    color: red;
+    text-decoration: bold;
+}
 
 /* About Start */
 .about{
@@ -884,7 +888,64 @@ position: relative;
     display: flex;
     margin-top: 50px;
 }
+.card-img-top{
+    border-radius: 50px;
+    padding: 20px;
+}
+.card222{
+    border-radius: 30px;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    margin: 50px;
+    overflow: hidden;
+    
+   
+}
+.card222:hover{
+    cursor: pointer;
+}
+.card222 img{
+    height:500px;
+    width: 400px;
+    
+}
+.card222-body{
+    padding: 6px;
+   
+    height: 170px;
+    width: 250px;
+    box-sizing: border-box;
+    position: relative;
+    /* bottom: 40px; */
+   right: -50px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    bottom: 300px;
+visibility: hidden;
+opacity: 0;
+transition: .5s;
+border-radius: 5px;
 
+}
+
+.card222:hover .card222-body{
+    opacity: 1;
+    visibility: visible;
+} 
+.card222:hover .card222 img{
+    transform: scale(1.1) rotate(-3deg);
+} 
+.btn-primary{
+    border-radius: 50px;
+    width: 120px;
+}
+.btn-primary:hover{
+    background-color: black;
+    border: none;
+}
+h3,h5{
+    color: rgb(0, 91, 228);
+}
 
 
 /* Footer Start */
