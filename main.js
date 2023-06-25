@@ -1,3 +1,5 @@
+
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('login-container');
@@ -21,5 +23,5 @@ popup.addEventListener('click', () => {
                           
 
                           
-                        
+    
                         
