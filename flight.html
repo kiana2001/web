@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="slide navbar style.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Link -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Link -->
+
+
+    <!-- Font Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Font Awesome Cdn -->
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+</head>
+<body>
+
+    <style>
+        .date-input {
+          margin: 30px;
+          border: 1px solid #cc5757;
+          border-radius: 4px;
+          padding: 8px;
+          font-size: 16px;
+          outline: none;
+          transition: border-color 0.3s;
+        }
+      
+        .date-input:focus {
+          border-color: #0066ff;
+        }
+        .form-control{
+            margin: 20px;
+            border: 1px solid #cc5757;
+          border-radius: 4px;
+
+        }
+      </style>
+
+
+    <div class="container py-5">
+        <div class="main-txt">
+          <h1><span>flight </span> RESERVATION</h1>
+        </div>
+        <input class="form-control" name="location" onChange="handleChange(event)" placeholder="type your start"> </input>
+        <input class="form-control" name="locationdestenation" onChange="handleChange(event)" placeholder="type your destenation"> </input>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" class="date-input" onChange="handleChange(event)" />
+        
+        <label for="finishDate">Finish Date:</label>
+        <input type="date" id="finishDate" name="finishDate" class="date-input" onChange="handleChange(event)" />
+        
+        <input class="form-control" name="numOf" onChange="handleChange(event)" placeholder="type the num of people you want to" type="number"> </input>
+
+        
+        <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
+        </div>
+      </div>
+    <script src="./dataHandler-flight.js" ></script>
+</body>
