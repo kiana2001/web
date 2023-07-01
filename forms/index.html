@@ -301,115 +301,115 @@
 <script>
 
 
-    const sampleData = [
-        {
-            id: 1,
-            name: "tehran",
-            description: "xxxxx",
-            location: "tehran",
-            locationdestenation: "mashhad",
-            imageSrc: "./images/creative-minimalist-travel-logo_23-2148611861 (1).png",
-            numOf: 20,
-            startDate: new Date("2023-06-28"),
-            finishDate: new Date("2023-07-05")
-        },
-        {
-        id:2,
-        name:"mashhad",
-        description: "yyyyyyy",
-        location: "mashhad",
-        imageSrc: "./images/download (1).png",
-        locationdestenation: "tehran",
-        numOf: 10,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-    },
-    {
-        id:3,
-        name:"shiraz",
-        description: "yyyyyyy",
-        location: "shiraz",
-        imageSrc: "./images/download.png",
-        locationdestenation: "shiraz",
-        numOf: 30,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-    },
-    {
-        id:4,
-        name:"tabriz",
-        description: "yyyyyyy",
-        location: "tabriz",
-        imageSrc: "./images/hotel4.jpg",
-        locationdestenation: "mashhad",
-                numOf: 20,
-                startDate: new Date("2023-06-28"),
-                finishDate: new Date("2023-07-05"),
-    },
-        // Add more flight objects here
-    ];
+    // const sampleData = [
+    //     {
+    //         id: 1,
+    //         name: "tehran",
+    //         description: "xxxxx",
+    //         location: "tehran",
+    //         locationdestenation: "mashhad",
+    //         imageSrc: "./images/creative-minimalist-travel-logo_23-2148611861 (1).png",
+    //         numOf: 20,
+    //         startDate: new Date("2023-06-28"),
+    //         finishDate: new Date("2023-07-05")
+    //     },
+    //     {
+    //     id:2,
+    //     name:"mashhad",
+    //     description: "yyyyyyy",
+    //     location: "mashhad",
+    //     imageSrc: "./images/download (1).png",
+    //     locationdestenation: "tehran",
+    //     numOf: 10,
+    //     startDate: new Date("2023-06-28"),
+    //     finishDate: new Date("2023-07-05"),
+    // },
+    // {
+    //     id:3,
+    //     name:"shiraz",
+    //     description: "yyyyyyy",
+    //     location: "shiraz",
+    //     imageSrc: "./images/download.png",
+    //     locationdestenation: "shiraz",
+    //     numOf: 30,
+    //     startDate: new Date("2023-06-28"),
+    //     finishDate: new Date("2023-07-05"),
+    // },
+    // {
+    //     id:4,
+    //     name:"tabriz",
+    //     description: "yyyyyyy",
+    //     location: "tabriz",
+    //     imageSrc: "./images/hotel4.jpg",
+    //     locationdestenation: "mashhad",
+    //             numOf: 20,
+    //             startDate: new Date("2023-06-28"),
+    //             finishDate: new Date("2023-07-05"),
+    // },
+    //     // Add more flight objects here
+    // ];
 
-    // Get the container element
-    const flightsContainer = document.getElementById("flightsContainer");
+    // // Get the container element
+    // const flightsContainer = document.getElementById("flightsContainer");
 
-    // Loop through the sample data and create sections for each flight
-    sampleData.forEach((flight) => {
-        // Create a new section element
-        const section = document.createElement("section");
+    // // Loop through the sample data and create sections for each flight
+    // sampleData.forEach((flight) => {
+    //     // Create a new section element
+    //     const section = document.createElement("section");
 
-        // Create the inner div element
-        const innerDiv = document.createElement("div");
-        innerDiv.classList.add("inner");
+    //     // Create the inner div element
+    //     const innerDiv = document.createElement("div");
+    //     innerDiv.classList.add("inner");
 
-        // Create the avatar anchor element
-        const avatarAnchor = document.createElement("a");
-        avatarAnchor.href = "#";
-        avatarAnchor.classList.add("avatar");
+    //     // Create the avatar anchor element
+    //     const avatarAnchor = document.createElement("a");
+    //     avatarAnchor.href = "#";
+    //     avatarAnchor.classList.add("avatar");
 
-        // Create the avatar image element
-        const avatarImg = document.createElement("img");
-        avatarImg.src = flight.imageSrc;
-        avatarImg.style.width = "100px";
-        avatarImg.style.height = "100px";
-        avatarImg.alt = "";
+    //     // Create the avatar image element
+    //     const avatarImg = document.createElement("img");
+    //     avatarImg.src = flight.imageSrc;
+    //     avatarImg.style.width = "100px";
+    //     avatarImg.style.height = "100px";
+    //     avatarImg.alt = "";
 
-        // Append the avatar image to the avatar anchor
-        avatarAnchor.appendChild(avatarImg);
+    //     // Append the avatar image to the avatar anchor
+    //     avatarAnchor.appendChild(avatarImg);
 
-        // Append the avatar anchor to the inner div
-        innerDiv.appendChild(avatarAnchor);
+    //     // Append the avatar anchor to the inner div
+    //     innerDiv.appendChild(avatarAnchor);
 
-        // Create the flight details div
-        const flightDetailsDiv = document.createElement("div");
-        flightDetailsDiv.classList.add("form-row", "form-group");
+    //     // Create the flight details div
+    //     const flightDetailsDiv = document.createElement("div");
+    //     flightDetailsDiv.classList.add("form-row", "form-group");
 
-        // Add flight details to the flight details div
-        flightDetailsDiv.innerHTML = `
-            <div class="form-holder">
-                <h1>${flight.name}</h1>
-                <br>
-                <h1>${flight.description}</h1>
-                <br>
-                <h1>${flight.locationdestenation}</h1>
-                <br>
-                <h1>Number of Flights: ${flight.numOf}</h1>
-            </div>
-            <div class="form-holder">
-                <h1>Start Date: ${flight.startDate.toLocaleDateString()}</h1>
-                <br>
-                <h1>Finish Date: ${flight.finishDate.toLocaleDateString()}</h1>
-            </div>
-        `;
+    //     // Add flight details to the flight details div
+    //     flightDetailsDiv.innerHTML = `
+    //         <div class="form-holder">
+    //             <h1>${flight.name}</h1>
+    //             <br>
+    //             <h1>${flight.description}</h1>
+    //             <br>
+    //             <h1>${flight.locationdestenation}</h1>
+    //             <br>
+    //             <h1>Number of Flights: ${flight.numOf}</h1>
+    //         </div>
+    //         <div class="form-holder">
+    //             <h1>Start Date: ${flight.startDate.toLocaleDateString()}</h1>
+    //             <br>
+    //             <h1>Finish Date: ${flight.finishDate.toLocaleDateString()}</h1>
+    //         </div>
+    //     `;
 
-        // Append the flight details div to the inner div
-        innerDiv.appendChild(flightDetailsDiv);
+    //     // Append the flight details div to the inner div
+    //     innerDiv.appendChild(flightDetailsDiv);
 
-        // Append the inner div to the section
-        section.appendChild(innerDiv);
+    //     // Append the inner div to the section
+    //     section.appendChild(innerDiv);
 
-        // Append the section to the flights container
-        flightsContainer.appendChild(section);
-    });
+    //     // Append the section to the flights container
+    //     flightsContainer.appendChild(section);
+    // });
 
     var flightData = {
         flightType: "Economy",
