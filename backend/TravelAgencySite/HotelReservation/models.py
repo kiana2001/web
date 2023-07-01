@@ -15,23 +15,20 @@ class Hotel(models.Model):
     city= models.ForeignKey(City, on_delete=models.CASCADE, related_name='location')
     address = models.CharField(max_length=500)
     stars = models.IntegerField()
+    price_per_person_daily = models.FloatField()
+    capacity = models.IntegerField()
 
     def __str__(self):
         return self.name
 
-class Room(models.Model):
-    room_no=models.IntegerField(default=101)
-    hotel=models.ForeignKey(Hotel,null=True,on_delete=models.CASCADE)
-    room_type=models.CharField(max_length=200,default='standard')
-    price=models.FloatField()
-    is_available=models.BooleanField(default=True)
-    no_of_beds=models.IntegerField(default=2)
-    description = models.TextField()
+class Passenger(models.Model):
+    ssn = models.CharField(max_length=10)
+    first_name = models.CharField(max_length=60)
+    last_name = models.CharField(max_length=60)
     def __str__(self):
-        return f"Room:{self.room_no} of {self.hotel} hotel"  
+        return f"{self.first_name} {self.last_name}"
 
 class HotelBooking(models.Model):
-    room=models.ForeignKey(Room,on_delete=models.CASCADE)
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     hotel=models.ForeignKey(Hotel,on_delete=models.CASCADE)
     checkin_date=models.DateTimeField(default=datetime.now())
@@ -39,7 +36,7 @@ class HotelBooking(models.Model):
     check_out=models.BooleanField(default=False)
     no_of_guests=models.IntegerField(default=1)
     total_price=models.FloatField()
+    passengers = models.ManyToManyField(Passenger)
 
     def __str__(self):
-        return f"{self.user} reservation in {self.hotel}" 
-
+        return f"{self.user} reservation in {self.hotel}"

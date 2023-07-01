@@ -1,22 +1,28 @@
 from rest_framework import serializers
-from .models import Hotel, Room, HotelBooking
+from .models import Hotel, HotelBooking, Passenger
 from Users.serializers import UserSerializer
 
 class HotelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
         fields = '__all__'
-
-class RoomSerializer(serializers.ModelSerializer):
+class PassengerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Room
-        fields =('id','room_no','room_type','is_available',)
+        model = Passenger
+        fields = '__all__'
 
-    
 class HotelReservationSerializer(serializers.ModelSerializer):
    # guest=GuestSerializer
-    room=RoomSerializer
-    hotel=HotelSerializer
+    passengers = PassengerSerializer(many=True)
     class Meta:
         model= HotelBooking
-        fields =('no_of_guests','hotel','checkin_date','checkout_date',)
+        fields =('no_of_guests','hotel','checkin_date','checkout_date','passengers')
+
+    def create(self, validated_data):
+        passengers_data = validated_data.pop('passengers')
+        reservation = HotelBooking.objects.create(**validated_data)
+
+        for passenger_data in passengers_data:
+            Passenger.objects.create(**passenger_data)
+
+        return reservation
