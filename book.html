@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -91,6 +91,161 @@
 
   </div>
 
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking Landing Page</title>
+  <link rel="stylesheet" href="css/font.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <div class="menu">
+          <div class="logo"><span id="agencyName">Travel Agency</span> Name</div>
+          <ul>
+            <li id="menuRoom">Room</li>
+            <li id="menuFlight">Flight</li>
+            <li id="menuDeal">Today's Deal</li>
+          </ul>
+        </div>
+        <div class="myAccount">
+          <div class="ctaGroup">
+            <div class="cta" id="ctaSignIn">Sign In</div>
+            <div class="cta active" id="ctaCreateAccount">Create Account</div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="hotel_content">
+      <div class="info">
+        <h2 id="bookHotels">Book hotels online</h2>
+        <p id="bookHotelsDesc">Lorem ipsum dolor sit.</p>
+      </div>
+
+      <div class="booking_info">
+        <div class="opt">
+          <span class="active" id="optHotel">Hotel</span>
+          <span id="optHomes">Homes</span>
+        </div>
+
+        <div class="booking_details">
+          <div class="item">
+            <i class="fa fa-search"></i>
+            <span id="enterDestination">Enter a destination</span>
+          </div>
+
+          <div class="item">
+            <div class="date">31st Dec 2020 <i class="fa fa-angle-down"></i></div>
+            <div class="days" id="dateThursday">Thursday</div>
+          </div>
+
+          <div class="item">
+            <div class="date">31st Dec 2020 <i class="fa fa-angle-down"></i></div>
+            <div class="days" id="dateThursday2">Thursday</div>
+          </div>
+
+          <div class="item">
+            <div class="people">2 adults, 0 children <i class="fa fa-angle-down"></i></div>
+            <div class="days" id="roomCount">1 room</div>
+          </div>
+
+          <div class="item">
+            <div class="cta active" id="searchBtn">Search</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img src="images/hotel.png" class="hotel">
+    <img src="images/car1.png" class="car1">
+    <img src="images/car2.png" class="car2">
+    <img src="images/car3.png" class="car3">
+    <img src="images/car4.png" class="car4">
+    <img src="images/dog.gif" class="dog_1">
+    <img src="images/cloud.png" class="cloud">
+    <img src="images/cloud.png" class="cloud_2">
+    <img src="images/cloud.png" class="cloud_3">
+    <img src="images/cloud.png" class="cloud_4">
+  </div>
+
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="ar">Arabic</option>
+  </select>
+
+  <script>
+    // Language translation function
+    function translateTo(language) {
+      const translations = {
+        en: {
+          agencyName: 'Travel Agency',
+          menuRoom: 'Room',
+          menuFlight: 'Flight',
+          menuDeal: 'Today\'s Deal',
+          ctaSignIn: 'Sign In',
+          ctaCreateAccount: 'Create Account',
+          bookHotels: 'Book hotels online',
+          bookHotelsDesc: 'Lorem ipsum dolor sit.',
+          optHotel: 'Hotel',
+          optHomes: 'Homes',
+          enterDestination: 'Enter a destination',
+          dateThursday: 'Thursday',
+          dateThursday2: 'Thursday',
+          roomCount: '1 room',
+          searchBtn: 'Search'
+        },
+        ar: {
+          agencyName: 'اسم وكالة السفر',
+          menuRoom: 'الغرف',
+          menuFlight: 'الرحلات',
+          menuDeal: 'عروض اليوم',
+          ctaSignIn: 'تسجيل الدخول',
+          ctaCreateAccount: 'إنشاء حساب',
+          bookHotels: 'احجز الفنادق عبر الإنترنت',
+          bookHotelsDesc: 'لوريم إيبسوم دولور سيت.',
+          optHotel: 'فندق',
+          optHomes: 'منازل',
+          enterDestination: 'أدخل الوجهة',
+          dateThursday: 'الخميس',
+          dateThursday2: 'الخميس',
+          roomCount: 'غرفة واحدة',
+          searchBtn: 'بحث'
+        }
+      };
+
+      const elements = document.querySelectorAll('[id]');
+      elements.forEach(element => {
+        const key = element.getAttribute('id');
+        if (translations[language] && translations[language][key]) {
+          element.textContent = translations[language][key];
+        }
+      });
+    }
+
+    // Handle language selection
+    function handleLanguageSelection(event) {
+      const selectedLanguage = event.target.value;
+      translateTo(selectedLanguage);
+    }
+
+    // Attach language selection event
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+      languageSelect.addEventListener('change', handleLanguageSelection);
+    }
+  </script>
 </body>
 
 </html>

@@ -160,7 +160,7 @@ function filterByNumOfPeople(data, condition) {
         descriptionP.textContent = data.description;  
         const button = document.createElement('button');
         const buttonLink = document.createElement('a');
-        buttonLink.href = './forms/index.html';
+        buttonLink.href = './forms/index2.html';
         buttonLink.classList.add('btn', 'btn-primary');
         buttonLink.textContent = 'more information';
         button.appendChild(buttonLink);

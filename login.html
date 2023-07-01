@@ -30,102 +30,9 @@
     <script src="myscripts.js"></script>
 </head>
 <body>
-    
-
-<div class='body'>
-    <div class="login-container" id="login-container">
-        
-           
-               
-                <!-- <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                 -->
-                
-                <!-- <script>  
-                function verifyPassword() {     
-                var pw = document.getElementById("pswd1").value;  
-                //check empty password field  
-                if(pw == "") {  
-                    document.getElementById("message").innerHTML = "**Fill the password please!";  
-                    return false;  
-                }  
-                if(pw.length < 8) {  
- document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
- return false;  
-}  
-
-//maximum length of password validation  
-if(pw.length > 15) {  
-       document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
-       return false;  
-} else {  
- alert("Password is correct");  
-}  
-}  
-
-
-                    function matchPassword() {  
-                      var pw1 = document.getElementById("pswd1");  
-                      
-                      var pw2 = document.getElementById("pswd2");  
-                      if(pw1 != pw2)  
-                      {   
-                        alert("Passwords did not match");  
-                      } else {  
-                        alert("Password created successfully");  
-                      }  
-                    }  
-
-
-                    function required()
-                    {
-                    var empt = document.forms["form1"]["text1"].value;
-                    if (empt == "")
-                    {
-                    alert("Please input a Value");
-                    return false;
-                    }
-                    else 
-                    {
-                    alert('Code has accepted : you can try another');
-                    return true; 
-                    }
-                    }
-                    </script>  -->
-
-
-                        
-              <div class="form-container sign-up-container">
-
-
-                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
-                    <h1>Create Account</h1>
-                    <input type="text" placeholder="Name" name="fname" />
-                <input type="phone" placeholder="Phone Number"  name="pname" />
-                <input type="email" placeholder="Email" name="ename" />
-                <label for="psw">Password</label>
-                <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-
-
-                <!--                  
-                <input type="password" placeholder="Password-check" name = "pswd2" /> -->
-                <button type = "submit" onclick="matchPassword()">Sign Up</button>
-                   <div id="message">
-    <h3>Password must contain the following:</h3>
-    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-    <p id="number" class="invalid">A <b>number</b></p>
-    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-  </div>
-            </form>
          
-        </div>
-
-        
         <script>
+
             var myInput = document.getElementById("psw");
                 var letter = document.getElementById("letter");
                 var capital = document.getElementById("capital");
@@ -134,10 +41,18 @@ if(pw.length > 15) {
             
                                     function validateForm() {
                                       var x = document.forms["myForm"]["fname"].value;
-                                      var x = document.forms["myForm"]["pname"].value;
-                                      var x = document.forms["myForm"]["ename"].value;
+                                      var y = document.forms["myForm"]["pname"].value;
+                                      var z = document.forms["myForm"]["ename"].value;
                                       if (x == "" || x == null) {
                                         alert("Name must be filled out");
+                                        return false;
+                                      }
+                                      if (y == "" || y == null) {
+                                        alert("PhoneNumber must be filled out");
+                                        return false;
+                                      }
+                                      if (x == "" || x == null) {
+                                        alert("Email must be filled out");
                                         return false;
                                       }
                                     }
@@ -195,7 +110,7 @@ if(pw.length > 15) {
                 }
                 </script>
             
-                         <style>
+                <style>
                              #message {
                             display:none;
                             background: #f1f1f1;
@@ -207,8 +122,13 @@ if(pw.length > 15) {
                             }
             
                             #message p {
-                            padding: 10px 35px;
-                            font-size: 10px;
+                            padding: 1px ;
+                            font-size: 15px;
+                            }
+                            
+                            #message h3 {
+                            padding: 1px;
+                            font-size: 20px;
                             }
             
                             /* Add a green text color and a checkmark when the requirements are right */
@@ -219,7 +139,7 @@ if(pw.length > 15) {
                             .valid:before {
                             position: relative;
                             left: -35px;
-                            content: "&#10004;";
+                            /* content: "&#10004;"; */
                             }
             
                             /* Add a red text color and an "x" icon when the requirements are wrong */
@@ -230,66 +150,239 @@ if(pw.length > 15) {
                             .invalid:before {
                             position: relative;
                             left: -35px;
-                            content: "&#10006;";
+                            /* content: "&#10006;"; */
                              }
                          </style>
         
 
+                       
+<!-- 
+<div class='body'>
+  <div class="login-container" id="login-container">    
+        <div class="form-container sign-up-container">
 
+
+          <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+              <h1>Create Account</h1>
+              <input type="text" placeholder="Name" name="fname" />
+          <input type="phone" placeholder="Phone Number"  name="pname" />
+          <input type="email" placeholder="Email" name="ename" />
+          <label for="psw">Password</label>
+          <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+          <button type = "submit" onclick="matchPassword()">Sign Up</button>
+             <div id="message">
+<h3>Password must contain the following:</h3>
+<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+<p id="number" class="invalid">A <b>number</b></p>
+<p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>
+      </form>
+   
+  </div>
         <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <form name="form1" action="#" onsubmit="required()"></form>
-                <input type="password" placeholder="Password" />
-               
-                <form name="form1" action="#" onsubmit="required()"></form>
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
-            </div>
-        </div>
+          <form action="#">
+              <h1 data-lang="en">Sign in</h1>
+              <h1 data-lang="ar" style="display: none;">تسجيل الدخول</h1>
+              <div class="social-container">
+                  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <span data-lang="en">or use your account</span>
+              <span data-lang="ar" style="display: none;">أو استخدم حسابك</span>
+              <input type="email" placeholder="Email" />
+              <input type="password" placeholder="Password" />
+              <a href="#" data-lang="en">Forgot your password?</a>
+              <a href="#" data-lang="ar" style="display: none;">هل نسيت كلمة المرور؟</a>
+              <button data-lang="en">Sign In</button>
+              <button data-lang="ar" style="display: none;">تسجيل الدخول</button>
+          </form>
+      </div>
+      <div class="overlay-container">
+          <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                  <h1 data-lang="en">Welcome Back!</h1>
+                  <h1 data-lang="ar" style="display: none;">مرحبًا بك مجدداً!</h1>
+                  <p data-lang="en">To keep connected with us please login with your personal info</p>
+                  <p data-lang="ar" style="display: none;">للبقاء على اتصال معنا، يرجى تسجيل الدخول باستخدام معلوماتك الشخصية</p>
+                  <button class="ghost" id="signIn" data-lang="en">Sign In</button>
+                  <button class="ghost" id="signIn" data-lang="ar" style="display: none;">تسجيل الدخول</button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                  <h1 data-lang="en">Hello, Friend!</h1>
+                  <h1 data-lang="ar" style="display: none;">مرحبًا، صديقي!</h1>
+                  <p data-lang="en">Enter your personal details and start your journey with us</p>
+                  <p data-lang="ar" style="display: none;">اطلاعات شخصی خود را وارد کنید و مسیر را با ما اغاز کنید</p>
+                  <button class="ghost" id="signUp" data-lang="en">Sign Up</button>
+                  <button class="ghost" id="signUp" data-lang="ar" style="display: none;">انضم إلينا</button>
+              </div>
+          </div>
+      </div>
+
+
+    </div>
     </div>
     <script>
+  function changeLanguage(selectedLang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach((element) => {
+            const lang = element.getAttribute('data-lang');
+            if (lang === selectedLang) {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        });
+
+        attachEventListeners();
+    }
+
+    function attachEventListeners() {
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('login-container');
-        
+
         signUpButton.addEventListener('click', () => {
             container.classList.add("right-panel-active");
         });
-        
+
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
+    }
 
-        // signUpButton.onclick = function () {
-        // // alert("Button is clicked");
-        // container.classList.add("right-panel-active");
-        // };
-        // document.body.appendChild(signInButton);
+    const langSelect = document.createElement('select');
+    langSelect.innerHTML = `
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+    `;
+    document.body.insertBefore(langSelect, document.body.firstChild);
+
+    langSelect.addEventListener('change', () => {
+        const selectedLang = langSelect.value;
+        changeLanguage(selectedLang);
+    });
+
+    // Set the initial language
+    changeLanguage('en');
         </script>
-    
+     -->
+     <div class='body'>
+      <div class="login-container" id="login-container">
+        <div class="form-container sign-up-container">
+          <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+            <h1 data-lang="en">Create Account</h1>
+            <h1 data-lang="ar" style="display: none;">إنشاء حساب</h1>
+            <input type="text" placeholder="Name" name="fname" />
+            <input type="phone" placeholder="Phone Number" name="pname" />
+            <input type="email" placeholder="Email" name="ename" />
+            <label for="psw" data-lang="en">Password</label>
+            <label for="psw" data-lang="ar" style="display: none;">كلمة المرور</label>
+            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <button type="submit" onclick="matchPassword()" data-lang="en">Sign Up</button>
+            <button type="submit" onclick="matchPassword()" data-lang="ar" style="display: none;">انضم إلينا</button>
+            <div id="message">
+              <h3 data-lang="en">Password must contain the following:</h3>
+              <h3 data-lang="ar" style="display: none;">يجب أن تحتوي كلمة المرور على ما يلي:</h3>
+              <p id="letter" class="invalid" data-lang="en">A <b>lowercase</b> letter</p>
+              <p id="letter" class="invalid" data-lang="ar" style="display: none;">حرف <b>صغير</b></p>
+              <p id="capital" class="invalid" data-lang="en">A <b>capital (uppercase)</b> letter</p>
+              <p id="capital" class="invalid" data-lang="ar" style="display: none;">حرف <b>كبير (أحرف كبيرة)</b></p>
+              <p id="number" class="invalid" data-lang="en">A <b>number</b></p>
+              <p id="number" class="invalid" data-lang="ar" style="display: none;">رقم</p>
+              <p id="length" class="invalid" data-lang="en">Minimum <b>8 characters</b></p>
+              <p id="length" class="invalid" data-lang="ar" style="display: none;">الحد الأدنى <b>8 أحرف</b></p>
+            </div>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="#">
+            <h1 data-lang="en">Sign in</h1>
+            <h1 data-lang="ar" style="display: none;">تسجيل الدخول</h1>
+            <div class="social-container">
+              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span data-lang="en">or use your account</span>
+            <span data-lang="ar" style="display: none;">أو استخدم حسابك</span>
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <a href="#" data-lang="en">Forgot your password?</a>
+            <a href="#" data-lang="ar" style="display: none;">هل نسيت كلمة المرور؟</a>
+            <button data-lang="en">Sign In</button>
+            <button data-lang="ar" style="display: none;">تسجيل الدخول</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1 data-lang="en">Welcome Back!</h1>
+              <h1 data-lang="ar" style="display: none;">مرحبًا بك مجددًا!</h1>
+              <p data-lang="en">To keep connected with us, please login with your personal info</p>
+              <p data-lang="ar" style="display: none;">للبقاء على اتصال معنا، يرجى تسجيل الدخول باستخدام معلوماتك الشخصية</p>
+              <button class="ghost" id="signIn" data-lang="en">Sign In</button>
+              <button class="ghost" id="signIn" data-lang="ar" style="display: none;">تسجيل الدخول</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1 data-lang="en">Hello, Friend!</h1>
+              <h1 data-lang="ar" style="display: none;">مرحبًا، صديقي!</h1>
+              <p data-lang="en">Enter your personal details and start your journey with us</p>
+              <p data-lang="ar" style="display: none;">أدخل تفاصيلك الشخصية وابدأ رحلتك معنا</p>
+              <button class="ghost" id="signUp" data-lang="en">Sign Up</button>
+              <button class="ghost" id="signUp" data-lang="ar" style="display: none;">انضم إلينا</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      function changeLanguage(selectedLang) {
+        const elements = document.querySelectorAll('[data-lang]');
+        elements.forEach((element) => {
+          const lang = element.getAttribute('data-lang');
+          if (lang === selectedLang) {
+            element.style.display = 'block';
+          } else {
+            element.style.display = 'none';
+          }
+        });
+    
+        attachEventListeners();
+      }
+    
+      function attachEventListeners() {
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('login-container');
+    
+        signUpButton.addEventListener('click', () => {
+          container.classList.add("right-panel-active");
+        });
+    
+        signInButton.addEventListener('click', () => {
+          container.classList.remove("right-panel-active");
+        });
+      }
+    
+      const langSelect = document.createElement('select');
+      langSelect.innerHTML = `
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+      `;
+      document.body.insertBefore(langSelect, document.body.firstChild);
+    
+      langSelect.addEventListener('change', () => {
+        const selectedLang = langSelect.value;
+        changeLanguage(selectedLang);
+      });
+    
+      // Set the initial language
+      changeLanguage('en');
+    </script>
+    
 
 </body>
 </html>

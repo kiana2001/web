@@ -1,3 +1,7 @@
+/* @tailwind base ; 
+@tailwind components;
+@tailwind utilities; */
+
 *{
     margin: 0;
     padding: 0;
@@ -39,6 +43,8 @@
     transition: 0.5s ease;
 }
 .form-control{
+   height: 50px;
+  
     font-size: 16px;
     font-weight: 550;
     color: black;
@@ -303,8 +309,8 @@ button:active {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #ffa500;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #ffa500);
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;

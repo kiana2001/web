@@ -30,6 +30,12 @@
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg" id="navbar">
+       <label for="dog-names">Choose a language:</label> 
+    <select name="dog-names" id="dog-names"> 
+        <option value="English">English</option> 
+        <option value="Farsi">Farsi</option> 
+        
+    </select>
         <div class="container">
           <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -61,6 +67,14 @@
               <li class="nav-item">
                 <a class="nav-link active" href="hotel-book.html">Hotel reservations</a>
               </li>
+              <!-- <label for="dog-names">Choose a language:</label> 
+    <select name="dog-names" id="dog-names"> 
+        <option value="English">English</option> 
+        <option value="Farsi">Farsi</option> 
+        
+    </select> -->
+  
+
              
             </ul>
             <form class="d-flex">
@@ -468,70 +482,6 @@
 
 
 
-<!-- 
-
-<div class="about-reservation">
-<div id="about">
-    <div class="container"  data-aos="fade-up"
-    data-aos-duration="1500">
-        <div class="row">
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./1685520277tree-house.svg" alt="">
-                </div>
-            </div>
-            <div class="col-md-8 py-3 py-md-0">
-                 <h3>personal information</h3> 
-                <div class="main-txt">
-                    <h1>personal <span>information</span></h1>
-                  </div>
-                 <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint fugiat labore, molestiae nihil quia rerum doloribus id voluptas. Quia consequuntur consectetur fugit ducimus in ullam tempora voluptatem quaerat asperiores.</h5>
-                
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quis laboriosam corporis optio delectus exercitationem omnis iusto, sequi voluptatum at.</p> -->
-                <!-- <h2>Name: <span>Shahbaz</span></h2>
-
-                <h2>Age: <span>17 Years</span></h2>
-                <h2>From: <span>Pakistan</span></h2>
-                <h2>Email: <span>example@gmail.com</span></h2>
-                <h2>Phone: <span>+989****11377</span></h2>
-                <button id="btncv2">EDIT personal INFO </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="about">
-    <div class="container"  data-aos="fade-up"
-    data-aos-duration="1500">
-        <div class="row">
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./1685520277tree-house.svg" alt="">
-                </div>
-            </div>
-            <div class="col-md-8 py-3 py-md-0"> -->
-                <!-- <h3>personal information</h3> -->
-                <!-- <div class="main-txt">
-                    <h1>personal <span>information</span></h1>
-                  </div> -->
-                <!-- <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo sint fugiat labore, molestiae nihil quia rerum doloribus id voluptas. Quia consequuntur consectetur fugit ducimus in ullam tempora voluptatem quaerat asperiores.</h5>
-                
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quis laboriosam corporis optio delectus exercitationem omnis iusto, sequi voluptatum at.</p> -->
-                <!-- <h2>Name: <span>Shahbaz</span></h2>
-
-                <h2>Age: <span>17 Years</span></h2>
-                <h2>From: <span>Pakistan</span></h2>
-                <h2>Email: <span>example@gmail.com</span></h2>
-                <h2>Phone: <span>+989****11377</span></h2>
-                <button id="btncv2">EDIT personal INFO </button>
-            </div>
-        </div>
-    </div>
-</div>
-</div>  -->
-
-<!-- cards -->
-
 <div class="main-txt">
     <h1><span>MY </span> reservations</h1>
   </div>
@@ -560,7 +510,7 @@
                         
                         
                       <div class="mt-3"> <span class="text1">32 Applied <span class="text2">of 50 capacity</span></span> </div>
-                      <!-- <button type = 'submit' class="btn b1" onclick="openpup()">cancel</button> -->
+                     
                         <button id="btncv2"> cancel </button>
 
                     </div>
@@ -581,52 +531,7 @@
                 <div class="mt-5">
                     <h3 class="heading"><br>FOR Y DAYS </h3>
                     <div class="mt-5">
-                        <!-- <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <div class="mt-3"> <span class="text1">42 Applied <span class="text2">of 70 capacity</span></span> </div> -->
-                       
-
-
-                        <!-- <div class="pop-up" >
-                          
-                          <img src="./warning.svg" alt="">
-                          <h2>TERMS AND CONDITIONS</h2> </h2>
-                          
-                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere aliquid minima, nam ipsum illum quis quidem atque ex itaque quos blanditiis suscipit ullam placeat molestias aspernatur similique ratione eligendi? Corrupti.</p>
-                         
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1" ><b>
-                            i have read all the conditions </b>
-                            </label>
-                        </div>
-
-                       <button type = 'submit'  id="btncv2" >cancel</button>
-                       <script src="main.js"></script>
-                        <script>
-                          function openpup() {
-                          let popup = getElementById("btncv2")
-
-                          popup.addEventListener('click', () => {
-                          const box = document.getElementsByClassName('pop-up');
-
-                          box.style.display = 'none';
-                          });
-                        }
-                        </script>
-                        
-                        
-
-                      <script>
-                        function closepup(){
-                          popup.classList.remove("open-pupup")
-                        }
-                      </script>
-
-
-
-                    </div> -->
+                   
                 </div>
             </div>
             </div>
@@ -646,11 +551,7 @@
                     <h3 class="heading">DESTINATION:ROME</h3>
                     <P>for y days from date1 to date2 </P>
                     <div class="mt-5">
-                        <!-- <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> -->
-                        <!-- <div class="mt-3"> <span class="text1">52 Applied <span class="text2">of 100 capacity</span></span> </div>
-                          -->
+                       
                         <button id="btncv2"> cancel </button>
                     </div>
                 </div>
@@ -658,7 +559,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <div class="container py-5">
   <div class="main-txt">
     <h1><span>HOTEL </span> RESERVATION</h1>
@@ -669,26 +570,67 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Reservation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    integrity="sha384-pzjxuELFQ2N/zqjiQrXg0SpbhJKPUD7x0u0G4n2tp4KbhSLEZz1a/+MMPF4eWUc1"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="main-txt text-center">
+      <h1><span>HOTEL</span> RESERVATION</h1>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-12 col-md-8">
+        <input name="location" onChange="handleChange(event)" class="form-control">
+      </div>
+    </div>
+    <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
+      <!-- Place your hotel ticket cards or content here -->
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+
 
     <!-- Footer Start -->
-    <footer id="footer">
-      <h1><span>T</span>ravel</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus fugiat, ipsa quos nulla qui alias.</p>
-      <div class="social-links">
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-youtube"></i>
-        <i class="fa-brands fa-pinterest-p"></i>
-      </div>
-      <div class="credit">
-        <p>Designed By <a href="#">SA Coding</a></p>
-      </div>
-      <div class="copyright">
-        <p>&copy;Copyright SA Coding. All Rights Reserved</p>
+    <footer id="footer" class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1><span>T</span>ravel</h1>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus fugiat, ipsa quos nulla qui alias.</p>
+          <div class="social-links">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-pinterest-p"></i>
+          </div>
+          <div class="credit">
+            <p>Designed By <a href="#">SA Coding</a></p>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2023 SA Coding. All Rights Reserved</p>
+          </div>
+        </div>
       </div>
     </footer>
+    
+    
     <!-- Footer End -->
 
 
