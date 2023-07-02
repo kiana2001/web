@@ -1,4 +1,4 @@
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 from django.db.models import Q
 from datetime import datetime
@@ -9,58 +9,17 @@ from .models import Flight, FlightReservation
 from .serializers import FlightSerializer, FlightReservationSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
-# class FlightList(generics.ListAPIView):
-#     serializer_class = FlightSerializer
-#
-#     def get_queryset(self):
-#         queryset = Flight.objects.all()
-#
-#         # Filter by departure airport
-#         dep_airport = self.request.query_params.get('departure_airport', None)
-#         if dep_airport is not None:
-#             queryset = queryset.filter(departure_airport=dep_airport.upper())
-#
-#         # Filter by arrival airport
-#         arr_airport = self.request.query_params.get('arrival_airport', None)
-#         if arr_airport is not None:
-#             queryset = queryset.filter(arrival_airport=arr_airport.upper())
-#
-#         # Filter by departure date
-#         dep_date_str = self.request.query_params.get('departure_date', None)
-#         if dep_date_str is not None:
-#             try:
-#                 dep_date = datetime.strptime(dep_date_str, '%Y-%m-%d')
-#                 timezone_obj = timezone('US/Eastern')  # Set timezone to Eastern Standard Time by default
-#                 dep_date = timezone_obj.localize(dep_date)
-#
-#                 # Filter flights that depart on or after the specified date
-#                 queryset = queryset.filter(departure_time__gte=dep_date)
-#             except ValueError:
-#                 pass
-#
-#         # Filter by return date (for round trip)
-#         return_date_str = self.request.query_params.get('return_date', None)
-#         if return_date_str is not None:
-#             try:
-#                 return_date = datetime.strptime(return_date_str, '%Y-%m-%d')
-#                 timezone_obj = timezone('US/Eastern')
-#                 return_date = timezone_obj.localize(return_date)
-#
-#                 # Filter flights that arrive on or before the specified return date
-#                 queryset = queryset.filter(arrival_time__lte=return_date)
-#             except ValueError:
-#                 pass
-#
-#         return queryset
 
 class FlightSearchView(APIView):
     def get(self, request):
-        departure_city = request.GET.get('departure_city')
-        arrival_city = request.GET.get('arrival_city')
-        departure_date = request.GET.get('departure_date')
-        is_round_trip = bool(request.GET.get('is_round_trip', False))
-        return_date = request.GET.get('return_date')
-        num_passengers = int(request.GET.get('num_passengers', 1))
+        #localhost:8000/flights/search/?departure_city=Mashhad&arrival_city=Tehran&departure_date=2023-05-07&num_passengers=5
+        #http://localhost:8000/flights/search/?departure_city=Tehran&arrival_city=Mashhad&departure_date=2023-07-05&num_passengers=5&is_round_trip=True&return_date=2023-07-03
+        departure_city = self.request.query_params.get('departure_city')
+        arrival_city = self.request.query_params.get('arrival_city')
+        departure_date = self.request.query_params.get('departure_date')
+        num_passengers = int(self.request.query_params.get('num_passengers', 1))
+        is_round_trip = bool(self.request.query_params.get('is_round_trip', False))
+        return_date = self.request.query_params.get('return_date', None)
         flights_outbound = Flight.objects.filter(origin=departure_city,
                                                  destination=arrival_city,
                                                  departure_date=datetime.strptime(departure_date, '%Y-%m-%d').date(),
@@ -70,7 +29,7 @@ class FlightSearchView(APIView):
         if is_round_trip:
             flights_return = Flight.objects.filter(origin=arrival_city,
                                                    destination=departure_city,
-                                                   return_date=datetime.strptime(return_date,'%Y-%m-%d').date(),
+                                                   departure_date=datetime.strptime(return_date,'%Y-%m-%d').date(),
                                                    capacity__gte=num_passengers)
 
             serializer_return = FlightSerializer(flights_return, many=True)
@@ -82,39 +41,88 @@ class FlightSearchView(APIView):
 
         return Response(serializer_outbound.data)
 
-class FlightDetail(generics.RetrieveAPIView):
+class FlightViewSet(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
 
-class ReservationCreateAPIView(generics.CreateAPIView):
-    queryset = FlightReservation.objects.all()
-    serializer_class = FlightReservationSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-
-
-    def perform_create(self, serializer):
+class ReservationCreateAPIView(APIView):
+    def post(self, request):
+        serializer = FlightReservationSerializer(data=self.request.data)
+        serializer.is_valid(raise_exception=True)  # Raises a validation error if serializer is invalid
         reservation = serializer.save(user=self.request.user)
 
         flight = reservation.flight
         flight.capacity -= (reservation.num_adults + reservation.num_children)
         flight.save()
 
-        num_adults = serializer.validated_data['num_adults']
-        num_children = serializer.validated_data['num_children']
+        num_adults = reservation.num_adults
+        num_children = reservation.num_children
         total_price = float(flight.price) * float(num_adults) + (0.5 * float(flight.price) * float(num_children))
 
         if reservation.is_round_trip:
             return_flight = reservation.return_flight
             return_flight.capacity -= (reservation.num_adults + reservation.num_children)
             return_flight.save()
-            total_price += float(return_flight.price) * float(num_adults) + (0.5 * float(return_flight.price) * float(num_children)) 
+            total_price += float(return_flight.price) * float(num_adults) + (
+                        0.5 * float(return_flight.price) * float(num_children))
 
-        # Assign the total_price value to the reservation object
         reservation.total_price = total_price
         reservation.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+#
+# {
+#   "flight": 1,
+#   "is_round_trip": false,
+#   "num_adults": 2,
+#   "num_children": 0,
+#   "return_flight": null,
+#   "passengers": [
+#     {
+#       "ssn": "1234567890",
+#       "first_name": "John",
+#       "last_name": "Doe",
+#       "is_adult": true
+#     },
+#     {
+#       "ssn": "09878654321",
+#       "first_name": "Jane",
+#       "last_name": "Smith",
+#       "is_adult": true
+#     }
+#   ]
+# }
 
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+class ReservationListAPIView(APIView):
+    def get(self, request):
+        reservations = FlightReservation.objects.filter(user=self.request.user)
+        serializer = FlightReservationSerializer(reservations, many=True)
+        return Response(serializer.data)
+
+    #
+    # def perform_create(self, serializer):
+    #     reservation = serializer.save(user=self.request.user)
+    #
+    #     flight = reservation.flight
+    #     flight.capacity -= (reservation.num_adults + reservation.num_children)
+    #     flight.save()
+    #
+    #     num_adults = serializer.validated_data['num_adults']
+    #     num_children = serializer.validated_data['num_children']
+    #     total_price = float(flight.price) * float(num_adults) + (0.5 * float(flight.price) * float(num_children))
+    #
+    #     if reservation.is_round_trip:
+    #         return_flight = reservation.return_flight
+    #         return_flight.capacity -= (reservation.num_adults + reservation.num_children)
+    #         return_flight.save()
+    #         total_price += float(return_flight.price) * float(num_adults) + (0.5 * float(return_flight.price) * float(num_children))
+    #
+    #     # Assign the total_price value to the reservation object
+    #     reservation.total_price = total_price
+    #     reservation.save()
+    #
+    #     headers = self.get_success_headers(serializer.data)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 # class ReservationList(generics.ListCreateAPIView):
 #     serializer_class = FlightReservationSerializer

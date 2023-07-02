@@ -20,9 +20,7 @@ class HotelReservationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         passengers_data = validated_data.pop('passengers')
-        reservation = HotelBooking.objects.create(**validated_data)
-
+        booking = HotelBooking.objects.create(**validated_data)
         for passenger_data in passengers_data:
             Passenger.objects.create(**passenger_data)
-
-        return reservation
+        return booking

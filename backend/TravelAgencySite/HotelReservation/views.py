@@ -15,9 +15,9 @@ class HotelViewSet(viewsets.ModelViewSet):
 
 class HotelSearchView(APIView):
     def get(self, request):
-        location = request.GET.get('city')
-        num_passengers = int(request.GET.get('num_passengers', 1))
-        Hotels = Hotel.objects.filter(city__name=location, capacity__gte=num_passengers)
+        city = self.request.query_params.get('city')
+        num_passengers = int(self.request.query_params.get('num_passengers'))
+        Hotels = Hotel.objects.filter(city__name=city, capacity__gte=num_passengers)
         serializer_Hotels = HotelSerializer(Hotels, many=True)
         return Response(serializer_Hotels.data)
 
@@ -25,9 +25,7 @@ class HotelReservationCreateAPIView(APIView):
     def post(self, request):
         serializer = HotelReservationSerializer(data=request.data)
         if serializer.is_valid():
-            num_passengers = int(request.data.get('num_passengers', 1))
-            print(request.data.get("hotel"))
-            print("\n\n\n\n\n\n")
+            num_passengers = int(request.data.get('no_of_guests', 1))
             check_in_date = datetime.strptime(self.request.data.get('checkin_date'), '%Y-%m-%d').date()
             check_out_date = datetime.strptime(self.request.data.get('checkout_date'), '%Y-%m-%d').date()
             reservation_duration = (check_out_date - check_in_date).days
@@ -42,6 +40,7 @@ class HotelReservationCreateAPIView(APIView):
                 hotel.save()
                 reservation = serializer.save(user=self.request.user, total_price=total_price_calculated)
                 reservation.save()
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

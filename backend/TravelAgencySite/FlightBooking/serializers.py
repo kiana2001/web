@@ -9,8 +9,8 @@ class CitySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class FlightSerializer(serializers.ModelSerializer):
-    origin = CitySerializer()
-    destination = CitySerializer()
+    # origin = CitySerializer()
+    # destination = CitySerializer()
 
     class Meta:
         model = Flight
@@ -23,11 +23,8 @@ class PassengerSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
 class FlightReservationSerializer(serializers.ModelSerializer):
-  #  user = UserSerializer()
-  #  flight = FlightSerializer()
-  #  return_flight = FlightSerializer()
-    passengers = PassengerSerializer()
-    total_price = serializers.DecimalField(read_only=True, max_digits=10, decimal_places=2)
+    passengers = PassengerSerializer(many=True)
+
     class Meta:
         model = FlightReservation
         exclude = ('user',)
@@ -39,14 +36,24 @@ class FlightReservationSerializer(serializers.ModelSerializer):
 
         if is_round_trip and (not return_date or not return_flight):
             raise serializers.ValidationError("return_date and return_flight must have values when it is a round trip.")
-        if attrs.get('flight.origin') == attrs.get('flight.destination'):
-            raise serializers.ValidationError("origin and destination can not be the same.")
+        if attrs.get('flight').origin == attrs.get('flight').destination:
+            raise serializers.ValidationError("origin and destination cannot be the same.")
         return attrs
+
     def create(self, validated_data):
-        booking = Booking.objects.create(**validated_data)
-        number_of_passengers = booking.num_adults + booking.num_children
-        for i in range (0, number_of_passengers):
-            Passenger.objects.create(booking=booking, **passenger_data)
+        passengers_data = validated_data.pop('passengers')
+        booking = FlightReservation.objects.create(**validated_data)
+        for passenger_data in passengers_data:
+            ssn = passenger_data.get('ssn')
+            try:
+                passenger = Passenger.objects.get(ssn=ssn)
+                for key, value in passenger_data.items():
+                    setattr(passenger, key, value)
+                passenger.is_adult = passenger_data.get('is_adult', True)  # Set default value if not provided
+                passenger.save()
+            except Passenger.DoesNotExist:
+                passenger = Passenger.objects.create(**passenger_data)
+            booking.passengers.add(passenger)
         return booking
 
 # class FlightReservationSerializer(serializers.ModelSerializer):

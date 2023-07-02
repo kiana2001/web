@@ -3,7 +3,7 @@ from Users.models import User
 from datetime import datetime, timedelta
 
 class City(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
     country = models.CharField(max_length=100)
 
     def __str__(self):
