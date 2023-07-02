@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     # project apps:
     'Users',
     'FlightBooking',
-    'HotelReservation'
+    'HotelReservation',
+    'TrainBooking'
     ]
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
