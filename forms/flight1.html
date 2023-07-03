@@ -17,12 +17,9 @@
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-	<body  style=" 
-    background-image: url(./images/h1.jpg
-    );background-size: cover;height: 100%;width: 100%;">
+	<body style=" 
+    background-image: url(./images/pexels-pascal-borener-113017.jpg);background-size: cover;height: 100%;width: 100%;">
 		<div class="wrapper">
-      
-            
             <form  id="wizard" action="#" onsubmit="return validateForm()">
 
 
@@ -177,7 +174,7 @@
                 <section>
                     <div class="inner">
                         <a href="#" class="avartar">
-                            <img src="./images/hotel-svgrepo-com.svg" style="width:100px ; height:100px" alt="">
+                            <img src="./images/creative-minimalist-travel-logo_23-2148611861 (1).png" style="width:100px ; height:100px" alt="">
                         </a>
                         <div class="form-row form-group">
                             <div class="form-holder">
@@ -201,7 +198,7 @@
                             <div class="form-holder">
                                 <div class="select">
                                     <div class="form-holder">
-                                        <div class="select-control">Where to send the reservation contract?</div>
+                                        <div class="select-control">Where to send the ticket?</div>
                                     </div>
                                     <ul class="dropdown">
                                         <li rel="email">Email</li>
@@ -243,7 +240,7 @@
                 <section>
                 	<div class="inner">
                 		<a href="#" class="avartar">
-                    		<img src="./images/hotel-svgrepo-com.svg" style="width:100px ; height:100px"  alt="">
+                    		<img src="./images/creative-minimalist-travel-logo_23-2148611861 (1).png" style="width:100px ; height:100px"  alt="">
                     	</a>
                 		<div class="form-row">
                             <div class="select">
@@ -290,7 +287,7 @@
                                       var meliCode = meliCodeInput.value.trim();
                                   
                                       if (!meliCode || !isValidMeliCodeFormat(meliCode)) {
-                                        displayToastError("melicode should contain only numbers");
+                                        displayToastError("melicode should contain digits");
                                       } else {
                                         hideToastError();
                                       }
@@ -378,7 +375,7 @@
                 <section class="section-3">
                     <div class="inner">
                         <a href="#" class="avartar">
-                            <img src="./images/hotel-svgrepo-com.svg" style="width:100px ; height:100px" alt="">
+                            <img src="./images/creative-minimalist-travel-logo_23-2148611861 (1).png" style="width:100px ; height:100px" alt="">
                         </a>
                         <h6>Payment Method</h6>
                         <div class="payment-block">
@@ -573,7 +570,7 @@
     // });
 
     var flightData = {
-        flightType: "Five stars",
+        flightType: "Economy",
         flightSystem: "Systematic",
         flightModel: "Boeing",
         numOfFlights: 1,
@@ -586,7 +583,7 @@
     document.getElementById("flightType").textContent = flightData.flightType;
     document.getElementById("flightSystem").textContent = flightData.flightSystem;
     document.getElementById("flightModel").textContent = flightData.flightModel;
-    document.getElementById("numOfFlights").textContent = "Number of guests: " + flightData.numOfFlights;
+    document.getElementById("numOfFlights").textContent = "Number of Flights: " + flightData.numOfFlights;
     document.getElementById("departureTime").textContent = "Departure: " + flightData.departureTime;
     document.getElementById("arrivalTime").textContent = "Arrival Time: " + flightData.arrivalTime;
     document.getElementById("maxLuggageWeight").textContent = "Max Weight of Luggage: " + flightData.maxLuggageWeight;
