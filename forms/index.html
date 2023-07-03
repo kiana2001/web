@@ -11,13 +11,15 @@
 
 		<!-- DATE-PICKER -->
 		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="wrapper">
-            <form action="" id="wizard">
+            <form  id="wizard" action="#" onsubmit="return validateForm()">
 
 
         		<!-- SECTION 1 -->
@@ -87,6 +89,87 @@
                     	</div>
                     </div>
                 </section> -->
+                <script>
+                    function validateForm() {
+                      var emailInput = document.getElementById("email");
+                      var passwordInput = document.getElementById("password");
+                      var melicodeInput = document.getElementById("melicode");
+                      
+                      var email = emailInput.value.trim();
+                      var password = passwordInput.value.trim();
+                      var melicode = passwordInput.value.trim();
+
+                  
+                      if (email === "") {
+                        showToastError("Please enter your email");
+                        return false; // Prevent form submission
+                      }
+                      
+                      if (melicode === "") {
+                        showToastError("Please enter your melicode");
+                        return false; // Prevent form submission
+                      }
+                  
+                      if (!isValidEmail(email)) {
+                        showToastError("Please enter a valid email address");
+                        return false; // Prevent form submission
+                      }
+                  
+                      if (password === "") {
+                        showToastError("Please enter your password");
+                        return false; // Prevent form submission
+                      }
+                      if (password === "") {
+                        showToastError("Please enter your password");
+                        return false; // Prevent form submission
+                      }
+
+
+                  
+                      if (!isValidPassword(password)) {
+                        showToastError("Please enter a valid password (minimum 8 characters, at least one number, and at least one uppercase letter)");
+                        return false; // Prevent form submission
+                      }
+                  
+                      // Other form validation logic here...
+                  
+                      return true; // Allow form submission
+                    }
+                  
+                    function isValidEmail(email) {
+                      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      return emailPattern.test(email);
+                    }
+                  
+                    function isValidPassword(password) {
+                      var passwordPattern = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+                      return passwordPattern.test(password);
+                    }
+                  
+                    function showToastError(message) {
+                      var toast = document.getElementById("toastError");
+                      toast.textContent = message;
+                      toast.style.display = "block";
+                  
+                      setTimeout(function() {
+                        toast.style.display = "none";
+                      }, 3000);
+                    }
+                  </script>
+                  <style>
+                    #toastError {
+                      display: none;
+                      position: fixed;
+                      bottom: 20px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      padding: 10px;
+                      background-color: #ff0000;
+                      color: #fff;
+                      border-radius: 5px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    }
+                  </style>
                 <section>
                     <div class="inner">
                         <a href="#" class="avartar">
@@ -121,29 +204,35 @@
                                         <li rel="phone">Phone</li>
                                     </ul>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" id="email" class="form-control" placeholder="Email">
+                                <!-- <button type="submit" class="submit">Submit</button> -->
+                                <div id="toastError"></div>
+
                                 <i class="zmdi zmdi-email small"></i>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-holder">
-                                <input type="text" class="form-control" placeholder="Phone">
-                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" id="password" class="form-control" placeholder="password">
+                                <button type="submit" class="submit">Submit</button>
+                                <div id="toastError"></div>                                <i class="zmdi zmdi-smartphone-android"></i>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-holder">
-                                <!-- <input type="text" class="form-control" placeholder="Address"> -->
+                              
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-holder">
-                                <!-- <input type="text" class="form-control" placeholder="Nation">
-                                <i class="zmdi zmdi-account-box-o small"></i> -->
+                               
                             </div>
                         </div>
                     </div>
                 </section>
+
+                
+                  
                 
 				<!-- SECTION 2 -->
                 <h4></h4>
@@ -185,8 +274,76 @@
                         </div>
                         <div class="form-row">
                             <div class="form-holder">
-                                <input type="text" class="form-control" placeholder="melicode">
+                                <input type="text" id="meliCode" placeholder="Meli Code">
+                                <button onclick="validateMeliCode()">Validate</button>
+                                <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-body"></div>
+                                  </div>
 
+                                  <script>
+                                    function validateMeliCode() {
+                                      var meliCodeInput = document.getElementById("meliCode");
+                                      var meliCode = meliCodeInput.value.trim();
+                                  
+                                      if (!meliCode || !isValidMeliCodeFormat(meliCode)) {
+                                        displayToastError("melicode should contain digits");
+                                      } else {
+                                        hideToastError();
+                                      }
+                                    }
+                                  
+                                    function isValidMeliCodeFormat(meliCode) {
+                                      // Check if the Meli Code contains only digits
+                                      return /^\d+$/.test(meliCode);
+                                    }
+                                  
+                                    function displayToastError(errorMessage) {
+                                      var toast = document.getElementById("toast");
+                                      var toastBody = toast.querySelector(".toast-body");
+                                  
+                                      toastBody.innerText = errorMessage;
+                                      toast.classList.remove("hide");
+                                      toast.classList.add("show");
+                                  
+                                      setTimeout(function() {
+                                        hideToastError();
+                                      }, 3000);
+                                    }
+                                  
+                                    function hideToastError() {
+                                      var toast = document.getElementById("toast");
+                                      toast.classList.remove("show");
+                                      toast.classList.add("hide");
+                                    }
+                                  </script>
+                                  
+
+                                  <style>
+                                    .toast {
+                                      position: fixed;
+                                      top: 20px;
+                                      right: 20px;
+                                      min-width: 200px;
+                                      padding: 10px;
+                                      background-color: #dc3545;
+                                      color: #fff;
+                                      border-radius: 4px;
+                                      transition: opacity 0.3s ease;
+                                    }
+                                  
+                                    .toast.hide {
+                                      opacity: 0;
+                                      pointer-events: none;
+                                    }
+                                  
+                                    .toast.show {
+                                      opacity: 1;
+                                      pointer-events: auto;
+                                    }
+                                  </style>
+ =
+
+                                <div id="toastError"></div>
                             </div>
                         </div>
                         <div class="form-row form-group">

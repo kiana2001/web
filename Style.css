@@ -374,7 +374,127 @@ button:active {
 	height: 40px;
 	width: 40px;
 }
-
+/* Media Queries */
+@media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+      max-width: none;
+    }
+  
+    .form-container {
+      padding: 0 30px;
+    }
+  
+    .overlay-container {
+      left: 0;
+      width: 100%;
+    }
+  
+    .overlay {
+      transform: translateX(0);
+      left: -50%;
+      width: 200%;
+    }
+  
+    .overlay-panel {
+      width: 100%;
+      transform: translateX(0);
+    }
+  
+    .login-container.right-panel-active .overlay-panel {
+      transform: translateX(-100%);
+    }
+  
+    .overlay-left {
+      transform: translateX(-20%);
+    }
+  
+    .login-container.right-panel-active .overlay-left {
+      transform: translateX(0);
+    }
+  
+    .overlay-right {
+      right: 0;
+      transform: translateX(0);
+    }
+  
+    .login-container.right-panel-active .overlay-right {
+      transform: translateX(20%);
+    }
+  }/* Media Queries *//* Media Queries */
+@media only screen and (max-width: 480px) {
+    .login-container {
+      width: 90%;
+      max-width: none;
+    }
+  
+    .form-container {
+      padding: 0 20px;
+    }
+  
+    .overlay-container {
+      left: 0;
+      width: 100%;
+    }
+  
+    .overlay {
+      transform: translateX(0);
+      left: -100%;
+      width: 200%;
+    }
+  
+    .overlay-panel {
+      width: 100%;
+      transform: translateX(0);
+    }
+  
+    .login-container.right-panel-active .overlay-panel {
+      transform: translateX(100%);
+    }
+  
+    .overlay-left {
+      transform: translateX(-50%);
+    }
+  
+    .login-container.right-panel-active .overlay-left {
+      transform: translateX(0);
+    }
+  
+    .overlay-right {
+      right: 0;
+      transform: translateX(50%);
+    }
+  
+    .login-container.right-panel-active .overlay-right {
+      transform: translateX(0);
+    }
+  
+    .body {
+      margin: 0;
+      align-items: flex-start;
+      padding: 20px;
+    }
+  
+    .body h1 {
+      font-size: 24px;
+    }
+  
+    .body p {
+      font-size: 12px;
+    }
+  
+    .body a {
+      font-size: 12px;
+    }
+  
+    .body button {
+      font-size: 10px;
+      padding: 10px 30px;
+    }
+  }
+  
+  
+    
 /* Login ends*/
 
 /* about section  */

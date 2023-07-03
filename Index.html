@@ -30,61 +30,73 @@
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg" id="navbar">
-       <label for="dog-names">Choose a language:</label> 
-    <select name="dog-names" id="dog-names"> 
-        <option value="English">English</option> 
-        <option value="Farsi">Farsi</option> 
-        
-    </select>
-        <div class="container">
-          <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span><i class="fa-solid fa-bars"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./book.html">Book</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./flight.html">flight reservations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./train.html">Train reservations</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./personal.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="hotel-book.html">Hotel reservations</a>
-              </li>
-              <!-- <label for="dog-names">Choose a language:</label> 
-    <select name="dog-names" id="dog-names"> 
-        <option value="English">English</option> 
-        <option value="Farsi">Farsi</option> 
-        
-    </select> -->
-  
-
-             
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="text" placeholder="Search">
-              <button class="btn btn-primary" type="button">Search</button>
-            </form>
-          </div>
+      <label for="language">Choose a language:</label> 
+      <select name="language" id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ar">persian</option>
+      </select>
+      <div class="container">
+        <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span><i class="fa-solid fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html" id="homeLink">خانه</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./book.html" id="bookLink">رزرو </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./flight.html" id="flightLink">بلیط هواپیما </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services" id="servicesLink">خدمات</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./train.html" id="trainLink">بلیط قطار </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./personal.html" id="aboutLink"> اطلاعات فردی</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html" id="loginLink">لاگین</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="hotel-book.html" id="hotelLink">رزرو هتل</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="سرچ">
+            <button class="btn btn-primary" type="button">سرچ</button>
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
+    
     <!-- Navbar End -->
+    <script>
+      function changeLanguage() {
+        var languageSelect = document.getElementById("language");
+        var selectedLanguage = languageSelect.value;
+    
+        // Get all elements with data-lang attribute
+        var elements = document.querySelectorAll("[data-lang]");
+    
+        // Loop through the elements and show/hide based on the selected language
+        for (var i = 0; i < elements.length; i++) {
+          var element = elements[i];
+          var lang = element.getAttribute("data-lang");
+    
+          if (lang === selectedLanguage) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        }
+      }
+    </script>
 
 
 
@@ -92,48 +104,55 @@
 
     <!-- Home Section Start -->
     <div class="home">
-        <div class="content">
-            <h5>Welcome To World</h5>
-            <h1>Visit <span class="changecontent"></span></h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, nisi.</p>
-            <a href="#book">Book Place</a>
-        </div>
+      <div class="content">
+        <h5 data-lang="en">Welcome To World</h5>
+        <h5 data-lang="ar" style="display: none;">به دنیا خوش امدید</h5>
+        <h1 data-lang="en">Visit <span class="changecontent"></span></h1>
+        <h1 data-lang="ar" style="display: none;"> <span class="changecontent">بازدید</span></h1>
+        <p data-lang="en">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, nisi.</p>
+        <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور sit amet consectetur adipisicing elit. Quae, nisi.</p>
+        <a href="#book" data-lang="en">Book Place</a>
+        <a href="#book" data-lang="ar" style="display: none;">رزرو مکان</a>
+      </div>
     </div>
 
     <!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2> -->
     
-    <!-- Section Book Start -->
-    <section class="book" id="book">
-      <div class="container">
+    <!-- Section Book Start --><section class="book" id="book">
+  <div class="container">
 
-        <div class="main-text">
-          <h1><span>B</span>ook</h1>
-        </div>
-        
-        <div class="row">
+    <div class="main-text">
+      <h1 data-lang="en"><span>B</span>ook</h1>
+      <h1 data-lang="ar" style="display: none;"><span>رزرو</span></h1>
+    </div>
+    
+    <div class="row">
 
-          <div class="col-md-6 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/book-img.png" alt="">
-            </div>
-          </div>
-
-          <div class="col-md-6 py-3 py-md-0">
-            <form action="#">
-
-              <input type="text" class="form-control" placeholder="Where To" required><br>
-              <input type="text" class="form-control" placeholder="How Many" required><br>
-              <input type="date" class="form-control" placeholder="Arrivals" required><br>
-              <input type="date" class="form-control" placeholder="Leaving" required><br>
-              <textarea class="form-control" rows="5" name="text" placeholder="Enter Your Name & Details"></textarea>
-              <input type="submit" value="Book Now" class="submit" required>
-
-            </form>
-          </div>
-
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/book-img.png" alt="">
         </div>
       </div>
-    </section>
+
+      <div class="col-md-6 py-3 py-md-0">
+        <form action="#">
+
+          <input type="text" class="form-control" placeholder="Where To" required><br>
+          
+          <input type="text" class="form-control" placeholder="How Many" required><br>
+          <input type="date" class="form-control" placeholder="Arrivals" required><br>
+          <input type="date" class="form-control" placeholder="Leaving" required><br>
+          <textarea class="form-control" rows="5" name="text" placeholder="Enter Your Name & Details"></textarea>
+          <input type="submit" value="Book Now" class="submit" required>
+          
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     <!-- Section Book End -->
 
        <!-- about -->
@@ -151,6 +170,8 @@
         
         <div class="main-txt">
           <h1><span>P</span>ackages</h1>
+          <h1 data-lang="ar" style="display: none;"><span>بسته ها</span></h1>
+
         </div>
 
         <div class="row" style="margin-top: 30px;">
@@ -306,6 +327,8 @@
 
         <div class="main-txt">
           <h1><span>S</span>ervices</h1>
+          <h1 data-lang="ar" style="display: none;"><span>خدمات</span></h1>
+
         </div>
 
         <div class="row" style="margin-top: 30px;">
@@ -451,35 +474,59 @@
 
 
 
-    <!-- About Start -->
-    <section class="about" id="about">
-      <div class="container">
+    <!-- About Start --><section class="about" id="about">
+  <div class="container">
 
-        <div class="main-txt">
-          <h1>About <span>Us</span></h1>
+    <div class="main-txt">
+      <h1 data-lang="en">About <span>Us</span></h1>
+      <h1 data-lang="ar" style="display: none;">درباه <span>ما</span></h1>
+    </div>
+
+    <div class="row" style="margin-top: 50px;">
+
+      <div class="col-md-6 py-3 py-md-0">
+        <div class="card">
+          <img src="./images/about-img.png" alt="">
         </div>
-
-        <div class="row" style="margin-top: 50px;">
-
-          <div class="col-md-6 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/about-img.png" alt="">
-            </div>
-          </div>
-
-          <div class="col-md-6 py-3 py-md-0">
-            <h2>How Travel Agency Work</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
-            <button id="about-btn">Read More...</button>
-          </div>
-
-        </div>
-
       </div>
-    </section>
+
+      <div class="col-md-6 py-3 py-md-0">
+        <h2 data-lang="en">How Travel Agency Works</h2>
+        <h2 data-lang="ar" style="display: none;">چگونه آژانس مسافرتی ما کار میکند   </h2>
+        <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
+        <p data-lang="ar" style="display: none;">لوريم ايبسوم دولور سيت أميت ، كونسيكتيتور أديبيسيسينج إيليت. بروفيدنت برفيرينديس دولوريم ، نومكوم إيرم آت نام بياتاي فولوبتاتي ناتوس كونسيكتيتور فاكيري ، سايبي كوبيديتاتي أوت إكسيرسيتاتيونم ديسيريونت ، فاكيليس كوام بيرسبيسيتاتيس أوتيم يوري إيلو هاروم مينيما. قواس ، فيتاي أبيريام لاودانتيوم ألياس أسبيريوريس نولا ريرم ، نيهيل إفينيت برفيرينديس سينت إيلوم أكيوساموس أوفيسييس أليكوام نام.</p>
+        <button id="about-btn" data-lang="en">Read More...</button>
+        <button id="about-btn" data-lang="ar" style="display: none;"> بیستر بخوانید </button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
     <!-- About End -->
    
-
+    <script>
+      function changeLanguage() {
+        var languageSelect = document.getElementById("language");
+        var selectedLanguage = languageSelect.value;
+    
+        // Get all elements with data-lang attribute
+        var elements = document.querySelectorAll("[data-lang]");
+    
+        // Loop through the elements and show/hide based on the selected language
+        for (var i = 0; i < elements.length; i++) {
+          var element = elements[i];
+          var lang = element.getAttribute("data-lang");
+    
+          if (lang === selectedLanguage) {
+            element.style.display = "block";
+          } else {
+            element.style.display = "none";
+          }
+        }
+      }
+    </script>
 
 
 <div class="main-txt">

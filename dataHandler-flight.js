@@ -6,7 +6,7 @@ const sampleData = [
         description: "xxxxx",
         location: "tehran",
         locationdestenation: "mashhad",
-        imageSrc: "./images/creative-minimalist-travel-logo_23-2148611861 (1).png",
+        imageSrc: "./images/pexels-pascal-borener-113017.jpg",
         numOf: 20,
         // date: 
         // datereverse:
@@ -19,7 +19,7 @@ const sampleData = [
         name:"mashhad",
         description: "yyyyyyy",
         location: "mashhad",
-        imageSrc: "./images/download (1).png",
+        imageSrc: "./images/pexels-pixabay-358220.jpg",
         locationdestenation: "tehran",
         numOf: 10,
         startDate: new Date("2023-06-28"),
@@ -30,7 +30,7 @@ const sampleData = [
         name:"shiraz",
         description: "yyyyyyy",
         location: "shiraz",
-        imageSrc: "./images/download.png",
+        imageSrc: "./images/plane222.jpg",
         locationdestenation: "shiraz",
         numOf: 30,
         startDate: new Date("2023-06-28"),

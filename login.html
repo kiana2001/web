@@ -26,91 +26,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <!-- Include Toastify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Include Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <!-- Google Fonts -->
     <script src="myscripts.js"></script>
 </head>
 <body>
          
-        <script>
-
-            var myInput = document.getElementById("psw");
-                var letter = document.getElementById("letter");
-                var capital = document.getElementById("capital");
-                var number = document.getElementById("number");
-                var length = document.getElementById("length");
-            
-                                    function validateForm() {
-                                      var x = document.forms["myForm"]["fname"].value;
-                                      var y = document.forms["myForm"]["pname"].value;
-                                      var z = document.forms["myForm"]["ename"].value;
-                                      if (x == "" || x == null) {
-                                        alert("Name must be filled out");
-                                        return false;
-                                      }
-                                      if (y == "" || y == null) {
-                                        alert("PhoneNumber must be filled out");
-                                        return false;
-                                      }
-                                      if (x == "" || x == null) {
-                                        alert("Email must be filled out");
-                                        return false;
-                                      }
-                                    }
-                                   
-                // When the user clicks on the password field, show the message box
-                myInput.onfocus = function() {
-                  document.getElementById("message").style.display = "block";
-                }
-                
-                // When the user clicks outside of the password field, hide the message box
-                myInput.onblur = function() {
-                  document.getElementById("message").style.display = "none";
-                }
-                
-                // When the user starts to type something inside the password field
-                myInput.onkeyup = function() {
-                  // Validate lowercase letters
-                  var lowerCaseLetters = /[a-z]/g;
-                  if(myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                  } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
-                
-                  // Validate capital letters
-                  var upperCaseLetters = /[A-Z]/g;
-                  if(myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                  } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                  }
-                
-                  // Validate numbers
-                  var numbers = /[0-9]/g;
-                  if(myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                  } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                  }
-                
-                  // Validate length
-                  if(myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                  } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                  }
-                }
-                </script>
             
                 <style>
+    
+  
                              #message {
                             display:none;
                             background: #f1f1f1;
@@ -274,71 +204,177 @@
         <div class="form-container sign-up-container">
           <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
             <h1 data-lang="en">Create Account</h1>
-            <h1 data-lang="ar" style="display: none;">إنشاء حساب</h1>
+            <h1 data-lang="ar" style="display: none;">ایجاد حساب</h1>
             <input type="text" placeholder="Name" name="fname" />
             <input type="phone" placeholder="Phone Number" name="pname" />
             <input type="email" placeholder="Email" name="ename" />
             <label for="psw" data-lang="en">Password</label>
-            <label for="psw" data-lang="ar" style="display: none;">كلمة المرور</label>
+            <label for="psw" data-lang="ar" style="display: none;">پسورد</label>
             <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-            <button type="submit" onclick="matchPassword()" data-lang="en">Sign Up</button>
-            <button type="submit" onclick="matchPassword()" data-lang="ar" style="display: none;">انضم إلينا</button>
+            <label for="psw2" data-lang="en">Confirm Password</label>
+            <label for="psw2" data-lang="ar" style="display: none;">تأیید پسورد</label>
+            <input type="password" id="psw2" name="psw2" required>
+            <!-- <button type="submit" onclick="matchPasswords()" data-lang="en">Sign Up</button> -->
+            <button type="submit" onclick="return matchPasswords()" data-lang="en">Sign Up</button>
+
+            <button type="submit" onclick="matchPasswords()" data-lang="ar" style="display: none;">ایجاد حساب</button>
             <div id="message">
               <h3 data-lang="en">Password must contain the following:</h3>
-              <h3 data-lang="ar" style="display: none;">يجب أن تحتوي كلمة المرور على ما يلي:</h3>
+              <h3 data-lang="ar" style="display: none;">پسورد باید شامل موارد زیر باشد:</h3>
               <p id="letter" class="invalid" data-lang="en">A <b>lowercase</b> letter</p>
-              <p id="letter" class="invalid" data-lang="ar" style="display: none;">حرف <b>صغير</b></p>
+              <p id="letter" class="invalid" data-lang="ar" style="display: none;">حرف <b>کوچک</b></p>
               <p id="capital" class="invalid" data-lang="en">A <b>capital (uppercase)</b> letter</p>
-              <p id="capital" class="invalid" data-lang="ar" style="display: none;">حرف <b>كبير (أحرف كبيرة)</b></p>
+              <p id="capital" class="invalid" data-lang="ar" style="display: none;">حرف <b>بزرگ</b></p>
               <p id="number" class="invalid" data-lang="en">A <b>number</b></p>
               <p id="number" class="invalid" data-lang="ar" style="display: none;">رقم</p>
               <p id="length" class="invalid" data-lang="en">Minimum <b>8 characters</b></p>
-              <p id="length" class="invalid" data-lang="ar" style="display: none;">الحد الأدنى <b>8 أحرف</b></p>
+              <p id="length" class="invalid" data-lang="ar" style="display: none;">حداقل 8 حرف</p>
+              <p id="match" class="invalid" data-lang="en">Passwords do not match</p>
+              <p id="match" class="invalid" data-lang="ar" style="display: none;">پسورد‌ها یکسان نیستند</p>
             </div>
           </form>
         </div>
         <div class="form-container sign-in-container">
           <form action="#">
             <h1 data-lang="en">Sign in</h1>
-            <h1 data-lang="ar" style="display: none;">تسجيل الدخول</h1>
+            <h1 data-lang="ar" style="display: none;"> ورود </h1>
             <div class="social-container">
               <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
               <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
               <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span data-lang="en">or use your account</span>
-            <span data-lang="ar" style="display: none;">أو استخدم حسابك</span>
+            <span data-lang="ar" style="display: none;">یا از حساب استفاده کنید</span>
             <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="password" data-lang="en" placeholder="Password" />
+            <input type="password" data-lang="ar" placeholder="پسوورد" />
+
             <a href="#" data-lang="en">Forgot your password?</a>
-            <a href="#" data-lang="ar" style="display: none;">هل نسيت كلمة المرور؟</a>
+            <a href="#" data-lang="ar" style="display: none;">فراموشی پسوورد؟</a>
             <button data-lang="en">Sign In</button>
-            <button data-lang="ar" style="display: none;">تسجيل الدخول</button>
+            <button data-lang="ar" style="display: none;">ورود</button>
           </form>
         </div>
         <div class="overlay-container">
           <div class="overlay">
             <div class="overlay-panel overlay-left">
               <h1 data-lang="en">Welcome Back!</h1>
-              <h1 data-lang="ar" style="display: none;">مرحبًا بك مجددًا!</h1>
+              <h1 data-lang="ar" style="display: none;">خوش آمدید</h1>
               <p data-lang="en">To keep connected with us, please login with your personal info</p>
-              <p data-lang="ar" style="display: none;">للبقاء على اتصال معنا، يرجى تسجيل الدخول باستخدام معلوماتك الشخصية</p>
+              <p data-lang="ar" style="display: none;">برای ارتباط با ما لطفا به حساب شخصی خود وارد شوید </p>
               <button class="ghost" id="signIn" data-lang="en">Sign In</button>
-              <button class="ghost" id="signIn" data-lang="ar" style="display: none;">تسجيل الدخول</button>
+              <button class="ghost" id="signIn" data-lang="ar" style="display: none;">ورود</button>
             </div>
             <div class="overlay-panel overlay-right">
               <h1 data-lang="en">Hello, Friend!</h1>
-              <h1 data-lang="ar" style="display: none;">مرحبًا، صديقي!</h1>
+              <h1 data-lang="ar" style="display: none;">سلام دوست عزیز</h1>
               <p data-lang="en">Enter your personal details and start your journey with us</p>
-              <p data-lang="ar" style="display: none;">أدخل تفاصيلك الشخصية وابدأ رحلتك معنا</p>
+              <p data-lang="ar" style="display: none;">اطلاعات شحصی خود را وارد کنید و مسیر را اغاز کنید/  </p>
               <button class="ghost" id="signUp" data-lang="en">Sign Up</button>
-              <button class="ghost" id="signUp" data-lang="ar" style="display: none;">انضم إلينا</button>
+              <button class="ghost" id="signUp" data-lang="ar" style="display: none;">ایجاد حساب</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script>
+    <script>// Function to compare passwords and show toast notification
+      function matchPasswords() {
+        var password1 = document.getElementById("psw").value;
+        var password2 = document.getElementById("psw2").value;
+      
+        if (password1 !== password2) {
+          Toastify({
+            text: "Passwords do not match",
+            duration: 3000, // Display duration in milliseconds
+            gravity: "top", // Display position (top, bottom, left, right)
+            backgroundColor: "red", // Background color for the toast
+            stopOnFocus: true, // Stop hiding the toast on focus
+          }).showToast();
+      
+          return false;
+        }
+      
+        // Passwords match
+        return true;
+      }
+      
+
+      
+var myInput = document.getElementById("psw");
+                var letter = document.getElementById("letter");
+                var capital = document.getElementById("capital");
+                var number = document.getElementById("number");
+                var length = document.getElementById("length");
+            
+                                    function validateForm() {
+                                      var x = document.forms["myForm"]["fname"].value;
+                                      var y = document.forms["myForm"]["pname"].value;
+                                      var z = document.forms["myForm"]["ename"].value;
+                                      if (x == "" || x == null) {
+                                        alert("Name must be filled out");
+                                        return false;
+                                      }
+                                      if (y == "" || y == null) {
+                                        alert("PhoneNumber must be filled out");
+                                        return false;
+                                      }
+                                      if (x == "" || x == null) {
+                                        alert("Email must be filled out");
+                                        return false;
+                                      }
+                                    }
+                                   
+                // When the user clicks on the password field, show the message box
+                myInput.onfocus = function() {
+                  document.getElementById("message").style.display = "block";
+                }
+                
+                // When the user clicks outside of the password field, hide the message box
+                myInput.onblur = function() {
+                  document.getElementById("message").style.display = "none";
+                }
+                
+                // When the user starts to type something inside the password field
+                myInput.onkeyup = function() {
+                  // Validate lowercase letters
+                  var lowerCaseLetters = /[a-z]/g;
+                  if(myInput.value.match(lowerCaseLetters)) {
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                  } else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+                
+                  // Validate capital letters
+                  var upperCaseLetters = /[A-Z]/g;
+                  if(myInput.value.match(upperCaseLetters)) {
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                  } else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                  }
+                
+                  // Validate numbers
+                  var numbers = /[0-9]/g;
+                  if(myInput.value.match(numbers)) {
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                  } else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                  }
+                
+                  // Validate length
+                  if(myInput.value.length >= 8) {
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                  } else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                  }
+                }
       function changeLanguage(selectedLang) {
         const elements = document.querySelectorAll('[data-lang]');
         elements.forEach((element) => {
