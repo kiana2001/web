@@ -9,8 +9,8 @@ class Train(models.Model):
 
     company = models.CharField(max_length=30)
     train_number = models.CharField(max_length=10)
-    origin = models.ForeignKey(City, on_delete=models.CASCADE, related_name='departures')
-    destination = models.ForeignKey(City, on_delete=models.CASCADE, related_name='arrivals')
+    origin = models.ForeignKey(City, on_delete=models.CASCADE, related_name='train_departure_city')
+    destination = models.ForeignKey(City, on_delete=models.CASCADE, related_name='train_arrival_city')
     departure_date = models.DateField()
     departure_time = models.TimeField()
     arrival_date = models.DateField()
@@ -32,12 +32,12 @@ class Passenger(models.Model):
 
 
 class TrainReservation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='FlightReservations')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='TrainReservations')
     train = models.ForeignKey(Train, on_delete=models.CASCADE)
     is_round_trip = models.BooleanField(default=False)
     num_adults = models.PositiveSmallIntegerField(verbose_name = "number of adults")
     num_children = models.PositiveSmallIntegerField(verbose_name = "number of kids")
-    return_train = models.ForeignKey(Train, on_delete=models.CASCADE, related_name='return_reservations', null=True, blank=True)
+    return_train = models.ForeignKey(Train, on_delete=models.CASCADE, related_name='return_train_reservations', null=True, blank=True)
     total_price = models.DecimalField(decimal_places=2, max_digits=10, default = 0)
     passengers = models.ManyToManyField(Passenger)
 
