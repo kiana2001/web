@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa0cc1a6-d43e-402e-ac0a-9b5a2283a49e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TrainBooking/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrainBooking/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightBooking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlightBooking/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TravelAgencySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencySite/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="aa0cc1a6-d43e-402e-ac0a-9b5a2283a49e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +100,7 @@
       <workItem from="1688117454102" duration="340000" />
       <workItem from="1688235442953" duration="14846000" />
       <workItem from="1688306575942" duration="2000" />
-      <workItem from="1688306627619" duration="13967000" />
+      <workItem from="1688306627619" duration="14382000" />
     </task>
     <servers />
   </component>
