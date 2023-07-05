@@ -12,24 +12,40 @@
 
   <!-- Custom CSS -->
   <style>
+    body {
+    background-image: url("./images/plane222.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top ; /* Adjust the value as needed */
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
     .toast-container {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 9999;
     }
-
-    .dropdown-container {
-      display: none;
-    }
+    .main-txt h1{
+    text-align: left;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span{
+    color: #ffa500;
+}
   </style>
 </head>
 
 <body>
   <div class="container py-5">
-    <div class="main-txt">
-      <h1><span>Flight</span> RESERVATION</h1>
-    </div>
+   <div class="main-txt">
+          <h1><span>flight </span> RESERVATION</h1>
+        </div>
 
     <div class="btn-group">
       <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -43,7 +59,6 @@
         <li><a class="dropdown-item" href="#">Esfahan</a></li>
         <li><a class="dropdown-item" href="#">Tabriz</a></li>
         <li><hr class="dropdown-divider"></li>
-        <!-- <li><a class="dropdown-item" href="#">Separated link</a></li> -->
       </ul>
     </div>
 
@@ -66,11 +81,8 @@
       </ul>
     </div>
 
-    <label for="startDate">Start Date:</label>
+    <label for="startDate">Flight Date:</label>
     <input type="date" id="startDate" name="startDate" class="date-input" onchange="handleChange(event)" />
-
-    <label for="finishDate">Finish Date:</label>
-    <input type="date" id="finishDate" name="finishDate" class="date-input" onchange="handleChange(event)" />
 
     <div class="btn-group">
       <button class="btn btn-secondary btn-sm" type="button">
@@ -93,19 +105,16 @@
     </div>
 
     <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5"></div>
+    <div id="toastContainer" class="toast-container"></div>
 
     <h1>Choose:</h1>
+
     <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
     <label for="vehicle1">One-way flight</label><br>
     <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onchange="handleChange(event)">
     <label for="vehicle2">Two-way flight</label><br>
 
-    <div id="dropdownContainer" class="dropdown-container">
-      <div class="btn-group">
-        <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
-        <input type="date" id="returnDate" name="returnDate" class="date-input" onchange="handleReturnDateChange(event)">
-      </div>
-    </div>
+    <div id="dropdownContainer" class="dropdown-container"></div>
   </div>
 
   <!-- Bootstrap JavaScript -->
@@ -115,37 +124,34 @@
     function handleChange(event) {
       const selectedValue = event.target.value;
 
-      // Check if the One-way flight checkbox is checked
       const oneWayCheckbox = document.getElementById('vehicle1');
-
-      // Check if the Two-way flight checkbox is checked
       const twoWayCheckbox = document.getElementById('vehicle2');
       const dropdownContainer = document.getElementById('dropdownContainer');
       const toastContainer = document.getElementById('toastContainer');
 
       if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
-        // Display the toast error message
-        const toast = new bootstrap.Toast(toastContainer);
-        toast.show();
+        alert('You cannot select both one-way and two-way flights.');
 
-        // Uncheck the checkboxes and clear the dropdown container
+        toastContainer.style.display = 'block';
+        setTimeout(function () {
+          toastContainer.style.display = 'none';
+        }, 3000);
+
         oneWayCheckbox.checked = false;
         twoWayCheckbox.checked = false;
         dropdownContainer.innerHTML = '';
       } else if (twoWayCheckbox.checked && twoWayCheckbox.value === selectedValue) {
-        // Create the dropdown options for the return date
         const dropdownHTML = `
           <div class="btn-group">
             <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
-            <input type="date" id="returnDate" name="returnDate" class="date-input" onchange="handleReturnDateChange(event)">
+            <input type="date" id="returnDate" name="returnDate" class="date-input"
+              onchange="handleReturnDateChange(event)">
           </div>
         `;
 
-        // Add the dropdown HTML to the dropdown container
         dropdownContainer.innerHTML = dropdownHTML;
         dropdownContainer.style.display = 'block';
       } else {
-        // Clear the dropdown container if no return date is needed
         dropdownContainer.innerHTML = '';
         dropdownContainer.style.display = 'none';
       }
