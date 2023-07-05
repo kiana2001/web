@@ -1,23 +1,26 @@
 from datetime import datetime
 
-from rest_framework import viewsets, filters, status
+from rest_framework import viewsets, filters, status, generics
 from django.utils import timezone
 from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Hotel, HotelBooking
-from .serializers import HotelSerializer, HotelReservationSerializer
+from .models import Hotel, HotelBooking, City, Room
+from .serializers import HotelSerializer, HotelReservationSerializer, CitySerializer
 
 class HotelViewSet(viewsets.ModelViewSet):
     queryset = Hotel.objects.all()
     serializer_class = HotelSerializer
 
+class CityViewSet(viewsets.ModelViewSet):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+
 class HotelSearchView(APIView):
     def get(self, request):
         city = self.request.query_params.get('city')
-        num_passengers = int(self.request.query_params.get('num_passengers'))
-        Hotels = Hotel.objects.filter(city__name=city, capacity__gte=num_passengers)
+        Hotels = Hotel.objects.filter(city__name=city)
         serializer_Hotels = HotelSerializer(Hotels, many=True)
         return Response(serializer_Hotels.data)
 
@@ -30,17 +33,17 @@ class HotelReservationCreateAPIView(APIView):
             check_out_date = datetime.strptime(self.request.data.get('checkout_date'), '%Y-%m-%d').date()
             reservation_duration = (check_out_date - check_in_date).days
 
-            hotel_id = self.request.data.get("hotel")
-            hotel = get_object_or_404(Hotel, id=hotel_id)
+            room_id = int(self.request.data.get("room"))
+            room = get_object_or_404(Room, id=room_id)
 
-            if hotel.capacity >= num_passengers:
-                # Decrease hotel capacity
-                hotel.capacity -= num_passengers
-                total_price_calculated = (hotel.price_per_person_daily * reservation_duration * num_passengers)
-                hotel.save()
+            if room.capacity >= num_passengers:
+                room.is_available = False
+                total_price_calculated = (room.price * reservation_duration)
+                room.save()
                 reservation = serializer.save(user=self.request.user, total_price=total_price_calculated)
                 reservation.save()
-
+            else:
+                return Response({'error':"The room selected is not enough for the number of passengers you have"}, status=status.HTTP_400_BAD_REQUEST)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -51,6 +54,9 @@ class HotelReservationListAPIView(APIView):
         serializer = HotelReservationSerializer(reservations, many=True)
         return Response(serializer.data)
 
+class HotelDetailView(generics.RetrieveAPIView):
+    queryset = Hotel.objects.all()
+    serializer_class = HotelSerializer
 
 # class RoomViewSet(viewsets.ModelViewSet):
 #     serializer_class = RoomSerializer

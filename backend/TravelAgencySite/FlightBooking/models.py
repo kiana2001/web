@@ -3,15 +3,11 @@ from django.db import models
 from django.db import models
 from django.contrib.auth.models import User
 from Users.models import User
+from HotelReservation.models import City
 
-class City(models.Model):
-    name = models.CharField(max_length=100, primary_key = True)
-    country = models.CharField(max_length=100)
-    def __str__(self):
-        return f"{self.name}:{self.country}"
 
 class Flight(models.Model):
-
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     airline = models.CharField(max_length=30)
     flight_number = models.CharField(max_length=10)
     origin = models.ForeignKey(City, on_delete=models.CASCADE, related_name='departures')
@@ -25,7 +21,7 @@ class Flight(models.Model):
     capacity = models.IntegerField()
 
     def __str__(self):
-        return f"{self.airline} {self.flight_number} - {self.origin} to {self.destination}"
+        return f"id: {self.id}, {self.airline} {self.flight_number} - {self.origin} to {self.destination}"
 
 class Passenger(models.Model):
     ssn = models.CharField(max_length=10)
@@ -37,6 +33,7 @@ class Passenger(models.Model):
 
 
 class FlightReservation(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='FlightReservations')
     flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
     is_round_trip = models.BooleanField(default=False)

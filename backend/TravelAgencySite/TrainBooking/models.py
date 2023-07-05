@@ -6,7 +6,7 @@ from Users.models import User
 from FlightBooking.models import City
 
 class Train(models.Model):
-
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     company = models.CharField(max_length=30)
     train_number = models.CharField(max_length=10)
     origin = models.ForeignKey(City, on_delete=models.CASCADE, related_name='train_departure_city')
@@ -20,7 +20,7 @@ class Train(models.Model):
     capacity = models.IntegerField()
 
     def __str__(self):
-        return f"{self.company} {self.train_number} - {self.origin} to {self.destination}"
+        return f"id: {self.id}, {self.company} {self.train_number} - {self.origin} to {self.destination}"
 
 class Passenger(models.Model):
     ssn = models.CharField(max_length=10)
@@ -32,6 +32,7 @@ class Passenger(models.Model):
 
 
 class TrainReservation(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='TrainReservations')
     train = models.ForeignKey(Train, on_delete=models.CASCADE)
     is_round_trip = models.BooleanField(default=False)

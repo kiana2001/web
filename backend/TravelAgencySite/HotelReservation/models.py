@@ -10,16 +10,14 @@ class City(models.Model):
         return f"{self.name} : {self.country}"   
 
 class Hotel(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     name = models.CharField(max_length=200)
-    phone=models.CharField(max_length=15)
-    city= models.ForeignKey(City, on_delete=models.CASCADE, related_name='location')
+    phone = models.CharField(max_length=15)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='location')
     address = models.CharField(max_length=500)
     stars = models.IntegerField()
-    price_per_person_daily = models.FloatField()
-    capacity = models.IntegerField()
-
     def __str__(self):
-        return self.name
+        return f"id: {self.id}, {self.name}"
 
 class Passenger(models.Model):
     ssn = models.CharField(max_length=10)
@@ -28,9 +26,22 @@ class Passenger(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
+class Room(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
+    room_number = models.IntegerField()
+    hotel = models.ForeignKey(Hotel,on_delete=models.CASCADE, related_name="rooms")
+    capacity = models.IntegerField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    is_available = models.BooleanField(default = True)
+
+    def __str__(self):
+        return f"id: {self.id}, {self.room_number} {self.hotel}"
+
 class HotelBooking(models.Model):
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    hotel=models.ForeignKey(Hotel,on_delete=models.CASCADE)
+    room=models.ForeignKey(Room,on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
     checkin_date=models.DateTimeField(default=datetime.now())
     checkout_date=models.DateTimeField(default=datetime.now())
     check_out=models.BooleanField(default=False)
@@ -39,4 +50,4 @@ class HotelBooking(models.Model):
     passengers = models.ManyToManyField(Passenger)
 
     def __str__(self):
-        return f"{self.user} reservation in {self.hotel}"
+        return f"{self.user} reservation in {self.room}"

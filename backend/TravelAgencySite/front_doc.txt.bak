@@ -1,0 +1,46 @@
+
+### hotel reservation sample
+### url = http://127.0.0.1:8000/hotel-reservations/create
+{
+  "room": 1,     #id
+  "hotel": 1,	  #id
+  "no_of_guests": 2,
+  "checkin_date": "2023-07-10",
+  "checkout_date": "2023-07-15",
+  "passengers": [
+    {
+      "ssn": "1234567890",
+      "first_name": "John",
+      "last_name": "Doe"
+    },
+    {
+      "ssn": "0987654321",
+      "first_name": "Jane",
+      "last_name": "Smith"
+    }
+  ]
+}
+
+### search hotel sample
+http://127.0.0.1:8000/hotels/search?city=Mashhad
+
+### get list of cities from url
+http://127.0.0.1:8000/locations/
+
+### all hotel reservation of the user url
+
+http://127.0.0.1:8000/hotel-reservations/
+
+##########
+HOTEL APP^
+############################################################
+### user register url http://127.0.0.1:8000/register/
+{
+     "email": "user3@mail.com"
+      "ssn": "0987654321",
+      "first_name": "Jane",
+      "last_name": "Smith"
+	  "phone_number": "1245544554"
+      "password": "user3"
+       "password_confirmation": "user3"
+}
