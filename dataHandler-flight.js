@@ -193,83 +193,101 @@
 
 
 const hotelContainer = document.getElementById('hotelTicketsContainer');
-const sampleData = [
-    {
-        id:1,
-        name:"tehran",
-        description: "xxxxx",
-        location: "tehran",
-        locationdestenation: "mashhad",
-        imageSrc: "./images/pexels-pascal-borener-113017.jpg",
-        numOf: 20,
-        // date: 
-        // datereverse:
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/index.html"
-    },
-    {
-        id:2,
-        name:"mashhad",
-        description: "yyyyyyy",
-        location: "mashhad",
-        imageSrc: "./images/pexels-pixabay-358220.jpg",
-        locationdestenation: "tehran",
-        numOf: 10,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/flight1.html"
-    },
-    {
-        id:3,
-        name:"shiraz",
-        description: "yyyyyyy",
-        location: "shiraz",
-        imageSrc: "./images/plane222.jpg",
-        locationdestenation: "shiraz",
-        numOf: 30,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/flight2.html"
-    },
-    {
-        id:4,
-        name:"tabriz",
-        description: "yyyyyyy",
-        location: "tabriz",
-        imageSrc: "./images/hotel4.jpg",
-        locationdestenation: "mashhad",
-        numOf: 20,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/flight1.html"
+// const sampleData = [
+//     {
+//         id:1,
+//         name:"tehran",
+//         description: "xxxxx",
+//         location: "tehran",
+//         locationdestenation: "mashhad",
+//         imageSrc: "./images/pexels-pascal-borener-113017.jpg",
+//         numOf: 20,
+//         // date: 
+//         // datereverse:
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/index.html"
+//     },
+//     {
+//         id:2,
+//         name:"mashhad",
+//         description: "yyyyyyy",
+//         location: "mashhad",
+//         imageSrc: "./images/pexels-pixabay-358220.jpg",
+//         locationdestenation: "tehran",
+//         numOf: 10,
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/flight1.html"
+//     },
+//     {
+//         id:3,
+//         name:"shiraz",
+//         description: "yyyyyyy",
+//         location: "shiraz",
+//         imageSrc: "./images/plane222.jpg",
+//         locationdestenation: "shiraz",
+//         numOf: 30,
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/flight2.html"
+//     },
+//     {
+//         id:4,
+//         name:"tabriz",
+//         description: "yyyyyyy",
+//         location: "tabriz",
+//         imageSrc: "./images/hotel4.jpg",
+//         locationdestenation: "mashhad",
+//         numOf: 20,
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/flight1.html"
 
-    },
-    {
-        id:5,
-        name:"sari",
-        description: "yyyyyyy",
-        location: "sari",
-        imageSrc: "./images/hotel3.jpg",
-        locationdestenation: "mashhad",
-        numOf: 20,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/flight1.html"
-    },
-    {
-        id:5,
-        name:"esfahan",
-        description: "yyyyyyy",
-        location: "esfahan",
-        imageSrc: "./images/hotel3.jpg",
-        locationdestenation: "mashhad",
-        numOf: 20,
-        startDate: new Date("2023-06-28"),
-        finishDate: new Date("2023-07-05"),
-        togo: "./forms/flight1.html"
+//     },
+//     {
+//         id:5,
+//         name:"sari",
+//         description: "yyyyyyy",
+//         location: "sari",
+//         imageSrc: "./images/hotel3.jpg",
+//         locationdestenation: "mashhad",
+//         numOf: 20,
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/flight1.html"
+//     },
+//     {
+//         id:5,
+//         name:"esfahan",
+//         description: "yyyyyyy",
+//         location: "esfahan",
+//         imageSrc: "./images/hotel3.jpg",
+//         locationdestenation: "mashhad",
+//         numOf: 20,
+//         startDate: new Date("2023-06-28"),
+//         finishDate: new Date("2023-07-05"),
+//         togo: "./forms/flight1.html"
+//     }
+// ];
+let sampleData = [];
+
+async function getHotels() {
+    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/";
+    try {
+        const response = await fetch(hotelUrl, {
+            method: "GET",
+        })
+   
+        const data = await response.json();
+        sampleData = data
+       
+    } catch (error) {
+        console.log(error);
     }
-];
+}
+
+getHotels();
 
 let dataToShow;
 

@@ -160,62 +160,81 @@
 
 
 const hotelContainer = document.getElementById('hotelTicketsContainer');
-const sampleData = [
-    {
-        id: 1,
-        name: "tehran",
-        description: "xxxxx",
-        location: "tehran",
-        imageSrc: "./images/hotel1.jpg",
-        numOf: 20,
-        togo: "./forms/page2.html"
-    },
-    {
-        id: 2,
-        name: "mashhad",
-        description: "yyyyyyy",
-        location: "mashhad",
-        imageSrc: "./images/hotel2.jpg",
-        numOf: 10,
-        togo: "./forms/page3.html"
-    },
-    {
-        id: 3,
-        name: "shiraz",
-        description: "yyyyyyy",
-        location: "shiraz",
-        imageSrc: "./images/hotel2.jpg",
-        numOf: 30,
-        togo: "./forms/page4.html"
-    },
-    {
-        id: 4,
-        name: "tabriz",
-        description: "yyyyyyy",
-        location: "tariz",
-        imageSrc: "./images/hotel4.jpg",
-        numOf: 20,
-        togo: "./forms/page2.html"
-    },
-    {
-        id: 5,
-        name: "sari",
-        description: "yyyyyyy",
-        location: "sari",
-        imageSrc: "./images/hotel3.jpg",
-        numOf: 20,
-        togo: "./forms/page3.html"
-    },
-    {
-        id: 5,
-        name: "esfahan",
-        description: "yyyyyyy",
-        location: "esfahan",
-        imageSrc: "./images/hotel3.jpg",
-        numOf: 20,
-        togo: "./forms/page2.html"
+// const sampleData = [
+//     {
+//         id: 1,
+//         name: "tehran",
+//         description: "xxxxx",
+//         location: "tehran",
+//         imageSrc: "./images/hotel1.jpg",
+//         numOf: 20,
+//         togo: "./forms/page2.html"
+//     },
+//     {
+//         id: 2,
+//         name: "mashhad",
+//         description: "yyyyyyy",
+//         location: "mashhad",
+//         imageSrc: "./images/hotel2.jpg",
+//         numOf: 10,
+//         togo: "./forms/page3.html"
+//     },
+//     {
+//         id: 3,
+//         name: "shiraz",
+//         description: "yyyyyyy",
+//         location: "shiraz",
+//         imageSrc: "./images/hotel2.jpg",
+//         numOf: 30,
+//         togo: "./forms/page4.html"
+//     },
+//     {
+//         id: 4,
+//         name: "tabriz",
+//         description: "yyyyyyy",
+//         location: "tariz",
+//         imageSrc: "./images/hotel4.jpg",
+//         numOf: 20,
+//         togo: "./forms/page2.html"
+//     },
+//     {
+//         id: 5,
+//         name: "sari",
+//         description: "yyyyyyy",
+//         location: "sari",
+//         imageSrc: "./images/hotel3.jpg",
+//         numOf: 20,
+//         togo: "./forms/page3.html"
+//     },
+//     {
+//         id: 5,
+//         name: "esfahan",
+//         description: "yyyyyyy",
+//         location: "esfahan",
+//         imageSrc: "./images/hotel3.jpg",
+//         numOf: 20,
+//         togo: "./forms/page2.html"
+//     }
+// ];
+let sampleData = [];
+
+async function getHotels() {
+    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/";
+    try {
+        const response = await fetch(hotelUrl, {
+            method: "GET",
+        })
+   
+        const data = await response.json();
+        sampleData = data
+       
+    } catch (error) {
+        console.log(error);
     }
-];
+}
+
+getHotels();
+console.log(sampleData); 
 
 let dataToShow;
 
