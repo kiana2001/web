@@ -316,6 +316,8 @@ const showData = (sampleData) => {
         const colDiv = document.createElement('div');
         colDiv.classList.add('col');
 
+        
+
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card222');
 
@@ -335,7 +337,16 @@ const showData = (sampleData) => {
         descriptionP.classList.add('card-text');
         descriptionP.textContent = data.description;
 
+        // const button = document.createElement('button');
         const button = document.createElement('button');
+        button.classList.add('btn', 'btn-primary');
+        button.textContent = 'more information';
+
+        // Add an event listener to the button element
+        button.addEventListener('click', () => {
+            // Handle the redirection to page2.html
+            window.location.href = './forms/page2.html';
+        });
         const buttonLink = document.createElement('a');
         buttonLink.href = data.togo;
         buttonLink.classList.add('btn', 'btn-primary');
