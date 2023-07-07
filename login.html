@@ -1,380 +1,378 @@
-
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Website</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <!-- <link rel="stylesheet" type="text/css" href="slide navbar style.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Bootstrap Link -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <!-- Bootstrap Link -->
 
-
     <!-- Font Awesome Cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
     <!-- Font Awesome Cdn -->
-
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <!-- Include Toastify CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
-<!-- Include Toastify JS -->
-<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Include Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- Google Fonts -->
     <script src="myscripts.js"></script>
-</head>
-<body>
-         
-            
-                <style>
-    
-  
-                             #message {
-                            display:none;
-                            background: #f1f1f1;
-                            color: #000;
-                            position: relative;
-                            padding: 10px;
-                           
-                            
-                            }
-            
-                            #message p {
-                            padding: 1px ;
-                            font-size: 15px;
-                            }
-                            
-                            #message h3 {
-                            padding: 1px;
-                            font-size: 20px;
-                            }
-            
-                            /* Add a green text color and a checkmark when the requirements are right */
-                            .valid {
-                            color: green;
-                            }
-            
-                            .valid:before {
-                            position: relative;
-                            left: -35px;
-                            /* content: "&#10004;"; */
-                            }
-            
-                            /* Add a red text color and an "x" icon when the requirements are wrong */
-                            .invalid {
-                            color: red;
-                            }
-            
-                            .invalid:before {
-                            position: relative;
-                            left: -35px;
-                            /* content: "&#10006;"; */
-                             }
-                         </style>
-        
+  </head>
+  <body>
+    <style>
+      #message {
+        display: none;
+        background: #f1f1f1;
+        color: #000;
+        position: relative;
+        padding: 10px;
+      }
 
-                       
-<!-- 
-<div class='body'>
-  <div class="login-container" id="login-container">    
-        <div class="form-container sign-up-container">
+      #message p {
+        padding: 1px;
+        font-size: 15px;
+      }
 
+      #message h3 {
+        padding: 1px;
+        font-size: 20px;
+      }
 
-          <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
-              <h1>Create Account</h1>
-              <input type="text" placeholder="Name" name="fname" />
-          <input type="phone" placeholder="Phone Number"  name="pname" />
-          <input type="email" placeholder="Email" name="ename" />
-          <label for="psw">Password</label>
-          <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      /* Add a green text color and a checkmark when the requirements are right */
+      .valid {
+        color: green;
+      }
 
-          <button type = "submit" onclick="matchPassword()">Sign Up</button>
-             <div id="message">
-<h3>Password must contain the following:</h3>
-<p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-<p id="number" class="invalid">A <b>number</b></p>
-<p id="length" class="invalid">Minimum <b>8 characters</b></p>
-</div>
-      </form>
+      .valid:before {
+        position: relative;
+        left: -35px;
+        /* content: "&#10004;"; */
+      }
+
+      /* Add a red text color and an "x" icon when the requirements are wrong */
+      .invalid {
+        color: red;
+      }
+
+      .invalid:before {
+        position: relative;
+        left: -35px;
+        /* content: "&#10006;"; */
+      }
+    </style>
+
    
-  </div>
-        <div class="form-container sign-in-container">
-          <form action="#">
-              <h1 data-lang="en">Sign in</h1>
-              <h1 data-lang="ar" style="display: none;">تسجيل الدخول</h1>
-              <div class="social-container">
-                  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-              <span data-lang="en">or use your account</span>
-              <span data-lang="ar" style="display: none;">أو استخدم حسابك</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <a href="#" data-lang="en">Forgot your password?</a>
-              <a href="#" data-lang="ar" style="display: none;">هل نسيت كلمة المرور؟</a>
-              <button data-lang="en">Sign In</button>
-              <button data-lang="ar" style="display: none;">تسجيل الدخول</button>
-          </form>
-      </div>
-      <div class="overlay-container">
-          <div class="overlay">
-              <div class="overlay-panel overlay-left">
-                  <h1 data-lang="en">Welcome Back!</h1>
-                  <h1 data-lang="ar" style="display: none;">مرحبًا بك مجدداً!</h1>
-                  <p data-lang="en">To keep connected with us please login with your personal info</p>
-                  <p data-lang="ar" style="display: none;">للبقاء على اتصال معنا، يرجى تسجيل الدخول باستخدام معلوماتك الشخصية</p>
-                  <button class="ghost" id="signIn" data-lang="en">Sign In</button>
-                  <button class="ghost" id="signIn" data-lang="ar" style="display: none;">تسجيل الدخول</button>
-              </div>
-              <div class="overlay-panel overlay-right">
-                  <h1 data-lang="en">Hello, Friend!</h1>
-                  <h1 data-lang="ar" style="display: none;">مرحبًا، صديقي!</h1>
-                  <p data-lang="en">Enter your personal details and start your journey with us</p>
-                  <p data-lang="ar" style="display: none;">اطلاعات شخصی خود را وارد کنید و مسیر را با ما اغاز کنید</p>
-                  <button class="ghost" id="signUp" data-lang="en">Sign Up</button>
-                  <button class="ghost" id="signUp" data-lang="ar" style="display: none;">انضم إلينا</button>
-              </div>
-          </div>
-      </div>
-
-
-    </div>
-    </div>
-    <script>
-  function changeLanguage(selectedLang) {
-        const elements = document.querySelectorAll('[data-lang]');
-        elements.forEach((element) => {
-            const lang = element.getAttribute('data-lang');
-            if (lang === selectedLang) {
-                element.style.display = 'block';
-            } else {
-                element.style.display = 'none';
-            }
-        });
-
-        attachEventListeners();
-    }
-
-    function attachEventListeners() {
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('login-container');
-
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-    }
-
-    const langSelect = document.createElement('select');
-    langSelect.innerHTML = `
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-    `;
-    document.body.insertBefore(langSelect, document.body.firstChild);
-
-    langSelect.addEventListener('change', () => {
-        const selectedLang = langSelect.value;
-        changeLanguage(selectedLang);
-    });
-
-    // Set the initial language
-    changeLanguage('en');
-        </script>
-     -->
-     <div class='body'>
+    <div class="body">
       <div class="login-container" id="login-container">
         <div class="form-container sign-up-container">
-          <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+          <form
+            name="myForm"
+            action="/action_page.php"
+            onsubmit="return validateForm()"
+            method="post"
+            required
+          >
             <h1 data-lang="en">Create Account</h1>
-            <h1 data-lang="ar" style="display: none;">ایجاد حساب</h1>
+            <h1 data-lang="ar" style="display: none">ایجاد حساب</h1>
             <input type="text" placeholder="Name" name="fname" />
             <input type="phone" placeholder="Phone Number" name="pname" />
             <input type="email" placeholder="Email" name="ename" />
             <label for="psw" data-lang="en">Password</label>
-            <label for="psw" data-lang="ar" style="display: none;">پسورد</label>
-            <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <label for="psw" data-lang="ar" style="display: none">پسورد</label>
+            <input
+              type="password"
+              id="psw"
+              name="psw"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+            />
             <label for="psw2" data-lang="en">Confirm Password</label>
-            <label for="psw2" data-lang="ar" style="display: none;">تأیید پسورد</label>
-            <input type="password" id="psw2" name="psw2" required>
+            <label for="psw2" data-lang="ar" style="display: none"
+              >تأیید پسورد</label
+            >
+            <input type="password" id="psw2" name="psw2" required />
             <!-- <button type="submit" onclick="matchPasswords()" data-lang="en">Sign Up</button> -->
-            <button type="submit" onclick="return matchPasswords()" data-lang="en">Sign Up</button>
+            <button
+              type="submit"
+              onclick="matchPasswords()"
+              data-lang="en"
+              id="signUp-button"
+            >
+              Sign Up
+            </button>
 
-            <button type="submit" onclick="matchPasswords()" data-lang="ar" style="display: none;">ایجاد حساب</button>
+            <button
+              type="submit"
+              onclick="matchPasswords()"
+              data-lang="ar"
+              style="display: none"
+              id="signUp-button"
+            >
+              ایجاد حساب
+            </button>
             <div id="message">
               <h3 data-lang="en">Password must contain the following:</h3>
-              <h3 data-lang="ar" style="display: none;">پسورد باید شامل موارد زیر باشد:</h3>
-              <p id="letter" class="invalid" data-lang="en">A <b>lowercase</b> letter</p>
-              <p id="letter" class="invalid" data-lang="ar" style="display: none;">حرف <b>کوچک</b></p>
-              <p id="capital" class="invalid" data-lang="en">A <b>capital (uppercase)</b> letter</p>
-              <p id="capital" class="invalid" data-lang="ar" style="display: none;">حرف <b>بزرگ</b></p>
+              <h3 data-lang="ar" style="display: none">
+                پسورد باید شامل موارد زیر باشد:
+              </h3>
+              <p id="letter" class="invalid" data-lang="en">
+                A <b>lowercase</b> letter
+              </p>
+              <p
+                id="letter"
+                class="invalid"
+                data-lang="ar"
+                style="display: none"
+              >
+                حرف <b>کوچک</b>
+              </p>
+              <p id="capital" class="invalid" data-lang="en">
+                A <b>capital (uppercase)</b> letter
+              </p>
+              <p
+                id="capital"
+                class="invalid"
+                data-lang="ar"
+                style="display: none"
+              >
+                حرف <b>بزرگ</b>
+              </p>
               <p id="number" class="invalid" data-lang="en">A <b>number</b></p>
-              <p id="number" class="invalid" data-lang="ar" style="display: none;">رقم</p>
-              <p id="length" class="invalid" data-lang="en">Minimum <b>8 characters</b></p>
-              <p id="length" class="invalid" data-lang="ar" style="display: none;">حداقل 8 حرف</p>
-              <p id="match" class="invalid" data-lang="en">Passwords do not match</p>
-              <p id="match" class="invalid" data-lang="ar" style="display: none;">پسورد‌ها یکسان نیستند</p>
+              <p
+                id="number"
+                class="invalid"
+                data-lang="ar"
+                style="display: none"
+              >
+                رقم
+              </p>
+              <p id="length" class="invalid" data-lang="en">
+                Minimum <b>8 characters</b>
+              </p>
+              <p
+                id="length"
+                class="invalid"
+                data-lang="ar"
+                style="display: none"
+              >
+                حداقل 8 حرف
+              </p>
+              <p id="match" class="invalid" data-lang="en">
+                Passwords do not match
+              </p>
+              <p
+                id="match"
+                class="invalid"
+                data-lang="ar"
+                style="display: none"
+              >
+                پسورد‌ها یکسان نیستند
+              </p>
             </div>
           </form>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form id="signIn-form">
             <h1 data-lang="en">Sign in</h1>
-            <h1 data-lang="ar" style="display: none;"> ورود </h1>
+            <h1 data-lang="ar" style="display: none">ورود</h1>
             <div class="social-container">
               <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+              <a href="#" class="social"
+                ><i class="fab fa-google-plus-g"></i
+              ></a>
               <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span data-lang="en">or use your account</span>
-            <span data-lang="ar" style="display: none;">یا از حساب استفاده کنید</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" data-lang="en" placeholder="Password" />
+            <span data-lang="ar" style="display: none"
+              >یا از حساب استفاده کنید</span
+            >
+            <input type="email" placeholder="Email" id="signIn-email" />
+            <input
+              type="password"
+              data-lang="en"
+              placeholder="Password"
+              id="signIn-password"
+            />
             <input type="password" data-lang="ar" placeholder="پسوورد" />
 
             <a href="#" data-lang="en">Forgot your password?</a>
-            <a href="#" data-lang="ar" style="display: none;">فراموشی پسوورد؟</a>
+            <a href="#" data-lang="ar" style="display: none">فراموشی پسوورد؟</a>
             <button data-lang="en">Sign In</button>
-            <button data-lang="ar" style="display: none;">ورود</button>
+            <button data-lang="ar" style="display: none">ورود</button>
           </form>
         </div>
         <div class="overlay-container">
           <div class="overlay">
             <div class="overlay-panel overlay-left">
               <h1 data-lang="en">Welcome Back!</h1>
-              <h1 data-lang="ar" style="display: none;">خوش آمدید</h1>
-              <p data-lang="en">To keep connected with us, please login with your personal info</p>
-              <p data-lang="ar" style="display: none;">برای ارتباط با ما لطفا به حساب شخصی خود وارد شوید </p>
+              <h1 data-lang="ar" style="display: none">خوش آمدید</h1>
+              <p data-lang="en">
+                To keep connected with us, please login with your personal info
+              </p>
+              <p data-lang="ar" style="display: none">
+                برای ارتباط با ما لطفا به حساب شخصی خود وارد شوید
+              </p>
               <button class="ghost" id="signIn" data-lang="en">Sign In</button>
-              <button class="ghost" id="signIn" data-lang="ar" style="display: none;">ورود</button>
+              <button
+                class="ghost"
+                id="signIn"
+                data-lang="ar"
+                style="display: none"
+              >
+                ورود
+              </button>
             </div>
             <div class="overlay-panel overlay-right">
               <h1 data-lang="en">Hello, Friend!</h1>
-              <h1 data-lang="ar" style="display: none;">سلام دوست عزیز</h1>
-              <p data-lang="en">Enter your personal details and start your journey with us</p>
-              <p data-lang="ar" style="display: none;">اطلاعات شحصی خود را وارد کنید و مسیر را اغاز کنید/  </p>
+              <h1 data-lang="ar" style="display: none">سلام دوست عزیز</h1>
+              <p data-lang="en">
+                Enter your personal details and start your journey with us
+              </p>
+              <p data-lang="ar" style="display: none">
+                اطلاعات شحصی خود را وارد کنید و مسیر را اغاز کنید/
+              </p>
               <button class="ghost" id="signUp" data-lang="en">Sign Up</button>
-              <button class="ghost" id="signUp" data-lang="ar" style="display: none;">ایجاد حساب</button>
+              <button
+                class="ghost"
+                id="signUp"
+                data-lang="ar"
+                style="display: none"
+              >
+                ایجاد حساب
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script>// Function to compare passwords and show toast notification
+    <script>
+      // Function to compare passwords and show toast notification
       function matchPasswords() {
-        var password1 = document.getElementById("psw").value;
-        var password2 = document.getElementById("psw2").value;
-      
+        var password1 = document.getElementById('psw').value;
+        var password2 = document.getElementById('psw2').value;
+
         if (password1 !== password2) {
           Toastify({
-            text: "Passwords do not match",
+            text: 'Passwords do not match',
             duration: 3000, // Display duration in milliseconds
-            gravity: "top", // Display position (top, bottom, left, right)
-            backgroundColor: "red", // Background color for the toast
+            gravity: 'top', // Display position (top, bottom, left, right)
+            backgroundColor: 'red', // Background color for the toast
             stopOnFocus: true, // Stop hiding the toast on focus
           }).showToast();
-      
+
           return false;
         }
-      
+
         // Passwords match
         return true;
       }
-      
 
-      
-var myInput = document.getElementById("psw");
-                var letter = document.getElementById("letter");
-                var capital = document.getElementById("capital");
-                var number = document.getElementById("number");
-                var length = document.getElementById("length");
-            
-                                    function validateForm() {
-                                      var x = document.forms["myForm"]["fname"].value;
-                                      var y = document.forms["myForm"]["pname"].value;
-                                      var z = document.forms["myForm"]["ename"].value;
-                                      if (x == "" || x == null) {
-                                        alert("Name must be filled out");
-                                        return false;
-                                      }
-                                      if (y == "" || y == null) {
-                                        alert("PhoneNumber must be filled out");
-                                        return false;
-                                      }
-                                      if (x == "" || x == null) {
-                                        alert("Email must be filled out");
-                                        return false;
-                                      }
-                                    }
-                                   
-                // When the user clicks on the password field, show the message box
-                myInput.onfocus = function() {
-                  document.getElementById("message").style.display = "block";
-                }
-                
-                // When the user clicks outside of the password field, hide the message box
-                myInput.onblur = function() {
-                  document.getElementById("message").style.display = "none";
-                }
-                
-                // When the user starts to type something inside the password field
-                myInput.onkeyup = function() {
-                  // Validate lowercase letters
-                  var lowerCaseLetters = /[a-z]/g;
-                  if(myInput.value.match(lowerCaseLetters)) {
-                    letter.classList.remove("invalid");
-                    letter.classList.add("valid");
-                  } else {
-                    letter.classList.remove("valid");
-                    letter.classList.add("invalid");
-                }
-                
-                  // Validate capital letters
-                  var upperCaseLetters = /[A-Z]/g;
-                  if(myInput.value.match(upperCaseLetters)) {
-                    capital.classList.remove("invalid");
-                    capital.classList.add("valid");
-                  } else {
-                    capital.classList.remove("valid");
-                    capital.classList.add("invalid");
-                  }
-                
-                  // Validate numbers
-                  var numbers = /[0-9]/g;
-                  if(myInput.value.match(numbers)) {
-                    number.classList.remove("invalid");
-                    number.classList.add("valid");
-                  } else {
-                    number.classList.remove("valid");
-                    number.classList.add("invalid");
-                  }
-                
-                  // Validate length
-                  if(myInput.value.length >= 8) {
-                    length.classList.remove("invalid");
-                    length.classList.add("valid");
-                  } else {
-                    length.classList.remove("valid");
-                    length.classList.add("invalid");
-                  }
-                }
+      var myInput = document.getElementById('psw');
+      var letter = document.getElementById('letter');
+      var capital = document.getElementById('capital');
+      var number = document.getElementById('number');
+      var length = document.getElementById('length');
+
+      function validateForm() {
+        var x = document.forms['myForm']['fname'].value;
+        var y = document.forms['myForm']['pname'].value;
+        var z = document.forms['myForm']['ename'].value;
+        if (x == '' || x == null) {
+          alert('Name must be filled out');
+          return false;
+        }
+        if (y == '' || y == null) {
+          alert('PhoneNumber must be filled out');
+          return false;
+        }
+        if (x == '' || x == null) {
+          alert('Email must be filled out');
+          return false;
+        }
+      }
+
+      // When the user clicks on the password field, show the message box
+      myInput.onfocus = function () {
+        document.getElementById('message').style.display = 'block';
+      };
+
+      // When the user clicks outside of the password field, hide the message box
+      myInput.onblur = function () {
+        document.getElementById('message').style.display = 'none';
+      };
+
+      // When the user starts to type something inside the password field
+      myInput.onkeyup = function () {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if (myInput.value.match(lowerCaseLetters)) {
+          letter.classList.remove('invalid');
+          letter.classList.add('valid');
+        } else {
+          letter.classList.remove('valid');
+          letter.classList.add('invalid');
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+          capital.classList.remove('invalid');
+          capital.classList.add('valid');
+        } else {
+          capital.classList.remove('valid');
+          capital.classList.add('invalid');
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+          number.classList.remove('invalid');
+          number.classList.add('valid');
+        } else {
+          number.classList.remove('valid');
+          number.classList.add('invalid');
+        }
+
+        // Validate length
+        if (myInput.value.length >= 8) {
+          length.classList.remove('invalid');
+          length.classList.add('valid');
+        } else {
+          length.classList.remove('valid');
+          length.classList.add('invalid');
+        }
+      };
       function changeLanguage(selectedLang) {
         const elements = document.querySelectorAll('[data-lang]');
         elements.forEach((element) => {
@@ -385,40 +383,104 @@ var myInput = document.getElementById("psw");
             element.style.display = 'none';
           }
         });
-    
+
         attachEventListeners();
       }
-    
+
       function attachEventListeners() {
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('login-container');
-    
+
         signUpButton.addEventListener('click', () => {
-          container.classList.add("right-panel-active");
+          container.classList.add('right-panel-active');
         });
-    
+
         signInButton.addEventListener('click', () => {
-          container.classList.remove("right-panel-active");
+          container.classList.remove('right-panel-active');
         });
       }
-    
+
       const langSelect = document.createElement('select');
       langSelect.innerHTML = `
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-      `;
+			     <option value="en">English</option>
+			     <option value="ar">العربية</option>
+			   `;
       document.body.insertBefore(langSelect, document.body.firstChild);
-    
+
       langSelect.addEventListener('change', () => {
         const selectedLang = langSelect.value;
         changeLanguage(selectedLang);
       });
-    
+
       // Set the initial language
       changeLanguage('en');
-    </script>
-    
 
-</body>
+      function createCookie(name, value, days) {
+        var expires;
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = '; expires=' + date.toGMTString();
+        } else {
+          expires = '';
+        }
+        document.cookie = name + '=' + value + expires + '; path=/';
+      }
+
+      function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+          c_start = document.cookie.indexOf(c_name + '=');
+          if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(';', c_start);
+            if (c_end == -1) {
+              c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+          }
+        }
+        return '';
+      }
+
+      const form = document.getElementById('signIn-form');
+
+      async function login(event) {
+        event.preventDefault();
+        const email = document.getElementById('signIn-email').value;
+        const password = document.getElementById('signIn-password').value;
+
+        const data = {
+          email: email,
+          password: password
+        };
+
+        try {
+          const response = await fetch(
+            'http://kioriatravel.pythonanywhere.com/login/',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
+          const userInfo = await response.json();
+
+          for (const key in userInfo) {
+			createCookie(key, userInfo[key], 1);
+          }
+
+		  window.location.href = './index.html'
+
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      form.addEventListener('submit', login);
+    </script>
+  </body>
 </html>
