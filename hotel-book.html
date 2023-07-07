@@ -102,14 +102,31 @@
             <li><a class="dropdown-item" href="#">7</a></li>
             <li><a class="dropdown-item" href="#">8</a></li>
           </ul> -->
-          <select class="form-select" aria-label="Default select example">
+          <select id="citySelect" class="form-select" aria-label="Default select example">
             <option selected>choose your city</option>
             <option value="tehran">tehran</option>
             <option value="mashhad">mashhad</option>
             <option value="tabriz">tabriz</option>
             <option value="esfahan">esfahan</option>
-           
           </select>
+          
+          <script>
+            // Access the select element using its ID
+            const selectElement = document.getElementById('citySelect');
+          
+            // Create a new option element
+            const newOption = document.createElement('option');
+            
+            // Set the text content for the new option
+            newOption.textContent = 'new city';
+            
+            // Set the value attribute for the new option
+            newOption.value = 'new_city';
+            
+            // Append the new option to the select element
+            selectElement.appendChild(newOption);
+          </script>
+          
         </div>
 <!-- 
     <div class="btn-group">
