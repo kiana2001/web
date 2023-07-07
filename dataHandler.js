@@ -250,6 +250,7 @@ getCities();
 const showHotelsButton = document.getElementById("show-hotel-button");
 
 let sampleData = [];
+
 async function getHotels() {
     const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/search?";
     try {
@@ -268,6 +269,7 @@ async function getHotels() {
     } catch (error) {
         console.log(error);
     }
+    showData();
 }
 
 showHotelsButton.addEventListener("click", getHotels);
@@ -290,7 +292,7 @@ const handleChange = (event) => {
     }
     dataToShow = newData;
 
-    showData();
+    showData(sampleData);
 };
 
 
@@ -304,7 +306,7 @@ function filterByNumOfPeople(data, condition) {
     }
 }
 
-const showData = () => {
+const showData = (sampleData) => {
     if (!dataToShow) {
         dataToShow = sampleData;
     }
@@ -354,4 +356,4 @@ const showData = () => {
     });
 }
 
-showData();
+
