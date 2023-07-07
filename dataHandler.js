@@ -217,6 +217,22 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 //     }
 // ];
 let sampleData = [];
+async function getCities() {
+    const cityUrl = "http://kioriatravel.pythonanywhere.com/locations";
+    try {
+        const response = await fetch(cityUrl, {
+            method: "GET",
+        })
+   
+        const cities = await response.json();
+        console.log(cities);
+       
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+getCities();
 
 async function getHotels() {
     const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/";
