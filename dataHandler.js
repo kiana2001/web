@@ -218,27 +218,25 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 // ];
 
 
-async function getHotelIDs() {
-    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/search?";
-    try {
-      const response = await fetch(
-        hotelUrl + new URLSearchParams({ city: selectElement.value }),
-        {
-          method: "GET",
-        }
-      );
+// async function getHotelIDs() {
+//     const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/search?";
+//     try {
+//       const response = await fetch(
+//         hotelUrl + new URLSearchParams({ city: selectElement.value }),
+//         {
+//           method: "GET",
+//         }
+//       );
   
-      const data = await response.json();
-      const hotelIDs = data.map((hotel) => hotel.id);
-      return hotelIDs;
-    } catch (error) {
-      console.log(error);
-      return [];
-    }
-  }
+//       const data = await response.json();
+//       const hotelIDs = data.map((hotel) => hotel.id);
+//       return hotelIDs;
+//     } catch (error) {
+//       console.log(error);
+//       return [];
+//     }
+//   }
  
-  
-
 const selectElement = document.getElementById('citySelect');
 
 function showSities(cities) {
@@ -287,7 +285,7 @@ async function getHotels() {
         })
    
         const data = await response.json();
-        sampleData = data
+        sampleData = data;
         showData(sampleData);
        
     } catch (error) {
@@ -340,8 +338,6 @@ const showData = (sampleData) => {
         const colDiv = document.createElement('div');
         colDiv.classList.add('col');
 
-        
-
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('card222');
 
@@ -369,13 +365,13 @@ const showData = (sampleData) => {
         // Add an event listener to the button element
         button.addEventListener('click', () => {
             // Handle the redirection to page2.html
-            window.location.href = './forms/page2.html';
+            window.location.href = './forms/page' + data.id +'.html';
         });
-        const buttonLink = document.createElement('a');
-        buttonLink.href = data.togo;
-        buttonLink.classList.add('btn', 'btn-primary');
+        // const buttonLink = document.createElement('a');
+        // buttonLink.href = data.togo;
+        // buttonLink.classList.add('btn', 'btn-primary');
       
-        button.appendChild(buttonLink);
+        // button.appendChild(buttonLink);
 
         cardBodyDiv.appendChild(titleH5);
         cardBodyDiv.appendChild(descriptionP);

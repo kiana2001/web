@@ -271,7 +271,12 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 //     }
 // ];
 
-const selectElement = document.getElementById('citySelect');
+const selectElementStart = document.getElementById('flightStartCitySelect');
+const selectElementEnd = document.getElementById('flightEndCitySelect');
+const startDate = document.getElementById("startDate");
+const num_passangers = document.getElementById("flightPassangers");
+const is_two_way_travel = document.getElementById("twoWayCheckbox");
+const returnDate = document.getElementById("returnDate");
 
 function showSities(cities) {
 
@@ -279,8 +284,15 @@ function showSities(cities) {
         const newOption = document.createElement('option');
         newOption.textContent = city.name;
         newOption.value = city.name;
-        selectElement.appendChild(newOption);
+        selectElementStart.appendChild(newOption);
     }
+
+    for (const city of cities) {
+      const newOption = document.createElement('option');
+      newOption.textContent = city.name;
+      newOption.value = city.name;
+      selectElementEnd.appendChild(newOption);
+  }
 
 }
 
@@ -300,26 +312,47 @@ async function getCities() {
 }
 
 getCities();
-const showHotelsButton = document.getElementById("show-hotel-button");
+const showFlightsButton = document.getElementById("show-flight-button");
 
 let sampleData = [];
 
-async function getHotels() {
-    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/";
+async function getFlights() {
+    const hotelUrl = "http://kioriatravel.pythonanywhere.com/flights/search?";
+    
+    let URLParams = {};
+    if (is_two_way_travel.checked) {
+      URLParams = new URLSearchParams({
+        departure_city: selectElementStart.value,
+        arrival_city: selectElementEnd.value,
+        departure_date: startDate.value,
+        num_passengers: num_passangers.value,
+        is_round_trip: true,
+        return_date: returnDate.value
+      })
+    } else {
+      URLParams = new URLSearchParams({
+        departure_city: selectElementStart.value,
+        arrival_city: selectElementEnd.value,
+        departure_date: startDate.value,
+        num_passengers: num_passangers.value,
+      })
+    }
     try {
-        const response = await fetch(hotelUrl, {
+        const response = await fetch(hotelUrl + URLParams, {
             method: "GET",
         })
    
         const data = await response.json();
         sampleData = data
+        console.log(data);
+        showData(sampleData);
        
     } catch (error) {
         console.log(error);
     }
 }
 
-getHotels();
+showFlightsButton.addEventListener("click", getFlights)
 
 let dataToShow;
 
@@ -361,7 +394,7 @@ console.log('Below 20:', filteredDataBelow20);
 const filteredDataMoreThan20 = filterByNumOfPeople(sampleData, 'more');
 console.log('More than 20:', filteredDataMoreThan20);
 
-const showData = () => {
+const showData = (sampleData) => {
     if (!dataToShow) {
         dataToShow = sampleData;
     }

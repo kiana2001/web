@@ -30,50 +30,85 @@
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg" id="navbar">
-      <label for="language">Choose a language:</label> 
+      <label for="language" data-lang="en">Choose a language:</label>
+      <label for="language" data-lang="ar" style="display: none;"> زبان:</label>
       <select name="language" id="language" onchange="changeLanguage()">
-        <option value="en">English</option>
-        <option value="ar">persian</option>
+        <option value="en" data-lang="en">English</option>
+        <option value="ar" data-lang="ar">persian</option>
       </select>
       <div class="container">
-        <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <a class="navbar-brand" href="index.html" id="logo">
+          <span data-lang="en">Travel</span>
+          <span data-lang="ar" style="display: none;">مسافرت</span>
+          
+        </a>
+
+        <script>
+          function changeLanguage() {
+  var languageSelect = document.getElementById("language");
+  var selectedLanguage = languageSelect.value;
+
+  var logoEnglish = document.querySelector("#logo [data-lang='en']");
+  var logoArabic = document.querySelector("#logo [data-lang='ar']");
+
+  if (selectedLanguage === "en") {
+    logoEnglish.style.display = "inline";
+    logoArabic.style.display = "none";
+  } else if (selectedLanguage === "ar") {
+    logoEnglish.style.display = "none";
+    logoArabic.style.display = "inline";
+  }
+}
+
+        </script>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
           <span><i class="fa-solid fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="index.html" id="homeLink">home</a>
+              <a class="nav-link active" href="index.html" id="homeLink" data-lang="en">home</a>
+              <a class="nav-link active" href="index.html" id="homeLink" data-lang="ar" style="display: none;"> خانه</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./book.html" id="bookLink">book </a>
+              <a class="nav-link" href="#" id="bookLink" data-lang="en">book </a>
+              <a class="nav-link" href="#" id="bookLink" data-lang="ar" style="display: none;">رزرو</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./flight.html" id="flightLink">flight reservation  </a>
+              <a class="nav-link" href="./flight.html" id="flightLink" data-lang="en">flight reservation  </a>
+              <a class="nav-link" href="./flight.html" id="flightLink" data-lang="ar" style="display: none;">پروزاز  </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#services" id="servicesLink">services</a>
+              <a class="nav-link" href="#services" id="servicesLink" data-lang="en">services</a>
+              <a class="nav-link" href="#services" id="servicesLink" data-lang="ar" style="display: none;">الخدمات</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./train.html" id="trainLink"> train </a>
+              <a class="nav-link" href="./train.html" id="trainLink" data-lang="en"> train </a>
+              <a class="nav-link" href="./train.html" id="trainLink" data-lang="ar" style="display: none;">قطار</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./personal.html" id="aboutLink"> personal  </a>
+              <a class="nav-link" href="./personal.html" id="aboutLink" data-lang="en"> personal  </a>
+              <a class="nav-link" href="./personal.html" id="aboutLink" data-lang="ar" style="display: none;">شخصی</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./login.html" id="loginLink">login</a>
+              <a class="nav-link" href="./login.html" id="loginLink" data-lang="en">login</a>
+              <a class="nav-link" href="./login.html" id="loginLink" data-lang="ar" style="display: none;"> ورود</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="hotel-book.html" id="hotelLink">hotel  </a>
+              <a class="nav-link active" href="hotel-book.html" id="hotelLink" data-lang="en">hotel  </a>
+              <a class="nav-link active" href="hotel-book.html" id="hotelLink" data-lang="ar" style="display: none;">هتل</a>
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="text" placeholder="search">
-            <button class="btn btn-primary" type="button">search</button>
+            <input class="form-control me-2" type="text" placeholder="search" data-lang="en">
+            <input class="form-control me-2" type="text" placeholder="جست و جو" data-lang="ar" style="display: none;">
+            <button class="btn btn-primary" type="button" data-lang="en">search</button>
+            <button class="btn btn-primary" type="button" data-lang="ar" style="display: none;">جست و جو</button>
           </form>
         </div>
       </div>
     </nav>
+    
     
     <!-- Navbar End -->
     <script>
@@ -165,44 +200,114 @@
 
 
     <!-- Section Packages Start -->
+    
     <section class="packages" id="packages">
       <div class="container">
         
         <div class="main-txt">
-          <h1><span>P</span>ackages</h1>
-          <h1 data-lang="ar" style="display: none;"><span>بسته ها</span></h1>
-
+          <h1><span data-lang="en">Packages</span></h1>
+          <h1 style="display: none;" data-lang="ar"><span data-lang-ar="بسته ها"></span></h1>
         </div>
 
         <div class="row" style="margin-top: 30px;">
 
-          <div class="col-md-4 py-3 py-md-0">
+         <!-- <div class="col-md-4 py-3 py-md-0">
+  <div class="card">
+    <img src="./images/uk.png" alt="">
+    <div class="card-body">
+      <h3 data-lang="en">United Kingdom</h3>
+      <h3 style="display: none;" data-lang="ar" data-lang-ar="المملكة المتحدة"></h3>
+      <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+      <p style="display: none;" data-lang="ar" data-lang-ar="لوريم إيبسوم دولور سيت أميت"></p>
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star "></i>
+        <i class="fa-solid fa-star "></i>
+      </div>
+      <h6 data-lang="en">Price: <strong>$500</strong></h6>
+      <h6 style="display: none;" data-lang="ar" data-lang-ar="السعر: <strong>$500</strong>"></h6>
+      <a href="#book" data-lang="en">Book Now</a>
+      <a href="#book" style="display: none;" data-lang="ar" data-lang-ar="احجز الآن"></a>
+    </div>
+  </div>
+</div> --> <div class="col-md-4 py-3 py-md-0">
 
-            <div class="card">
-              <img src="./images/uk.png" alt="">
-              <div class="card-body">
-                <h3>United Kingdom</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Price: <strong>$500</strong></h6>
-                <a href="#book">Book Now</a>
-              </div>
-            </div>
+  <div class="card">
+    <img src="./images/france.png" alt="">
+    <div class="card-body">
+      <h3 data-lang="en">France</h3>
+      <h3 data-lang="ar" style="display: none;">فرانسه</h3>
+      <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+      <p data-lang="ar" style="display: none;">کشور قشنگی است </p>
+      <div class="star">
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star checked"></i>
+        <i class="fa-solid fa-star "></i>
+        <i class="fa-solid fa-star "></i>
+      </div>
+      <h6 data-lang="en">Price: <strong>$500</strong></h6>
+      <h6 data-lang="ar" style="display: none;">قیمت: <strong>$500</strong></h6>
+      <a href="#book" data-lang="en">Book Now</a>
+      <a href="#book" data-lang="ar" style="display: none;"> رزرو کنید</a>
+    </div>
+  </div>
+<script>
+  function changeLanguage() {
+  var languageSelect = document.getElementById("language");
+  var selectedLanguage = languageSelect.value;
 
-          </div>
+  var cards = document.getElementsByClassName("card");
+
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var titleEnglish = card.querySelector("h3[data-lang='en']");
+    var titleArabic = card.querySelector("h3[data-lang='ar']");
+    var contentEnglish = card.querySelector("p[data-lang='en']");
+    var contentArabic = card.querySelector("p[data-lang='ar']");
+    var priceEnglish = card.querySelector("h6[data-lang='en']");
+    var priceArabic = card.querySelector("h6[data-lang='ar']");
+    var bookLinkEnglish = card.querySelector("a[data-lang='en']");
+    var bookLinkArabic = card.querySelector("a[data-lang='ar']");
+
+    if (selectedLanguage === "en") {
+      titleEnglish.style.display = "block";
+      titleArabic.style.display = "none";
+      contentEnglish.style.display = "block";
+      contentArabic.style.display = "none";
+      priceEnglish.style.display = "block";
+      priceArabic.style.display = "none";
+      bookLinkEnglish.style.display = "block";
+      bookLinkArabic.style.display = "none";
+    } else if (selectedLanguage === "ar") {
+      titleEnglish.style.display = "none";
+      titleArabic.style.display = "block";
+      contentEnglish.style.display = "none";
+      contentArabic.style.display = "block";
+      priceEnglish.style.display = "none";
+      priceArabic.style.display = "block";
+      bookLinkEnglish.style.display = "none";
+      bookLinkArabic.style.display = "block";
+    }
+  }
+}
+
+</script>  
+
+</div>
+
+
           <div class="col-md-4 py-3 py-md-0">
 
             <div class="card">
               <img src="./images/france.png" alt="">
               <div class="card-body">
-                <h3>France</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <h3 data-lang="en">France</h3>
+                <h3 data-lang="ar" style="display: none;">فرانسه</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, doloribus!</p>
+                <p data-lang="ar" style="display: none;">کشور قشنگی است </p>
                 <div class="star">
                   <i class="fa-solid fa-star checked"></i>
                   <i class="fa-solid fa-star checked"></i>
@@ -210,8 +315,10 @@
                   <i class="fa-solid fa-star "></i>
                   <i class="fa-solid fa-star "></i>
                 </div>
-                <h6>Price: <strong>$500</strong></h6>
-                <a href="#book">Book Now</a>
+                <h6 data-lang="en">Price: <strong>$500</strong></h6>
+                <h6 data-lang="ar" style="display: none;">قیمت: <strong>$500</strong></h6>
+                <a href="#book" data-lang="en">Book Now</a>
+                <a href="#book" data-lang="ar" style="display: none;"> رزرو کنید</a>
               </div>
             </div>
 
@@ -313,6 +420,24 @@
 
       </div>
     </section>
+
+    <script>
+      function changeLanguage() {
+        const languageSelect = document.getElementById('language');
+        const placeholders = document.querySelectorAll('[data-lang]');
+    
+        const selectedLanguage = languageSelect.value;
+    
+        placeholders.forEach(placeholder => {
+          const langKey = placeholder.dataset.lang;
+          const langValue = placeholder.dataset[`lang-${selectedLanguage}`];
+          placeholder.textContent = (selectedLanguage === 'en' || !langValue) ? langKey : langValue;
+          document.documentElement.lang = selectedLanguage;
+          document.documentElement.dir = (selectedLanguage === 'ar') ? 'rtl' : 'ltr';
+        });
+      }
+    </script>
+  
     <!-- Section Packages End -->
 
 
@@ -326,35 +451,36 @@
       <div class="container">
 
         <div class="main-txt">
-          <h1><span>S</span>ervices</h1>
-          <h1 data-lang="ar" style="display: none;"><span>خدمات</span></h1>
-
+          <h1 data-lang="en">services <span>Us</span></h1>
+          <h1 data-lang="ar" style="display: none;">خدمات <span>ما</span></h1>
         </div>
 
         <div class="row" style="margin-top: 30px;">
 
           <div class="col-md-4 py-3 py-md-0">
-
             <div class="card">
               <i class="fas fa-hotel"></i>
               <div class="card-body">
-                <h3>Affordable Hotel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <h3 data-lang="en">Affordable Hotel</h3>
+                <h3 data-lang="ar" style="display: none;">  هتل های راحت</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أدايبايسينغ إليت. أ، إياوي.</p>
               </div>
             </div>
-
           </div>
+          
           <div class="col-md-4 py-3 py-md-0">
-
             <div class="card">
               <i class="fas fa-utensils"></i>
               <div class="card-body">
-                <h3>Food & Drinks</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <h3 data-lang="en">Food & Drinks</h3>
+                <h3 data-lang="ar" style="display: none;"> غذا و نوشدینی</h3>
+                <p data-lang="en">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
+                <p data-lang="ar" style="display: none;">لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أدايبايسينغ إليت. أ، إياوي.</p>
               </div>
             </div>
-
           </div>
+          
           <div class="col-md-4 py-3 py-md-0">
 
             <div class="card">
@@ -528,10 +654,10 @@
       }
     </script>
 
-
 <div class="main-txt">
-    <h1><span>MY </span> reservations</h1>
-  </div>
+  <h1 data-lang="en">my <span>reservation</span></h1>
+  <h1 data-lang="ar" style="display: none;">رزرو <span>ما</span></h1>
+</div>
 
 <div class="container mt-5 mb-3">
     <div class="row">
