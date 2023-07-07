@@ -84,20 +84,33 @@
           <h1><span>Hotle </span> RESERVATION</h1>
         </div>
 
-    <div class="btn-group">
-      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-       which city ?
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tehran</a></li>
-        <li><a class="dropdown-item" href="#">Mashhad</a></li>
-        <li><a class="dropdown-item" href="#">Shiraz</a></li>
-        <li><a class="dropdown-item" href="#">Esfahan</a></li>
-        <li><a class="dropdown-item" href="#">Tabriz</a></li>
-        <li><hr class="dropdown-divider"></li>
-      </ul>
-    </div>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" type="button">
+           city
+          </button>
+          <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <!-- <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">1</a></li>
+            <li><a class="dropdown-item" href="#">2</a></li>
+            <li><a class="dropdown-item" href="#">3</a></li>
+            <li><a class="dropdown-item" href="#">4</a></li>
+            <li><a class="dropdown-item" href="#">5</a></li>
+            <li><a class="dropdown-item" href="#">6</a></li>
+            <li><a class="dropdown-item" href="#">7</a></li>
+            <li><a class="dropdown-item" href="#">8</a></li>
+          </ul> -->
+          <select class="form-select" aria-label="Default select example">
+            <option selected>choose your city</option>
+            <option value="tehran">tehran</option>
+            <option value="mashhad">mashhad</option>
+            <option value="tabriz">tabriz</option>
+            <option value="esfahan">esfahan</option>
+           
+          </select>
+        </div>
 <!-- 
     <div class="btn-group">
       <button class="btn btn-secondary btn-sm" type="button">
@@ -131,7 +144,7 @@
         data-bs-toggle="dropdown" aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
-      <ul class="dropdown-menu">
+      <!-- <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">1</a></li>
         <li><a class="dropdown-item" href="#">2</a></li>
         <li><a class="dropdown-item" href="#">3</a></li>
@@ -140,18 +153,28 @@
         <li><a class="dropdown-item" href="#">6</a></li>
         <li><a class="dropdown-item" href="#">7</a></li>
         <li><a class="dropdown-item" href="#">8</a></li>
-      </ul>
+      </ul> -->
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose a number</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
     </div>
 
     <div class="btn-group">
       <button class="btn btn-secondary btn-sm" type="button">
         How many rooms do you whant
       </button>
-      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+      <!-- <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
         data-bs-toggle="dropdown" aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
-      </button>
-      <ul class="dropdown-menu">
+      </button> -->
+      <!-- <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">1</a></li>
         <li><a class="dropdown-item" href="#">2</a></li>
         <li><a class="dropdown-item" href="#">3</a></li>
@@ -160,7 +183,22 @@
         <li><a class="dropdown-item" href="#">6</a></li>
         <li><a class="dropdown-item" href="#">7</a></li>
         <li><a class="dropdown-item" href="#">8</a></li>
-      </ul>
+      </ul> -->
+      <!-- <select name="cars" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select> -->
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose number of rooms</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
     </div>
 
     <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5"></div>
@@ -176,7 +214,7 @@
     <div id="dropdownContainer" class="dropdown-container"></div>
     <!-- <button type="button" class="btn btn-primary">if you are a hotel iwner click here</button> -->
     <a class="btn btn-outline-warning" href="./owner.html" role="button">if you are a hotel owner click here</a>
-    <a class="btn btn-outline-warning" href="./owner.html" role="button">show hotels</a>
+    <a class="btn btn-outline-warning" href="#" role="button">show hotels</a>
 
   </div>
 
