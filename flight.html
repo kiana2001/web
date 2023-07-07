@@ -52,14 +52,14 @@
         aria-expanded="false">
         Start City
       </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tehran</a></li>
-        <li><a class="dropdown-item" href="#">Mashhad</a></li>
-        <li><a class="dropdown-item" href="#">Shiraz</a></li>
-        <li><a class="dropdown-item" href="#">Esfahan</a></li>
-        <li><a class="dropdown-item" href="#">Tabriz</a></li>
-        <li><hr class="dropdown-divider"></li>
-      </ul>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+        <option value="tehran">tehran</option>
+        <option value="mashhad">mashhad</option>
+        <option value="tabriz">tabriz</option>
+        <option value="esfahan">esfahan</option>
+       
+      </select>
     </div>
 
     <div class="btn-group">
@@ -70,21 +70,20 @@
         data-bs-toggle="dropdown" aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tehran</a></li>
-        <li><a class="dropdown-item" href="#">Mashhad</a></li>
-        <li><a class="dropdown-item" href="#">Shiraz</a></li>
-        <li><a class="dropdown-item" href="#">Esfahan</a></li>
-        <li><a class="dropdown-item" href="#">Tabriz</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+        <option value="tehran">tehran</option>
+        <option value="mashhad">mashhad</option>
+        <option value="tabriz">tabriz</option>
+        <option value="esfahan">esfahan</option>
+       
+      </select>
     </div>
 
     <label for="startDate">Flight Date:</label>
     <input type="date" id="startDate" name="startDate" class="date-input" onchange="handleChange(event)" />
 
-    <div class="btn-group">
+    <!-- <div class="btn-group">
       <button class="btn btn-secondary btn-sm" type="button">
         How many people you want to reserve
       </button>
@@ -102,6 +101,21 @@
         <li><a class="dropdown-item" href="#">7</a></li>
         <li><a class="dropdown-item" href="#">8</a></li>
       </ul>
+    </div> -->
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        how many people?
+      </button>
+   
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose number of rooms</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
     </div>
 
     <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5"></div>
