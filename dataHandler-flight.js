@@ -270,6 +270,38 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 //         togo: "./forms/flight1.html"
 //     }
 // ];
+
+const selectElement = document.getElementById('citySelect');
+
+function showSities(cities) {
+
+    for (const city of cities) {
+        const newOption = document.createElement('option');
+        newOption.textContent = city.name;
+        newOption.value = city.name;
+        selectElement.appendChild(newOption);
+    }
+
+}
+
+async function getCities() {
+    const cityUrl = "http://kioriatravel.pythonanywhere.com/locations";
+    try {
+        const response = await fetch(cityUrl, {
+            method: "GET",
+        })
+        
+        const cities = await response.json();
+        showSities(cities);
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+getCities();
+const showHotelsButton = document.getElementById("show-hotel-button");
+
 let sampleData = [];
 
 async function getHotels() {
