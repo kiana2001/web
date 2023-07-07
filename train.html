@@ -1,4 +1,4 @@
-<html lang="en">
+<!-- <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,25 +6,17 @@
     <title>Travel Website</title>
 
     <link rel="stylesheet" href="Style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="slide navbar style.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap Link -->
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Bootstrap Link -->
-
-
-    <!-- Font Awesome Cdn -->
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!-- Font Awesome Cdn -->
-
-
-    <!-- Google Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <!-- Google Fonts -->
 </head>
 <body>
 
@@ -70,4 +62,192 @@
         </div>
       </div>
     <script src="./train-handler.js" ></script>
+</body> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Website</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+    background-image: url("./images/plane222.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top ; /* Adjust the value as needed */
+  }
+
+  .container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+  }
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+    .main-txt h1{
+    text-align: left;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span{
+    color: #ffa500;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container py-5">
+   <div class="main-txt">
+          <h1><span>Train</span> RESERVATION</h1>
+        </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Start City
+      </button>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+        <option value="tehran">tehran</option>
+        <option value="mashhad">mashhad</option>
+        <option value="tabriz">tabriz</option>
+        <option value="esfahan">esfahan</option>
+       
+      </select>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        Destination
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose city</option>
+        <option value="tehran">tehran</option>
+        <option value="mashhad">mashhad</option>
+        <option value="tabriz">tabriz</option>
+        <option value="esfahan">esfahan</option>
+       
+      </select>
+    </div>
+
+    <label for="startDate">train Date:</label>
+    <input type="date" id="startDate" name="startDate" class="date-input" onchange="handleChange(event)" />
+
+    <!-- <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        How many people you want to reserve
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">1</a></li>
+        <li><a class="dropdown-item" href="#">2</a></li>
+        <li><a class="dropdown-item" href="#">3</a></li>
+        <li><a class="dropdown-item" href="#">4</a></li>
+        <li><a class="dropdown-item" href="#">5</a></li>
+        <li><a class="dropdown-item" href="#">6</a></li>
+        <li><a class="dropdown-item" href="#">7</a></li>
+        <li><a class="dropdown-item" href="#">8</a></li>
+      </ul>
+    </div> -->
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        how many people?
+      </button>
+   
+      <select class="form-select" aria-label="Default select example">
+        <option selected>choose number </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+
+    <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5"></div>
+    <div id="toastContainer" class="toast-container"></div>
+
+    <h1>Choose:</h1>
+
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1">One-way </label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onchange="handleChange(event)">
+    <label for="vehicle2">Two-way </label><br>
+
+    <div id="dropdownContainer" class="dropdown-container"></div>
+    <div id="dropdownContainer" class="dropdown-container"></div>
+    <!-- <button type="button" class="btn btn-primary">if you are a hotel iwner click here</button> -->
+    <a class="btn btn-outline-warning" href="./owner.html" role="button">if you are a hotel owner click here</a>
+    <a class="btn btn-outline-warning" role="button" id="show-hotel-button">show hotels</a>
+
+  </div>
+  </div>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function handleChange(event) {
+      const selectedValue = event.target.value;
+
+      const oneWayCheckbox = document.getElementById('vehicle1');
+      const twoWayCheckbox = document.getElementById('vehicle2');
+      const dropdownContainer = document.getElementById('dropdownContainer');
+      const toastContainer = document.getElementById('toastContainer');
+
+      if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
+        alert('You cannot select both one-way and two-way flights.');
+
+        toastContainer.style.display = 'block';
+        setTimeout(function () {
+          toastContainer.style.display = 'none';
+        }, 3000);
+
+        oneWayCheckbox.checked = false;
+        twoWayCheckbox.checked = false;
+        dropdownContainer.innerHTML = '';
+      } else if (twoWayCheckbox.checked && twoWayCheckbox.value === selectedValue) {
+        const dropdownHTML = `
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
+            <input type="date" id="returnDate" name="returnDate" class="date-input"
+              onchange="handleReturnDateChange(event)">
+          </div>
+        `;
+
+        dropdownContainer.innerHTML = dropdownHTML;
+        dropdownContainer.style.display = 'block';
+      } else {
+        dropdownContainer.innerHTML = '';
+        dropdownContainer.style.display = 'none';
+      }
+    }
+
+    function handleReturnDateChange(event) {
+      const returnDate = event.target.value;
+      console.log(returnDate);
+    }
+  </script>
 </body>
+
+</html>

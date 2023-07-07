@@ -264,12 +264,11 @@ async function getHotels() {
    
         const data = await response.json();
         sampleData = data
-        console.log(sampleData);
+        showData(sampleData);
        
     } catch (error) {
         console.log(error);
     }
-    showData();
 }
 
 showHotelsButton.addEventListener("click", getHotels);
@@ -321,7 +320,7 @@ const showData = (sampleData) => {
         cardDiv.classList.add('card222');
 
         const img = document.createElement('img');
-        img.src = data.imageSrc;
+        img.src = data.image_url;
         img.classList.add('card-img-top');
         img.alt = '...';
 
