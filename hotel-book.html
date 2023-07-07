@@ -32,7 +32,6 @@
         <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
         </div>
       </div>
-    <script src="./dataHandler.js" ></script>
 </body> -->
 
 <!DOCTYPE html>
@@ -104,28 +103,11 @@
           </ul> -->
           <select id="citySelect" class="form-select" aria-label="Default select example">
             <option selected>choose your city</option>
-            <option value="tehran">tehran</option>
+            <!-- <option value="tehran">tehran</option>
             <option value="mashhad">mashhad</option>
             <option value="tabriz">tabriz</option>
-            <option value="esfahan">esfahan</option>
+            <option value="esfahan">esfahan</option> -->
           </select>
-          
-          <script>
-            // Access the select element using its ID
-            const selectElement = document.getElementById('citySelect');
-          
-            // Create a new option element
-            const newOption = document.createElement('option');
-            
-            // Set the text content for the new option
-            newOption.textContent = 'new city';
-            
-            // Set the value attribute for the new option
-            newOption.value = 'new_city';
-            
-            // Append the new option to the select element
-            selectElement.appendChild(newOption);
-          </script>
           
         </div>
 <!-- 
@@ -231,7 +213,7 @@
     <div id="dropdownContainer" class="dropdown-container"></div>
     <!-- <button type="button" class="btn btn-primary">if you are a hotel iwner click here</button> -->
     <a class="btn btn-outline-warning" href="./owner.html" role="button">if you are a hotel owner click here</a>
-    <a class="btn btn-outline-warning" href="#" role="button">show hotels</a>
+    <a class="btn btn-outline-warning" role="button" id="show-hotel-button">show hotels</a>
 
   </div>
 
@@ -239,43 +221,44 @@
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./dataHandler.js" ></script>
 
   <script>
-    function handleChange(event) {
-      const selectedValue = event.target.value;
+    // function handleChange(event) {
+    //   const selectedValue = event.target.value;
 
-      const oneWayCheckbox = document.getElementById('vehicle1');
-      const twoWayCheckbox = document.getElementById('vehicle2');
-      const dropdownContainer = document.getElementById('dropdownContainer');
-      const toastContainer = document.getElementById('toastContainer');
+    //   const oneWayCheckbox = document.getElementById('vehicle1');
+    //   const twoWayCheckbox = document.getElementById('vehicle2');
+    //   const dropdownContainer = document.getElementById('dropdownContainer');
+    //   const toastContainer = document.getElementById('toastContainer');
 
-      if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
-        alert('You cannot select both one-way and two-way flights.');
+    //   if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
+    //     alert('You cannot select both one-way and two-way flights.');
 
-        toastContainer.style.display = 'block';
-        setTimeout(function () {
-          toastContainer.style.display = 'none';
-        }, 3000);
+    //     toastContainer.style.display = 'block';
+    //     setTimeout(function () {
+    //       toastContainer.style.display = 'none';
+    //     }, 3000);
 
-        oneWayCheckbox.checked = false;
-        twoWayCheckbox.checked = false;
-        dropdownContainer.innerHTML = '';
-      } else if (twoWayCheckbox.checked && twoWayCheckbox.value === selectedValue) {
-        const dropdownHTML = `
-          <div class="btn-group">
-            <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
-            <input type="date" id="returnDate" name="returnDate" class="date-input"
-              onchange="handleReturnDateChange(event)">
-          </div>
-        `;
+    //     oneWayCheckbox.checked = false;
+    //     twoWayCheckbox.checked = false;
+    //     dropdownContainer.innerHTML = '';
+    //   } else if (twoWayCheckbox.checked && twoWayCheckbox.value === selectedValue) {
+    //     const dropdownHTML = `
+    //       <div class="btn-group">
+    //         <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
+    //         <input type="date" id="returnDate" name="returnDate" class="date-input"
+    //           onchange="handleReturnDateChange(event)">
+    //       </div>
+    //     `;
 
-        dropdownContainer.innerHTML = dropdownHTML;
-        dropdownContainer.style.display = 'block';
-      } else {
-        dropdownContainer.innerHTML = '';
-        dropdownContainer.style.display = 'none';
-      }
-    }
+    //     dropdownContainer.innerHTML = dropdownHTML;
+    //     dropdownContainer.style.display = 'block';
+    //   } else {
+    //     dropdownContainer.innerHTML = '';
+    //     dropdownContainer.style.display = 'none';
+    //   }
+    // }
 
     function handleReturnDateChange(event) {
       const returnDate = event.target.value;

@@ -216,17 +216,30 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 //         togo: "./forms/page2.html"
 //     }
 // ];
-let sampleData = [];
+
+const selectElement = document.getElementById('citySelect');
+
+function showSities(cities) {
+
+    for (const city of cities) {
+        const newOption = document.createElement('option');
+        newOption.textContent = city.name;
+        newOption.value = city.name;
+        selectElement.appendChild(newOption);
+    }
+
+}
+
 async function getCities() {
     const cityUrl = "http://kioriatravel.pythonanywhere.com/locations";
     try {
         const response = await fetch(cityUrl, {
             method: "GET",
         })
-   
+        
         const cities = await response.json();
-        console.log(cities);
-       
+        showSities(cities);
+        
     } catch (error) {
         console.log(error);
     }
@@ -234,23 +247,30 @@ async function getCities() {
 
 getCities();
 
+const showHotelsButton = document.getElementById("show-hotel-button");
+
+let sampleData = [];
 async function getHotels() {
-    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/";
+    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/search?";
     try {
-        const response = await fetch(hotelUrl, {
+        const response = await fetch(hotelUrl + new URLSearchParams(
+            {
+                city: selectElement.value
+            }), 
+            {
             method: "GET",
         })
    
         const data = await response.json();
         sampleData = data
+        console.log(sampleData);
        
     } catch (error) {
         console.log(error);
     }
 }
 
-getHotels();
-console.log(sampleData); 
+showHotelsButton.addEventListener("click", getHotels);
 
 let dataToShow;
 
