@@ -165,7 +165,7 @@ const showData = (sampleData) => {
       // Add an event listener to the button element
       button.addEventListener('click', () => {
           // Handle the redirection to page2.html
-          window.location.href = './forms/page' + data.id +'.html';
+          window.location.href = './forms/flight' + data.id +'.html';
       });
       // const buttonLink = document.createElement('a');
       // buttonLink.href = data.togo;
