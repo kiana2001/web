@@ -217,6 +217,28 @@ const hotelContainer = document.getElementById('hotelTicketsContainer');
 //     }
 // ];
 
+
+async function getHotelIDs() {
+    const hotelUrl = "http://kioriatravel.pythonanywhere.com/hotels/search?";
+    try {
+      const response = await fetch(
+        hotelUrl + new URLSearchParams({ city: selectElement.value }),
+        {
+          method: "GET",
+        }
+      );
+  
+      const data = await response.json();
+      const hotelIDs = data.map((hotel) => hotel.id);
+      return hotelIDs;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  }
+ 
+  
+
 const selectElement = document.getElementById('citySelect');
 
 function showSities(cities) {
@@ -247,7 +269,9 @@ async function getCities() {
 
 getCities();
 
+
 const showHotelsButton = document.getElementById("show-hotel-button");
+
 
 let sampleData = [];
 
@@ -350,7 +374,7 @@ const showData = (sampleData) => {
         const buttonLink = document.createElement('a');
         buttonLink.href = data.togo;
         buttonLink.classList.add('btn', 'btn-primary');
-        buttonLink.textContent = 'more information';
+      
         button.appendChild(buttonLink);
 
         cardBodyDiv.appendChild(titleH5);
