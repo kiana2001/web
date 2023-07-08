@@ -1,33 +1,45 @@
+function getCookie(c_name) {
+  if (document.cookie.length > 0) {
+    c_start = document.cookie.indexOf(c_name + '=');
+    if (c_start != -1) {
+      c_start = c_start + c_name.length + 1;
+      c_end = document.cookie.indexOf(';', c_start);
+      if (c_end == -1) {
+        c_end = document.cookie.length;
+      }
+      return unescape(document.cookie.substring(c_start, c_end));
+    }
+  }
+  return '';
+}
+
 async function getProfileData() {
-    const profileUrl = 'http://kioriatravel.pythonanywhere.com/profile';
+    const profileUrl = 'http://kioriatravel.pythonanywhere.com/profile/';
     try {
-      const response = await fetch(profileUrl);
+      const response = await fetch(profileUrl, {
+        method:"GET",
+        headers: {
+          "Authorization": "Bearer " + getCookie("access_token")
+        }
+      });
       if (response.ok) {
         const data = await response.json();
-        const { full_name, email, address, phone_number } = data;
-        const usernameInputs = document.querySelectorAll('input[name="username"]');
-        const emailInputs = document.querySelectorAll('input[name="email"]');
-        const passwordInput = document.querySelector('input[name="password"]');
-        const phoneInput = document.querySelector('input[name="phone"]');
-        console.log(passwordInput)
-        console.log(phoneInput)
-        // usernameInputs.forEach(input => {
-        //   input.value = full_name;
-        // });
+        
+        const { first_name, last_name, email, ssn, phone_number } = data;
+        const firstNameInput = document.querySelector('input[name="firstNamePersonal"]');
+        const lastNameInput = document.querySelector('input[name="lastNamePersonal"]');        
+        const emailInput = document.querySelector('input[name="emailPersonal"]');
+        const phoneInput = document.querySelector('input[name="phoneNumber"]');
+        const ssnInput = document.querySelector('input[name="ssn"]');
   
-        // emailInputs.forEach(input => {
-        //   input.value = email;
-        // });
-  
-        if (passwordInput) {
-          passwordInput.value = address;
-        }
-  
-        if (phoneInput) {
-          phoneInput.value = phone_number;
-        }
+        if (firstNameInput) firstNameInput.value = first_name;
+        if (lastNameInput) lastNameInput.value = last_name;
+        if (emailInput) emailInput.value = email;
+        if (phoneInput) phoneInput.value = phone_number;
+        if (ssnInput) ssnInput.value = ssn;
+
       } else {
-        console.log('Error retrieving profile data:', response.status);
+        console.log('Error retrieving profile data:', response);
       }
     } catch (error) {
       console.error('Error retrieving profile data:', error);

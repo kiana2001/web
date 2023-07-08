@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.10.0/dist/toastify.min.js"></script>
+
 
     <!-- Bootstrap Link -->
 
@@ -100,7 +102,7 @@
         <div class="form-container sign-up-container">
           <form
             name="myForm"
-            action="/action_page.php"
+            action="./Index.html"
             onsubmit="return validateForm()"
             method="post"
             required
@@ -477,7 +479,13 @@
           for (const key in userInfo) {
 			createCookie(key, userInfo[key], 1);
           }
-
+          Toastify({
+          text: 'Logged in successfully',
+          duration: 3000,
+          gravity: 'top',
+          backgroundColor: 'green',
+          stopOnFocus: true,
+        }).showToast();
 		  window.location.href = './index.html'
 
         } catch (error) {

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FormWizard_v10</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body style=" 
+    background-image: url(../images/trainback.jpg);background-size: cover;height: 100%;width: 100%;">
+		<div class="wrapper">
+            <form  id="wizard" action="#" onsubmit="return validateForm()">
+
+
+        		<!-- SECTION 1 -->
+                <h4></h4>
+                <!-- <section>
+                    <div class="inner">
+                    	<a href="#" class="avartar">
+                    		<img src="./images/creative-minimalist-travel-logo_23-2148611861 (1).png" style="width:100px ; height:100px" alt="">
+                    	</a>
+                    	<div class="form-row form-group">
+                    		<div class="form-holder">
+                    		    <h1> economy </h1>
+                                <br>
+                                <h1>systamtic</h1>
+                                <br>
+                                <h1>bouing</h1>
+                                <br>
+                                <h1>num of flight:1</h1>
+                    		</div>
+                    		<div class="form-holder">
+                    			<h1>departier: 6:40 </h1>
+                                <br>
+                                <h1>arrival time : 7:40 </h1>
+                                <br>
+                                <h1>max kg of things</h1>
+                    
+                    		</div>
+                    	</div>
+                    	<div class="form-row">
+                    		<div class="form-holder">
+                    		
+                    		</div>
+                    	</div>
+                    	<div class="form-row">
+                    		<div class="form-holder">
+                                
+                                <div class="select">
+                                    <div class="form-holder">
+                                        <div class="select-control">where to send the ticket?</div>
+                                       
+                                    </div>
+                                    <ul class="dropdown">
+                                        <li rel="email">email</li>
+                                        <li rel="phone">phone</li>
+                                    </ul>
+                                </div>
+                    			<input type="text" class="form-control" placeholder="Email">
+                    			<i class="zmdi zmdi-email small"></i>
+                    		</div>
+                    	</div>
+                    	<div class="form-row">
+                    		<div class="form-holder">
+                    			<input type="text" class="form-control" placeholder="Phone">
+                    			<i class="zmdi zmdi-smartphone-android"></i>
+                    		</div>
+                    	</div>
+                    	<div class="form-row">
+                    		<div class="form-holder">
+                    			
+                    		</div>
+                    	</div>
+                    	<div class="form-row">
+                    		<div class="form-holder">
+                    			
+
+                    		</div>
+                    	</div>
+                    </div>
+                </section> -->
+                <script>
+                    function validateForm() {
+                      var emailInput = document.getElementById("email");
+                      var passwordInput = document.getElementById("password");
+                      var melicodeInput = document.getElementById("melicode");
+                      
+                      var email = emailInput.value.trim();
+                      var password = passwordInput.value.trim();
+                      var melicode = passwordInput.value.trim();
+
+                  
+                      if (email === "") {
+                        showToastError("Please enter your email");
+                        return false; // Prevent form submission
+                      }
+                      
+                      if (melicode === "") {
+                        showToastError("Please enter your melicode");
+                        return false; // Prevent form submission
+                      }
+                  
+                      if (!isValidEmail(email)) {
+                        showToastError("Please enter a valid email address");
+                        return false; // Prevent form submission
+                      }
+                  
+                      if (password === "") {
+                        showToastError("Please enter your password");
+                        return false; // Prevent form submission
+                      }
+                      if (password === "") {
+                        showToastError("Please enter your password");
+                        return false; // Prevent form submission
+                      }
+
+
+                  
+                      if (!isValidPassword(password)) {
+                        showToastError("Please enter a valid password (minimum 8 characters, at least one number, and at least one uppercase letter)");
+                        return false; // Prevent form submission
+                      }
+                  
+                      // Other form validation logic here...
+                  
+                      return true; // Allow form submission
+                    }
+                  
+                    function isValidEmail(email) {
+                      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      return emailPattern.test(email);
+                    }
+                  
+                    function isValidPassword(password) {
+                      var passwordPattern = /^(?=.*\d)(?=.*[A-Z]).{8,}$/;
+                      return passwordPattern.test(password);
+                    }
+                  
+                    function showToastError(message) {
+                      var toast = document.getElementById("toastError");
+                      toast.textContent = message;
+                      toast.style.display = "block";
+                  
+                      setTimeout(function() {
+                        toast.style.display = "none";
+                      }, 3000);
+                    }
+                  </script>
+                  <style>
+                    #toastError {
+                      display: none;
+                      position: fixed;
+                      bottom: 20px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      padding: 10px;
+                      background-color: #ff0000;
+                      color: #fff;
+                      border-radius: 5px;
+                      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    }
+                  </style>
+                <section>
+                    <div class="inner">
+                        <a href="#" class="avartar">
+                            <img src="../images/trainback.jpg" style="width:100px ; height:100px" alt="">
+                        </a>
+                        <div class="form-row form-group">
+                            <div class="form-holder">
+                                <h1 id="flightType"></h1>
+                                <br>
+                                <h1 id="flightSystem"></h1>
+                                <br>
+                                <h1 id="flightModel"></h1>
+                                <br>
+                                <h1 id="numOfFlights"></h1>
+                            </div>
+                            <div class="form-holder">
+                                <h1 id="departureTime"></h1>
+                                <br>
+                                <h1 id="arrivalTime"></h1>
+                                <br>
+                                <h1 id="maxLuggageWeight"></h1>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <div class="select">
+                                    <div class="form-holder">
+                                        <div class="select-control">Where to send the ticket?</div>
+                                    </div>
+                                    <ul class="dropdown">
+                                        <li rel="email">Email</li>
+                                        <li rel="phone">Phone</li>
+                                    </ul>
+                                </div>
+                                <input type="text" id="email" class="form-control" placeholder="Email">
+                                <!-- <button type="submit" class="submit">Submit</button> -->
+                                <div id="toastError"></div>
+
+                                <i class="zmdi zmdi-email small"></i>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" id="password" class="form-control" placeholder="password">
+                                <button type="submit" class="submit">Submit</button>
+                                <div id="toastError"></div>                                <i class="zmdi zmdi-smartphone-android"></i>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                              
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                  
+                
+				<!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                	<div class="inner">
+                		<a href="#" class="avartar">
+                    		<img src=".../images/trainback.jpg" style="width:100px ; height:100px"  alt="">
+                    	</a>
+                		<div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control">Gender</div>
+                                    <i class="zmdi zmdi-caret-down small"></i>
+                                </div>
+                                <ul class="dropdown">
+                                    <li rel="Male">Male</li>
+                                    <li rel="Female">Female</li>
+                                    <li rel="Other">Other</li>
+                                </ul>
+                            </div>
+	                	</div>
+	                	<div class="form-row">
+                            <div class="select">
+                                <div class="form-holder">
+                                    <div class="select-control">Language</div>
+                                    <i class="zmdi zmdi-caret-down small"></i>
+                                </div>
+                                <ul class="dropdown">
+                                    <li rel="English">English</li>
+                                    <li rel="France">France</li>
+                                    <li rel="Vietnamese">Vietnamese</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1" placeholder="Date of Birth">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-holder">
+                                <input type="text" id="meliCode" placeholder="Meli Code">
+                                <button onclick="validateMeliCode()">Validate</button>
+                                <div id="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-body"></div>
+                                  </div>
+
+                                  <script>
+                                    function validateMeliCode() {
+                                      var meliCodeInput = document.getElementById("meliCode");
+                                      var meliCode = meliCodeInput.value.trim();
+                                  
+                                      if (!meliCode || !isValidMeliCodeFormat(meliCode)) {
+                                        displayToastError("melicode should contain digits");
+                                      } else {
+                                        hideToastError();
+                                      }
+                                    }
+                                  
+                                    function isValidMeliCodeFormat(meliCode) {
+                                      // Check if the Meli Code contains only digits
+                                      return /^\d+$/.test(meliCode);
+                                    }
+                                  
+                                    function displayToastError(errorMessage) {
+                                      var toast = document.getElementById("toast");
+                                      var toastBody = toast.querySelector(".toast-body");
+                                  
+                                      toastBody.innerText = errorMessage;
+                                      toast.classList.remove("hide");
+                                      toast.classList.add("show");
+                                  
+                                      setTimeout(function() {
+                                        hideToastError();
+                                      }, 3000);
+                                    }
+                                  
+                                    function hideToastError() {
+                                      var toast = document.getElementById("toast");
+                                      toast.classList.remove("show");
+                                      toast.classList.add("hide");
+                                    }
+                                  </script>
+                                  
+
+                                  <style>
+                                    .toast {
+                                      position: fixed;
+                                      top: 20px;
+                                      right: 20px;
+                                      min-width: 200px;
+                                      padding: 10px;
+                                      background-color: #dc3545;
+                                      color: #fff;
+                                      border-radius: 4px;
+                                      transition: opacity 0.3s ease;
+                                    }
+                                  
+                                    .toast.hide {
+                                      opacity: 0;
+                                      pointer-events: none;
+                                    }
+                                  
+                                    .toast.show {
+                                      opacity: 1;
+                                      pointer-events: auto;
+                                    }
+                                  </style>
+ =
+
+                                <div id="toastError"></div>
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="form-holder">
+                                <input type="text" class="form-control" placeholder="name">
+                                <!-- <i class="zmdi zmdi-twitter small"></i> -->
+                            </div>
+                            <div class="form-holder">
+                                <input type="text" class="form-control" placeholder="lastname">
+                                <!-- <i class="zmdi zmdi-linkedin small"></i> -->
+                            </div>
+                        </div>
+                        <div class="form-row form-group">
+                            <div class="form-holder">
+                                <!-- <input type="text" class="form-control" placeholder="Facebook">
+                                <i class="zmdi zmdi-facebook small"></i> -->
+                            </div>
+                            <div class="form-holder">
+                                <!-- <input type="text" class="form-control" placeholder="Google">
+                                <i class="zmdi zmdi-google small"></i> -->
+                            </div>
+                        </div>
+                	</div>
+                </section>
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section class="section-3">
+                    <div class="inner">
+                        <a href="#" class="avartar">
+                            <img src="../images/trainback.jpg" style="width:100px ; height:100px" alt="">
+                        </a>
+                        <h6>Payment Method</h6>
+                        <div class="payment-block">
+                            <div class="payment-item active">
+                                <div class="payment-logo">
+                                    <img src="images/visa.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/master-card.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/giropay.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/bleue.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/paypal.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/ideal.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/mister.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                            <div class="payment-item">
+                                <div class="payment-logo">
+                                    <img src="images/maestro.png" alt="">
+                                </div>
+                                <div class="payment-content">
+                                    <p>Visa ... 8314</p>
+                                    <p>Express  06/21</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+		</div>
+<script>
+
+
+    // const sampleData = [
+    //     {
+    //         id: 1,
+    //         name: "tehran",
+    //         description: "xxxxx",
+    //         location: "tehran",
+    //         locationdestenation: "mashhad",
+    //         imageSrc: "./images/creative-minimalist-travel-logo_23-2148611861 (1).png",
+    //         numOf: 20,
+    //         startDate: new Date("2023-06-28"),
+    //         finishDate: new Date("2023-07-05")
+    //     },
+    //     {
+    //     id:2,
+    //     name:"mashhad",
+    //     description: "yyyyyyy",
+    //     location: "mashhad",
+    //     imageSrc: "./images/download (1).png",
+    //     locationdestenation: "tehran",
+    //     numOf: 10,
+    //     startDate: new Date("2023-06-28"),
+    //     finishDate: new Date("2023-07-05"),
+    // },
+    // {
+    //     id:3,
+    //     name:"shiraz",
+    //     description: "yyyyyyy",
+    //     location: "shiraz",
+    //     imageSrc: "./images/download.png",
+    //     locationdestenation: "shiraz",
+    //     numOf: 30,
+    //     startDate: new Date("2023-06-28"),
+    //     finishDate: new Date("2023-07-05"),
+    // },
+    // {
+    //     id:4,
+    //     name:"tabriz",
+    //     description: "yyyyyyy",
+    //     location: "tabriz",
+    //     imageSrc: "./images/hotel4.jpg",
+    //     locationdestenation: "mashhad",
+    //             numOf: 20,
+    //             startDate: new Date("2023-06-28"),
+    //             finishDate: new Date("2023-07-05"),
+    // },
+    //     // Add more flight objects here
+    // ];
+
+    // // Get the container element
+    // const flightsContainer = document.getElementById("flightsContainer");
+
+    // // Loop through the sample data and create sections for each flight
+    // sampleData.forEach((flight) => {
+    //     // Create a new section element
+    //     const section = document.createElement("section");
+
+    //     // Create the inner div element
+    //     const innerDiv = document.createElement("div");
+    //     innerDiv.classList.add("inner");
+
+    //     // Create the avatar anchor element
+    //     const avatarAnchor = document.createElement("a");
+    //     avatarAnchor.href = "#";
+    //     avatarAnchor.classList.add("avatar");
+
+    //     // Create the avatar image element
+    //     const avatarImg = document.createElement("img");
+    //     avatarImg.src = flight.imageSrc;
+    //     avatarImg.style.width = "100px";
+    //     avatarImg.style.height = "100px";
+    //     avatarImg.alt = "";
+
+    //     // Append the avatar image to the avatar anchor
+    //     avatarAnchor.appendChild(avatarImg);
+
+    //     // Append the avatar anchor to the inner div
+    //     innerDiv.appendChild(avatarAnchor);
+
+    //     // Create the flight details div
+    //     const flightDetailsDiv = document.createElement("div");
+    //     flightDetailsDiv.classList.add("form-row", "form-group");
+
+    //     // Add flight details to the flight details div
+    //     flightDetailsDiv.innerHTML = `
+    //         <div class="form-holder">
+    //             <h1>${flight.name}</h1>
+    //             <br>
+    //             <h1>${flight.description}</h1>
+    //             <br>
+    //             <h1>${flight.locationdestenation}</h1>
+    //             <br>
+    //             <h1>Number of Flights: ${flight.numOf}</h1>
+    //         </div>
+    //         <div class="form-holder">
+    //             <h1>Start Date: ${flight.startDate.toLocaleDateString()}</h1>
+    //             <br>
+    //             <h1>Finish Date: ${flight.finishDate.toLocaleDateString()}</h1>
+    //         </div>
+    //     `;
+
+    //     // Append the flight details div to the inner div
+    //     innerDiv.appendChild(flightDetailsDiv);
+
+    //     // Append the inner div to the section
+    //     section.appendChild(innerDiv);
+
+    //     // Append the section to the flights container
+    //     flightsContainer.appendChild(section);
+    // });
+
+    var flightData = {
+        flightType: "Economy",
+        flightSystem: "Systematic",
+        flightModel: "Boeing",
+        numOfFlights: 1,
+        departureTime: "6:40",
+        arrivalTime: "7:40",
+        maxLuggageWeight: "30 kg"
+    };
+
+    // Update the DOM with flight details
+    document.getElementById("flightType").textContent = flightData.flightType;
+    document.getElementById("flightSystem").textContent = flightData.flightSystem;
+    document.getElementById("flightModel").textContent = flightData.flightModel;
+    document.getElementById("numOfFlights").textContent = "Number of Flights: " + flightData.numOfFlights;
+    document.getElementById("departureTime").textContent = "Departure: " + flightData.departureTime;
+    document.getElementById("arrivalTime").textContent = "Arrival Time: " + flightData.arrivalTime;
+    document.getElementById("maxLuggageWeight").textContent = "Max Weight of Luggage: " + flightData.maxLuggageWeight;
+
+    var flight2 = {
+        flightType: "Business",
+        flightSystem: "Efficient",
+        flightModel: "Airbus",
+        numOfFlights: 2,
+        departureTime: "9:30",
+        arrivalTime: "12:10",
+        maxLuggageWeight: "30 kg"
+    };
+
+    // Update the DOM with Flight 2 details
+    document.getElementById("flightType2").textContent = flight2.flightType;
+    document.getElementById("flightSystem2").textContent = flight2.flightSystem;
+    document.getElementById("flightModel2").textContent = flight2.flightModel;
+    document.getElementById("numOfFlights2").textContent = "Number of Flights: " + flight2.numOfFlights;
+    document.getElementById("departureTime2").textContent = "Departure Time: " + flight2.departureTime;
+    document.getElementById("arrivalTime2").textContent = "Arrival Time: " + flight2.arrivalTime;
+    document.getElementById("maxLuggageWeight2").textContent = "Max Luggage Weight: " + flight2.maxLuggageWeight;
+
+</script>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="js/jquery.steps.js"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="vendor/date-picker/js/datepicker.js"></script>
+		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+
+		<script src="js/main.js"></script>
+
+<!-- Template created and distributed by Colorlib -->
+</body>
+</html>

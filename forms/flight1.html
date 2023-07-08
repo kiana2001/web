@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>FormWizard_v10</title>
+		<title>Form</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="author" content="colorlib.com">
 
@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
         
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="css/style.css">
@@ -27,68 +29,7 @@
                 <h4></h4>
                 <!-- <section>
                     <div class="inner">
-                    	<a href="#" class="avartar">
-                    		<img src="./images/creative-minimalist-travel-logo_23-2148611861 (1).png" style="width:100px ; height:100px" alt="">
-                    	</a>
-                    	<div class="form-row form-group">
-                    		<div class="form-holder">
-                    		    <h1> economy </h1>
-                                <br>
-                                <h1>systamtic</h1>
-                                <br>
-                                <h1>bouing</h1>
-                                <br>
-                                <h1>num of flight:1</h1>
-                    		</div>
-                    		<div class="form-holder">
-                    			<h1>departier: 6:40 </h1>
-                                <br>
-                                <h1>arrival time : 7:40 </h1>
-                                <br>
-                                <h1>max kg of things</h1>
-                    
-                    		</div>
-                    	</div>
-                    	<div class="form-row">
-                    		<div class="form-holder">
-                    		
-                    		</div>
-                    	</div>
-                    	<div class="form-row">
-                    		<div class="form-holder">
-                                
-                                <div class="select">
-                                    <div class="form-holder">
-                                        <div class="select-control">where to send the ticket?</div>
-                                       
-                                    </div>
-                                    <ul class="dropdown">
-                                        <li rel="email">email</li>
-                                        <li rel="phone">phone</li>
-                                    </ul>
-                                </div>
-                    			<input type="text" class="form-control" placeholder="Email">
-                    			<i class="zmdi zmdi-email small"></i>
-                    		</div>
-                    	</div>
-                    	<div class="form-row">
-                    		<div class="form-holder">
-                    			<input type="text" class="form-control" placeholder="Phone">
-                    			<i class="zmdi zmdi-smartphone-android"></i>
-                    		</div>
-                    	</div>
-                    	<div class="form-row">
-                    		<div class="form-holder">
-                    			
-                    		</div>
-                    	</div>
-                    	<div class="form-row">
-                    		<div class="form-holder">
-                    			
-
-                    		</div>
-                    	</div>
-                    </div>
+                    	
                 </section> -->
                 <script>
                     function validateForm() {
@@ -450,15 +391,35 @@
                                     <p>Visa ... 8314</p>
                                     <p>Express  06/21</p>
                                 </div>
+                                     
                             </div>
+                            <button   onsubmit="showSuccessMessage(event)">Submit</button>
                         </div>
                     </div>
+                  
                 </section>
+              
             </form>
 		</div>
 <script>
 
 
+// function showSuccessMessage(event) {
+//         event.preventDefault();
+
+//         Swal.fire({
+//             icon: 'success',
+//             title: 'Reservation Confirmed!',
+//             text: 'Your reservation has been successfully confirmed.',
+//             showConfirmButton: false,
+//             timer: 5000,
+//             timerProgressBar: true,
+//             willClose: () => {
+//                 document.getElementById("wizard").submit();
+//             }
+//         });
+//     }
+    
     // const sampleData = [
     //     {
     //         id: 1,
