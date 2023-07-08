@@ -329,6 +329,11 @@ function filterByNumOfPeople(data, condition) {
     }
 }
 
+window.addEventListener('load', function () {
+    const loader = document.querySelector('.sec-loading');
+    loader.style.display = 'none';
+  });
+  
 const showData = (sampleData) => {
     if (!dataToShow) {
         dataToShow = sampleData;

@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./loader.css">
+
   <title>Travel Website</title>
 
   <!-- Bootstrap CSS -->
@@ -12,6 +14,62 @@
 
   <!-- Custom CSS -->
   <style>
+    :root {
+    --border-width: 7px;
+  }
+  
+  /* * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #eb4a62;
+  } */
+  
+  .sec-loading {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sec-loading .one {
+    height: 80px;
+    width: 80px;
+    border: var(--border-width) solid white;
+    transform: rotate(45deg);
+    border-radius: 0 50% 50% 50%;
+    position: relative;
+    animation: move 0.5s linear infinite alternate-reverse;
+  }
+  .sec-loading .one::before {
+    content: "";
+    position: absolute;
+    height: 55%;
+    width: 55%;
+    border-radius: 50%;
+    border: var(--border-width) solid transparent;
+    border-top-color: white;
+    border-bottom-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes move {
+    to {
+      transform: translateY(15px) rotate(45deg);
+    }
+  }
+  
     body {
     background-image: url("./images/train.jpg");
     background-size: cover;
@@ -41,6 +99,13 @@
 </head>
 
 <body>
+
+  <section class="sec-loading">
+    <div class="one">
+    </div>
+  </section>
+
+
   <div class="container py-5">
    <div class="main-txt">
           <h1><span>flight </span> RESERVATION</h1>
@@ -152,6 +217,7 @@
   <script src="./train-handler.js"></script>
   
   <script>
+
     function onChange(event) {
       // const selectedValue = event.target.value;
 

@@ -120,7 +120,10 @@ function filterByNumOfPeople(data, condition) {
       return data; // Return the original array if the condition is invalid
     }
 }
-
+window.addEventListener('load', function () {
+  const loader = document.querySelector('.sec-loading');
+  loader.style.display = 'none';
+});
 const filteredDataBelow20 = filterByNumOfPeople(sampleData, 'below');
 console.log('Below 20:', filteredDataBelow20);
 

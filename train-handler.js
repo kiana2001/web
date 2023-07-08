@@ -121,6 +121,12 @@ function filterByNumOfPeople(data, condition) {
     }
 }
 
+    window.addEventListener('load', function () {
+      const loader = document.querySelector('.sec-loading');
+      loader.style.display = 'none';
+    });
+
+
 
 const filteredDataBelow20 = filterByNumOfPeople(sampleData, 'below');
 console.log('Below 20:', filteredDataBelow20);

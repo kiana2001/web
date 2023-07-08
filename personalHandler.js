@@ -10,13 +10,13 @@ async function getProfileData() {
         const passwordInput = document.querySelector('input[name="password"]');
         const phoneInput = document.querySelector('input[name="phone"]');
         
-        usernameInputs.forEach(input => {
-          input.value = full_name;
-        });
+        // usernameInputs.forEach(input => {
+        //   input.value = full_name;
+        // });
   
-        emailInputs.forEach(input => {
-          input.value = email;
-        });
+        // emailInputs.forEach(input => {
+        //   input.value = email;
+        // });
   
         if (passwordInput) {
           passwordInput.value = address;
