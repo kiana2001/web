@@ -102,9 +102,10 @@
         <div class="form-container sign-up-container">
           <form
             name="myForm"
-            action="./Index.html"
-            onsubmit="return validateForm()"
-            method="post"
+            
+            
+            id="signup-form"
+
             required
           >
             <h1 data-lang="en">Create Account</h1>
@@ -451,7 +452,7 @@
       }
 
       const form = document.getElementById('signIn-form');
-
+      const regForm = document.getElementById('signup-form');
       async function login(event) {
         event.preventDefault();
         const email = document.getElementById('signIn-email').value;
@@ -486,7 +487,62 @@
           backgroundColor: 'green',
           stopOnFocus: true,
         }).showToast();
-		  window.location.href = './index.html'
+        setTimeout(function() {
+          window.location.href = './index.html'
+        },1500);
+		 
+
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      async function register(event) {
+        event.preventDefault();
+        const name = document.querySelector('input[name="fname"]').value;
+        const lastName = document.querySelector('input[name="Lname"]').value;
+        const phoneNumber = document.querySelector('input[name="pname"]').value;
+        const email = document.querySelector('input[name="ename"]').value;
+        const ssn = document.querySelector('input[name="ssn"]').value;
+        const password = document.querySelector('input[name="psw"]').value;
+
+        const data = {
+          first_name: name,
+          last_name: lastName,
+          phone_number: phoneNumber,
+          email: email,
+          ssn: ssn,
+          password: password,
+          password_confirmation: password
+        };
+
+        try {
+          const response = await fetch(
+            'http://kioriatravel.pythonanywhere.com/register/',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
+          const userInfo = await response.json();
+
+          for (const key in userInfo) {
+			createCookie(key, userInfo[key], 1);
+          }
+          Toastify({
+          text: 'Logged in successfully',
+          duration: 3000,
+          gravity: 'top',
+          backgroundColor: 'green',
+          stopOnFocus: true,
+        }).showToast();
+        setTimeout(function() {
+          window.location.href = './index.html'
+        },1500);
 
         } catch (error) {
           console.log(error);
@@ -494,6 +550,7 @@
       }
 
       form.addEventListener('submit', login);
+      regForm.addEventListener('submit', register);
     </script>
   </body>
 </html>
