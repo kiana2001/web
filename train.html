@@ -1,69 +1,3 @@
-<!-- <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Website</title>
-
-    <link rel="stylesheet" href="Style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <style>
-        .date-input {
-          margin: 30px;
-          border: 1px solid #cc5757;
-          border-radius: 4px;
-          padding: 8px;
-          font-size: 16px;
-          outline: none;
-          transition: border-color 0.3s;
-        }
-      
-        .date-input:focus {
-          border-color: #0066ff;
-        }
-        .form-control{
-            margin: 20px;
-            border: 1px solid #cc5757;
-          border-radius: 4px;
-
-        }
-      </style>
-
-
-    <div class="container py-5">
-        <div class="main-txt">
-          <h1><span>train </span> RESERVATION</h1>
-        </div>
-        <input class="form-control" name="location" onChange="handleChange(event)" placeholder="type your start"> </input>
-        <input class="form-control" name="locationdestenation" onChange="handleChange(event)" placeholder="type your destenation"> </input>
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" class="date-input" onChange="handleChange(event)" />
-        
-        <label for="finishDate">Finish Date:</label>
-        <input type="date" id="finishDate" name="finishDate" class="date-input" onChange="handleChange(event)" />
-        
-        <input class="form-control" name="numOf" onChange="handleChange(event)" placeholder="type the num of people you want to" type="number"> </input>
-
-        
-        <div id="hotelTicketsContainer" class="row row-cols-1 row-cols-md-3 g-4 py-5">
-        </div>
-      </div>
-    <script src="./train-handler.js" ></script>
-</body> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +15,6 @@
     body {
     background-image: url("./images/train.jpg");
     background-size: cover;
-    /* background-repeat: no-repeat; */
     background-position: center  ; /* Adjust the value as needed */
   }
 
@@ -110,7 +43,7 @@
 <body>
   <div class="container py-5">
    <div class="main-txt">
-          <h1><span>Train</span> RESERVATION</h1>
+          <h1><span>flight </span> RESERVATION</h1>
         </div>
 
     <div class="btn-group">
@@ -118,13 +51,8 @@
         aria-expanded="false">
         Start City
       </button>
-      <select class="form-select" aria-label="Default select example">
+      <select id="flightStartCitySelect" class="form-select" aria-label="Default select example">
         <option selected>choose city</option>
-        <option value="tehran">tehran</option>
-        <option value="mashhad">mashhad</option>
-        <option value="tabriz">tabriz</option>
-        <option value="esfahan">esfahan</option>
-       
       </select>
     </div>
 
@@ -136,17 +64,12 @@
         data-bs-toggle="dropdown" aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
-      <select class="form-select" aria-label="Default select example">
+      <select id="flightEndCitySelect" class="form-select" aria-label="Default select example">
         <option selected>choose city</option>
-        <option value="tehran">tehran</option>
-        <option value="mashhad">mashhad</option>
-        <option value="tabriz">tabriz</option>
-        <option value="esfahan">esfahan</option>
-       
       </select>
     </div>
 
-    <label for="startDate">train Date:</label>
+    <label for="startDate">Flight Date:</label>
     <input type="date" id="startDate" name="startDate" class="date-input" onchange="handleChange(event)" />
 
     <!-- <div class="btn-group">
@@ -170,11 +93,26 @@
     </div> -->
     <div class="btn-group">
       <button class="btn btn-secondary btn-sm" type="button">
-        how many people?
+        how many adults?
       </button>
    
-      <select class="form-select" aria-label="Default select example">
-        <option selected>choose number </option>
+      <select id="flightPassangers" class="form-select" aria-label="Default select example">
+        <option selected>choose number of adults</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary btn-sm" type="button">
+        how many children?
+      </button>
+   
+      <select id="flightPassangers" class="form-select" aria-label="Default select example">
+        <option selected>choose number of child</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -189,65 +127,59 @@
 
     <h1>Choose:</h1>
 
-    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-    <label for="vehicle1">One-way </label><br>
-    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" onchange="handleChange(event)">
-    <label for="vehicle2">Two-way </label><br>
+    <!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+    <label for="vehicle1">One-way flight</label><br> -->
+    <input type="checkbox" id="twoWayCheckbox" name="twoWayCheckbox" onchange="onChange(event)">
+    <label for="twoWayCheckbox">Two-way train</label><br>
 
-    <div id="dropdownContainer" class="dropdown-container"></div>
-    <div id="dropdownContainer" class="dropdown-container"></div>
+    <div id="dropdownContainer" class="dropdown-container" style="display: none;">
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
+        <input type="date" id="returnDate" name="returnDate" class="date-input"
+        onchange="handleReturnDateChange(event)">
+      </div>
+    </div>
+    <!-- <div id="dropdownContainer" class="dropdown-container"></div> -->
     <!-- <button type="button" class="btn btn-primary">if you are a hotel iwner click here</button> -->
     <a class="btn btn-outline-warning" href="./owner.html" role="button">if you are a hotel owner click here</a>
-    <a class="btn btn-outline-warning" role="button" id="show-hotel-button">show train</a>
+    <a class="btn btn-outline-warning" role="button" id="show-flight-button">show flights</a>
 
   </div>
   </div>
 
   <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="./train-handler.js"></script>
+  
   <script>
-    function handleChange(event) {
-      const selectedValue = event.target.value;
+    function onChange(event) {
+      // const selectedValue = event.target.value;
 
-      const oneWayCheckbox = document.getElementById('vehicle1');
-      const twoWayCheckbox = document.getElementById('vehicle2');
+      // const oneWayCheckbox = document.getElementById('vehicle1');
+      const twoWayCheckbox = document.getElementById('twoWayCheckbox');
       const dropdownContainer = document.getElementById('dropdownContainer');
-      const toastContainer = document.getElementById('toastContainer');
+      // const toastContainer = document.getElementById('toastContainer');
 
-      if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
-        alert('You cannot select both one-way and two-way flights.');
+      // if (oneWayCheckbox.checked && twoWayCheckbox.checked) {
+      //   alert('You cannot select both one-way and two-way flights.');
 
-        toastContainer.style.display = 'block';
-        setTimeout(function () {
-          toastContainer.style.display = 'none';
-        }, 3000);
+      //   toastContainer.style.display = 'block';
+      //   setTimeout(function () {
+      //     toastContainer.style.display = 'none';
+      //   }, 3000);
 
-        oneWayCheckbox.checked = false;
-        twoWayCheckbox.checked = false;
-        dropdownContainer.innerHTML = '';
-      } else if (twoWayCheckbox.checked && twoWayCheckbox.value === selectedValue) {
-        const dropdownHTML = `
-          <div class="btn-group">
-            <button class="btn btn-secondary btn-sm" type="button">Return Date</button>
-            <input type="date" id="returnDate" name="returnDate" class="date-input"
-              onchange="handleReturnDateChange(event)">
-          </div>
-        `;
-
-        dropdownContainer.innerHTML = dropdownHTML;
-        dropdownContainer.style.display = 'block';
-      } else {
-        dropdownContainer.innerHTML = '';
-        dropdownContainer.style.display = 'none';
-      }
+      //   oneWayCheckbox.checked = false;
+      //   twoWayCheckbox.checked = false;
+      //   dropdownContainer.innerHTML = '';
+      // } else 
+      dropdownContainer.style.display = twoWayCheckbox.checked ? 'block' : 'none';
     }
-
+    
     function handleReturnDateChange(event) {
       const returnDate = event.target.value;
       console.log(returnDate);
     }
-  </script>
+    </script>
 </body>
 
 </html>
