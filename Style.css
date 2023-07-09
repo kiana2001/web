@@ -377,7 +377,7 @@ button:active {
 /* Media Queries */
 @media (max-width: 768px) {
     .login-container {
-      width: 90%;
+      width: 50%;
       max-width: none;
     }
   
@@ -424,8 +424,9 @@ button:active {
   }/* Media Queries *//* Media Queries */
 @media only screen and (max-width: 480px) {
     .login-container {
-      width: 90%;
+      width: 100%;
       max-width: none;
+      height: 50%;
     }
   
     .form-container {
@@ -433,7 +434,7 @@ button:active {
     }
   
     .overlay-container {
-      left: 0;
+      left: 180px;
       width: 100%;
     }
   
@@ -441,10 +442,13 @@ button:active {
       transform: translateX(0);
       left: -100%;
       width: 200%;
+       height: 50%;
+       margin-top: 50%;
     }
   
     .overlay-panel {
-      width: 100%;
+      width: 50%;
+     
       transform: translateX(0);
     }
   
@@ -453,7 +457,7 @@ button:active {
     }
   
     .overlay-left {
-      transform: translateX(-50%);
+      transform: translateX(-10%);
     }
   
     .login-container.right-panel-active .overlay-left {
@@ -473,6 +477,8 @@ button:active {
       margin: 0;
       align-items: flex-start;
       padding: 20px;
+      margin-right: 30px;
+      text-align: left;
     }
   
     .body h1 {
