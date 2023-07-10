@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Train, TrainReservation, Passenger
 from FlightBooking.models import City
-from Users.serializers import UserSerializer
 
 
 class CitySerializer(serializers.ModelSerializer):

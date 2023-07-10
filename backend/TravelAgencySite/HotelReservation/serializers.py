@@ -6,7 +6,7 @@ class HotelSerializer(serializers.ModelSerializer):
     rooms = serializers.SerializerMethodField()
 
     def get_rooms(self, obj):
-        rooms = Room.objects.filter(hotel=obj)
+        rooms = Room.objects.filter(hotel=obj, is_available=True)
         serializer = RoomSerializer(rooms, many=True)
         return serializer.data
 

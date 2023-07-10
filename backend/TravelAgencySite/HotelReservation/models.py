@@ -16,6 +16,7 @@ class Hotel(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='location')
     address = models.CharField(max_length=500)
     stars = models.IntegerField()
+    image_url = models.URLField(null = True, blank = True, default = "https://www.parsnaz.com/upload/1/0.183712001307464656_parsnaz_ir.jpg")
     def __str__(self):
         return f"id: {self.id}, {self.name}"
 

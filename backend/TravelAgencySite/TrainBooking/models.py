@@ -43,6 +43,6 @@ class TrainReservation(models.Model):
     passengers = models.ManyToManyField(Passenger)
 
     def __str__(self):
-        return f"{self.user} - {self.flight}"
+        return f"{self.user} - {self.train}"
 
 

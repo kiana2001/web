@@ -1,19 +1,23 @@
 from rest_framework import generics, status, viewsets
+from rest_framework.permissions import BasePermission
 from rest_framework.response import Response
-from django.db.models import Q
 from datetime import datetime
-from pytz import timezone
 from rest_framework.views import APIView
-
 from .models import Train, TrainReservation
 from .serializers import TrainSerializer, TrainReservationSerializer
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+class IsSpecialGroup(BasePermission):
+    def has_permission(self, request, view):
+        if request.method == 'POST':
+            # Check if the user belongs to the special_group for POST requests
+            return request.user.groups.filter(name='special_group').exists()
+        else:
+            return True
 
 
 class TrainSearchView(APIView):
     def get(self, request):
-        #localhost:8000/trains/search/?departure_city=Mashhad&arrival_city=Tehran&departure_date=2023-05-07&num_passengers=5
-        #http://localhost:8000/trains/search/?departure_city=Tehran&arrival_city=Mashhad&departure_date=2023-07-05&num_passengers=5&is_round_trip=True&return_date=2023-07-03
         departure_city = self.request.query_params.get('departure_city')
         arrival_city = self.request.query_params.get('arrival_city')
         departure_date = self.request.query_params.get('departure_date')
@@ -41,14 +45,27 @@ class TrainSearchView(APIView):
 
         return Response(serializer_outbound.data)
 
-class TrainViewSet(viewsets.ModelViewSet):
-    queryset = Train.objects.all()
-    serializer_class = TrainSerializer
+class TrainAPIView(APIView):
+    permission_classes = [IsSpecialGroup]
+
+    def get(self, request):
+        trains = Train.objects.all()
+        serializer = TrainSerializer(trains, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = TrainSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ReservationCreateAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         serializer = TrainReservationSerializer(data=self.request.data)
-        serializer.is_valid(raise_exception=True)  # Raises a validation error if serializer is invalid
+        serializer.is_valid(raise_exception=True)
         reservation = serializer.save(user=self.request.user)
 
         train = reservation.train
@@ -69,31 +86,9 @@ class ReservationCreateAPIView(APIView):
         reservation.total_price = total_price
         reservation.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#
-# {
-#   "train": 1,
-#   "is_round_trip": false,
-#   "num_adults": 2,
-#   "num_children": 0,
-#   "return_train": null,
-#   "passengers": [
-#     {
-#       "ssn": "1234567890",
-#       "first_name": "John",
-#       "last_name": "Doe",
-#       "is_adult": true
-#     },
-#     {
-#       "ssn": "09878654321",
-#       "first_name": "Jane",
-#       "last_name": "Smith",
-#       "is_adult": true
-#     }
-#   ]
-# }
-
 
 class ReservationListAPIView(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         reservations = TrainReservation.objects.filter(user=self.request.user)
         serializer = TrainReservationSerializer(reservations, many=True)

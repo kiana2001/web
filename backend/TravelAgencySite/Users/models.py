@@ -1,6 +1,10 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, Group, Permission
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import Group
+
+special_group, created = Group.objects.get_or_create(name='special_group')
+regular_group, created = Group.objects.get_or_create(name='regular_group')
 
 
 class UserManager(BaseUserManager):
@@ -11,11 +15,14 @@ class UserManager(BaseUserManager):
             last_name=last_name, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
+        regular_group.user_set.add(user)
         return user
 
     def create_superuser(self, email,first_name, last_name, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_ticket_provider', True)
+
         return self.create_user(email,first_name, last_name, password, **extra_fields)
 
 
@@ -27,6 +34,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(max_length=20, blank=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_ticket_provider = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'phone_number', 'ssn']
@@ -38,4 +46,5 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def has_module_perms(self, app_label):
         return self.is_staff
+
 

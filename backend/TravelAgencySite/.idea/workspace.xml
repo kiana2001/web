@@ -3,25 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="aa0cc1a6-d43e-402e-ac0a-9b5a2283a49e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightBooking/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlightBooking/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightBooking/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightBooking/migrations/0002_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/FlightBooking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlightBooking/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotelReservation/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelReservation/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotelReservation/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotelReservation/migrations/0002_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/HotelReservation/migrations/0003_alter_hotelbooking_checkin_date_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightBooking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlightBooking/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightBooking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/FlightBooking/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HotelReservation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelReservation/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HotelReservation/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelReservation/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HotelReservation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelReservation/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HotelReservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/HotelReservation/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrainBooking/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TrainBooking/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/TrainBooking/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainBooking/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/TrainBooking/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainBooking/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TrainBooking/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainBooking/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TrainBooking/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelAgencySite.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelAgencySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencySite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TravelAgencySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencySite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TravelAgencySite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TravelAgencySite/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_doc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/front_doc.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +125,12 @@
       <workItem from="1688306575942" duration="2000" />
       <workItem from="1688306627619" duration="14382000" />
       <workItem from="1688538260387" duration="15315000" />
+      <workItem from="1688567772737" duration="21962000" />
+      <workItem from="1688660948738" duration="1875000" />
+      <workItem from="1688709935248" duration="4693000" />
+      <workItem from="1688806094778" duration="3176000" />
+      <workItem from="1688853037455" duration="2000" />
+      <workItem from="1688853163930" duration="6391000" />
     </task>
     <servers />
   </component>

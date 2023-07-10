@@ -2,8 +2,8 @@
 ### hotel reservation sample
 ### url = http://127.0.0.1:8000/hotel-reservations/create
 {
-  "room": 1,     #id
-  "hotel": 1,	  #id
+  "room": 1,
+  "hotel": 1,
   "no_of_guests": 2,
   "checkin_date": "2023-07-10",
   "checkout_date": "2023-07-15",
@@ -49,7 +49,7 @@ HOTEL APP^
 
 {
   "email": "user3@mail.com",
-  "password": "user3",
+  "password": "user3"
 }
 
 #### profile change fields need to send password
@@ -60,3 +60,35 @@ HOTEL APP^
 }
 ### user app ^
 ##################
+
+### flight search 1way sample
+http://localhost:8000/flights/search/?departure_city=Mashhad&arrival_city=Tehran&departure_date=2023-05-07&num_passengers=5
+
+### flight search 2way sample
+http://localhost:8000/flights/search/?departure_city=Tehran&arrival_city=Mashhad&departure_date=2023-07-05&num_passengers=5&is_round_trip=True&return_date=2023-07-03
+
+# show all flight reservation of the user
+http://localhost:8000/flight-reservations/
+
+### flight reservation sample url http://localhost:8000/flight-reservations/create
+{
+  "flight": 1,  #id
+  "is_round_trip": false,
+  "num_adults": 1,
+  "num_children": 1,
+  "return_flight": null,   #id
+  "passengers": [
+    {
+      "ssn": "12347890",
+      "first_name": "John",
+      "last_name": "Doe",
+      "is_adult": false
+    },
+    {
+      "ssn": "098754321",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "is_adult": true
+    }
+  ]
+}
